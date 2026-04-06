@@ -1,0 +1,249 @@
+/* ============================================================
+   Nav
+   72px height · 48px side padding · white background
+   Instrument Serif wordmark left / Instrument Sans links right
+   Breakpoint: 820px
+     ≥820px — inline slide-reveal on click
+     <820px  — hover dropdown
+   ============================================================ */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-height);        /* 72px */
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-line);
+  display: flex;
+  align-items: center;
+  /* No justify-content: space-between — the navSpacer handles distribution */
+  padding: 0 var(--nav-padding-x);  /* 0 48px */
+}
+
+/* "Allen Chong" wordmark — Instrument Serif 16.8px */
+/* Color: terracotta on Home, --color-gray elsewhere (inline style) */
+.wordmark {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: var(--text-nav-name);  /* 16.8px */
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.wordmark:hover {
+  color: var(--color-terracotta) !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/*
+  Spacer between wordmark and links.
+  Grows to fill available space (equivalent to space-between at wide viewports).
+  flex-shrink: 0 enforces the 32px minimum gap — matching the gap between
+  nav items — so the expanded CS menu never crowds the wordmark.
+  Threshold: below 820px the inline expansion switches to hover dropdown
+  before the spacer would need to enforce its minimum.
+*/
+.navSpacer {
+  flex: 1 0 32px;
+}
+
+/* Right-side link group — Instrument Sans 12.8px, 32px gap */
+.links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-nav-links); /* 12.8px */
+  font-weight: 400;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Shared link style — color via inline style */
+.link {
+  white-space: nowrap;
+}
+
+.link:hover {
+  color: var(--color-terracotta) !important;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ============================================================
+   "Case studies" toggle
+   ============================================================ */
+
+/* position: relative so the dropdown can be absolutely positioned below it */
+.csMenu {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Button reset — styled as a nav link */
+.csToggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.csToggle:hover {
+  color: var(--color-terracotta) !important;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Colon after "Case studies" in expanded inline mode */
+.csColon {
+  /* visible at ≥820px when expanded (React renders it conditionally) */
+}
+
+/* ============================================================
+   ≥820px — Inline slide-reveal
+   ============================================================ */
+
+@media (min-width: 820px) {
+  .csDropdown {
+    display: none;
+  }
+
+  /*
+    Outer clip container. max-width: 0 when collapsed; grows to reveal items.
+    overflow: hidden clips the inner content during the animation.
+  */
+  .csItemsOuter {
+    overflow: hidden;
+    max-width: 0;
+    transition: max-width 220ms ease;
+  }
+
+  .csItemsOuterExpanded {
+    max-width: 520px;
+  }
+
+  /*
+    Inner flex row. Fades + slides in from the right as the outer expands.
+    padding-left matches the ~4-space gap in the Figma expanded state.
+  */
+  .csItemsInner {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 220ms ease, transform 220ms ease;
+  }
+
+  .csItemsInnerExpanded {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .pipe {
+    color: var(--color-gray);
+    padding: 0 6px;
+    flex-shrink: 0;
+  }
+}
+
+/* ============================================================
+   <820px — Hover dropdown
+   The .csColon and inline items are suppressed.
+   Hovering (or focusing within) .csMenu reveals a vertical submenu.
+   ============================================================ */
+
+@media (max-width: 819px) {
+  /* Hide inline items — no room to expand */
+  .csItemsOuter {
+    display: none;
+  }
+
+  /* Colon is irrelevant in dropdown mode */
+  .csColon {
+    display: none;
+  }
+
+  /* .csMenu is the anchor for the absolutely-positioned dropdown */
+  .csMenu {
+    position: relative;
+  }
+
+  /*
+    Invisible bridge that fills the gap between the button's bottom edge
+    and the top of the dropdown. Without this, moving the cursor through
+    the gap would trigger onMouseLeave and collapse the menu before the
+    user can reach any dropdown link.
+    Height matches the +30px offset used in .csDropdown's top value.
+  */
+  .csMenu::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 30px;
+  }
+
+  /*
+    Dropdown — appears below the nav bar, left-aligned with "Case studies".
+    top: calc(100% + 30px) accounts for the ~30px gap from the button's
+    bottom edge to the nav's bottom edge (button is vertically centered
+    in the 72px nav bar).
+  */
+  .csDropdown {
+    position: absolute;
+    top: calc(100% + 30px);
+    left: 0;
+    background: var(--color-white);
+    border: 1px solid var(--color-line);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px 20px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 150ms ease;
+  }
+
+  /*
+    Show on keyboard focus, or when JS sets csMenuExpanded (hover via
+    onMouseEnter, or click-toggle). CSS :hover is intentionally removed —
+    using JS-controlled hover so that a second click can definitively close
+    the dropdown even while the cursor is still over the button.
+  */
+  .csMenu:focus-within .csDropdown,
+  .csMenu.csMenuExpanded .csDropdown {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .csDropdownLink {
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: var(--text-nav-links); /* 12.8px */
+    font-weight: 400;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .csDropdownLink:hover {
+    color: var(--color-terracotta) !important;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
