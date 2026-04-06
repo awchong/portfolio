@@ -80,9 +80,9 @@ export default function Nav() {
   const wordmarkColor =
     pageId === 'home' ? 'var(--color-terracotta)' : 'var(--color-gray)';
 
-  // Collapsed: terracotta on CS pages. Expanded: gray (active CS item takes over).
+  // Terracotta when expanded (active state), or when collapsed on a CS page.
   const csToggleColor =
-    !expanded && isCS ? 'var(--color-terracotta)' : 'var(--color-gray)';
+    expanded || isCS ? 'var(--color-terracotta)' : 'var(--color-gray)';
 
   const cs01Color = pageId === 'cs01' ? 'var(--color-terracotta)' : 'var(--color-gray)';
   const cs02Color = pageId === 'cs02' ? 'var(--color-terracotta)' : 'var(--color-gray)';
