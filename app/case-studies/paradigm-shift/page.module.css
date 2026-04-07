@@ -161,10 +161,10 @@
   margin: 0;
 }
 
-/* Phone mockup — 248×450px, object-contain */
+/* Phone mockup — 248px wide, aspect-ratio preserves proportions at all viewport sizes */
 .heroMockup {
   width: 248px;
-  height: 450px;
+  aspect-ratio: 248 / 450;
   flex-shrink: 0;
   border-radius: 2px;
   position: relative;
@@ -308,6 +308,10 @@
   letter-spacing: -0.408px;
   text-align: center;
   cursor: pointer;
+  /* Lock card proportions to the Figma spec (136px wide × 177px tall).
+     As the flex item width changes at narrow viewports, height scales
+     proportionally — consistent shape at every viewport width. */
+  aspect-ratio: 136 / 177;
 }
 
 .vpCardTitle {
@@ -605,10 +609,9 @@
   }
 
   /*
-    Sol02 images: keep the horizontal 3-image composite at its
-    natural 440px, now in normal flow below the text.
-    The sub-images stay absolutely positioned within this container.
-    At ≤720px they switch to a vertical stack instead.
+    Sol02 images: keep the 3-image composite in normal flow below the text,
+    capped at 440px and centred. aspect-ratio replaces the fixed height so
+    the composite scales as one unit at every viewport width — no stacking.
   */
   .sol02Images {
     position: relative;
@@ -616,11 +619,40 @@
     left: auto;
     width: 440px;
     max-width: 100%;
-    height: 179px;
+    aspect-ratio: 440 / 179;
+    height: auto;
     margin-top: 24px;
-    /* Centre to match vpCards alignment above */
     margin-left: auto;
     margin-right: auto;
+  }
+
+  /*
+    Override desktop pixel positions with percentages so all three images
+    stay in the correct composite positions as the container narrows.
+    Percentages are derived directly from the Figma pixel values:
+      right:       left=227/440, width=213/440, height=179/179
+      top-left:    top=22/179,   width=212/440, height=61/179
+      bottom-left: top=95/179,   width=213/440, height=62/179
+  */
+  .sol02ImgRight {
+    left: 51.59%;
+    top: 0%;
+    width: 48.41%;
+    height: 100%;
+  }
+
+  .sol02ImgTopLeft {
+    left: 0%;
+    top: 12.29%;
+    width: 48.18%;
+    height: 34.08%;
+  }
+
+  .sol02ImgBottomLeft {
+    left: 0%;
+    top: 53.07%;
+    width: 48.41%;
+    height: 34.64%;
   }
 
   /*
@@ -665,12 +697,18 @@
   .heroSubhead {
     max-width: 100%;
   }
+
+  /* Allow mockup to shrink on narrow screens while keeping aspect ratio */
+  .heroMockup {
+    width: 100%;
+    max-width: 248px;
+    /* aspect-ratio: 248/450 from base style keeps height proportional automatically */
+  }
 }
 
 /* ============================================================
    Mobile (≤720px) — final adjustments
-   Mockup scales down, vpCard text tightens, sol02 images switch
-   to vertical stack, footer stacks.
+   Mockup scales down, hero title tightens, outcome stacks, footer adjusts.
    ============================================================ */
 
 @media (max-width: 720px) {
@@ -678,65 +716,11 @@
   .heroMockup {
     width: 100%;
     max-width: 248px;
-    height: 320px;
+    /* height is governed by aspect-ratio: 248/450 from base style — no fixed override needed */
   }
 
   .heroTitle {
     font-size: 32px;
-  }
-
-  /* Tighten card padding and text for very narrow viewports */
-  .vpCard {
-    padding: 20px 16px;
-  }
-
-  .vpCardTitle {
-    font-size: 9px;
-  }
-
-  .vpCardBody {
-    font-size: 7px;
-  }
-
-  /* Sol02 images: switch to vertical stack at mobile widths */
-  .sol02Images {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  /*
-    Use aspect-ratio matching the desktop composite proportions instead of
-    fixed pixel heights. This keeps the visible crop percentage consistent
-    at every mobile viewport width — a fixed height causes progressively
-    more aggressive cropping as the container gets wider.
-
-    IMPORTANT: keep position:relative so Next.js <Image fill>
-    children have a valid containing block.
-  */
-  .sol02ImgRight {
-    position: relative;
-    left: auto;
-    top: auto;
-    width: 100%;
-    aspect-ratio: 213 / 179;
-    height: auto;
-    overflow: hidden;
-    border-radius: 12px;
-  }
-
-  .sol02ImgTopLeft,
-  .sol02ImgBottomLeft {
-    position: relative;
-    left: auto;
-    top: auto;
-    width: 100%;
-    aspect-ratio: 212 / 61;
-    height: auto;
-    overflow: hidden;
-    border-radius: 12px;
   }
 
   /* Outcome: stack at mobile */
