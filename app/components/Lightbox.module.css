@@ -1,0 +1,82 @@
+/* ============================================================
+   Lightbox — fixed overlay for image/card enlargement
+   ============================================================ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 17, 16, 0.82); /* --color-black at 82% */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: pointer;
+  padding: 24px;
+}
+
+/* The centred panel: never covers the full screen */
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  cursor: default;
+  max-width: 90vw;
+  margin: 0;
+}
+
+/* ── PNG image shown in lightbox ── */
+.imgEnlarged {
+  display: block;
+  max-width: 80vw;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ── VP card shown enlarged in lightbox ── */
+.vpCardEnlarged {
+  width: 320px;
+  max-width: 80vw;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-black);
+  border-radius: 20px;
+  padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.vpCardEnlargedTitle {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.2px;
+  color: var(--color-black);
+  margin: 0;
+}
+
+.vpCardEnlargedBody {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 13.6px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #666666;
+  margin: 0;
+}
+
+/* ── Caption ── */
+.caption {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  margin: 0;
+}

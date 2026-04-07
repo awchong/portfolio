@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Nav.module.css';
@@ -37,10 +37,13 @@ export default function Nav() {
   // Prevents onMouseEnter from re-opening the dropdown immediately after a click-to-close
   const justClosedRef = useRef(false);
 
-  // Collapse on route change
-  useEffect(() => {
+  // Collapse on route change — useLayoutEffect runs synchronously before paint
+  // so the expanded state is already false when the new page renders, preventing
+  // a visible flash where the dropdown briefly shows on the destination page.
+  useLayoutEffect(() => {
     setExpanded(false);
     setHoverActive(false);
+    (document.activeElement as HTMLElement)?.blur();
   }, [pathname]);
 
   // Collapse when clicking outside the nav

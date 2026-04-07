@@ -293,7 +293,7 @@
   width: 440px;
   display: flex;
   gap: 16px;
-  align-items: flex-start;
+  /* align-items defaults to stretch — all cards match the tallest sibling's height */
 }
 
 .vpCard {
@@ -305,14 +305,14 @@
   border: 1px solid var(--color-black);
   border-radius: 16px;
   overflow: hidden;
-  /* letter-spacing from Figma: tracking-[-0.408px] */
   letter-spacing: -0.408px;
   text-align: center;
+  cursor: pointer;
 }
 
 .vpCardTitle {
   font-family: var(--font-sans), system-ui, sans-serif;
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 500;
   line-height: 1.24;
   color: var(--color-black);
@@ -321,7 +321,7 @@
 
 .vpCardBody {
   font-family: var(--font-sans), system-ui, sans-serif;
-  font-size: 8px;
+  font-size: 8.5px;
   font-weight: 400;
   line-height: 1.24;
   color: #666666;
@@ -596,8 +596,12 @@
 
   .vpCards {
     position: static;
-    width: 100%;
+    width: 440px;
+    max-width: 100%;
     margin-top: 24px;
+    /* Centre the image group within the full-width column */
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /*
@@ -614,16 +618,28 @@
     max-width: 100%;
     height: 179px;
     margin-top: 24px;
+    /* Centre to match vpCards alignment above */
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  /* Stack outcome columns (same 440+80+440 constraint) */
+  /*
+    Outcome: keep two columns at intermediate widths — only stack at mobile.
+    Reduce gap and allow the left column to shrink so text wraps gracefully.
+    Method names are allowed to wrap below this threshold.
+  */
   .outcomeGrid {
-    flex-direction: column;
     gap: 40px;
   }
 
   .outcomeLeft {
-    width: 100%;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .methodsBold,
+  .methodsRegular {
+    white-space: normal;
   }
 }
 
@@ -692,6 +708,11 @@
   }
 
   /*
+    Use aspect-ratio matching the desktop composite proportions instead of
+    fixed pixel heights. This keeps the visible crop percentage consistent
+    at every mobile viewport width — a fixed height causes progressively
+    more aggressive cropping as the container gets wider.
+
     IMPORTANT: keep position:relative so Next.js <Image fill>
     children have a valid containing block.
   */
@@ -700,7 +721,8 @@
     left: auto;
     top: auto;
     width: 100%;
-    height: 180px;
+    aspect-ratio: 213 / 179;
+    height: auto;
     overflow: hidden;
     border-radius: 12px;
   }
@@ -711,17 +733,31 @@
     left: auto;
     top: auto;
     width: 100%;
-    height: 60px;
+    aspect-ratio: 212 / 61;
+    height: auto;
     overflow: hidden;
     border-radius: 12px;
   }
 
+  /* Outcome: stack at mobile */
+  .outcomeGrid {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .outcomeLeft {
+    flex-shrink: 0;
+    width: 100%;
+  }
+
+  /* Footer: stay horizontal, just tighten the link gap and use auto height */
   .footer {
     height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
     padding-top: 16px;
     padding-bottom: 16px;
+  }
+
+  .footerLinks {
+    gap: 16px;
   }
 }
