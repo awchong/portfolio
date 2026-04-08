@@ -132,6 +132,7 @@
 
   .csItemsOuterExpanded {
     max-width: 520px;
+    overflow: visible;
   }
 
   /*

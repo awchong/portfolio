@@ -59,6 +59,17 @@ export default function Nav() {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [expanded]);
 
+  // Collapse on scroll — only in dropdown mode (<820px) where the menu obscures content.
+  // The inline slide-reveal (≥820px) sits in the nav bar and doesn't need scroll dismissal.
+  useEffect(() => {
+    if (!expanded) return;
+    function handleScroll() {
+      if (window.innerWidth < 820) setExpanded(false);
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [expanded]);
+
   // Dropdown is visible when hover-active OR click-toggled open
   const dropdownShowing = expanded || hoverActive;
 
@@ -83,9 +94,9 @@ export default function Nav() {
   const wordmarkColor =
     pageId === 'home' ? 'var(--color-terracotta)' : 'var(--color-gray)';
 
-  // Terracotta when expanded (active state), or when collapsed on a CS page.
+  // Terracotta only when on a CS page — NOT just because the dropdown is open.
   const csToggleColor =
-    expanded || isCS ? 'var(--color-terracotta)' : 'var(--color-gray)';
+    isCS ? 'var(--color-terracotta)' : 'var(--color-gray)';
 
   const cs01Color = pageId === 'cs01' ? 'var(--color-terracotta)' : 'var(--color-gray)';
   const cs02Color = pageId === 'cs02' ? 'var(--color-terracotta)' : 'var(--color-gray)';
