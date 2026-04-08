@@ -25,21 +25,30 @@
   margin: 0;
 }
 
-/* ── PNG image shown in lightbox ── */
-.imgEnlarged {
-  display: block;
-  max-width: 80vw;
-  max-height: 75vh;
-  width: auto;
-  height: auto;
+/* ── Cropped image shown in lightbox ──
+   Dimensions (aspect-ratio + width) are set inline per-image so the crop
+   matches exactly what's shown on the page. Static styles live here. */
+.imgCroppedContainer {
+  position: relative;
+  overflow: hidden;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.imgCroppedContainer img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ── VP card shown enlarged in lightbox ── */
 .vpCardEnlarged {
   width: 320px;
   max-width: 80vw;
+  aspect-ratio: 136 / 177;
+  overflow: hidden;
   background: var(--color-white);
   border: 1.5px solid var(--color-black);
   border-radius: 20px;

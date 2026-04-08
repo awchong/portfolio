@@ -20,6 +20,9 @@ type ImageItem = {
   caption: string;
   src: string;
   alt: string;
+  cropWidth: number;
+  cropHeight: number;
+  objectPosition: string;
 };
 
 type ActiveItem = VpCardItem | ImageItem;
@@ -39,7 +42,7 @@ const VP_CARDS: VpCardItem[] = [
   },
   {
     kind: 'vpcard',
-    caption: 'Safety and control',
+    caption: 'Value prop 3: Safety and control',
     title: 'Use simple tools to help your community thrive',
     body: 'Unlock admin tools to help you safely manage your community so you can focus on building relationships.',
   },
@@ -54,6 +57,8 @@ const SOL02_IMAGES = [
     alt: 'Require approval to join toggle in off state',
     containerClass: styles.sol02ImgTopLeft,
     objectPosition: 'center',
+    cropWidth: 212,
+    cropHeight: 61,
   },
   {
     kind: 'image' as const,
@@ -62,6 +67,8 @@ const SOL02_IMAGES = [
     alt: 'Require approval to join toggle in on state',
     containerClass: styles.sol02ImgBottomLeft,
     objectPosition: 'center',
+    cropWidth: 213,
+    cropHeight: 62,
   },
   {
     kind: 'image' as const,
@@ -70,6 +77,8 @@ const SOL02_IMAGES = [
     alt: 'About this community panel showing visibility and safety disclosures',
     containerClass: styles.sol02ImgRight,
     objectPosition: 'bottom',
+    cropWidth: 213,
+    cropHeight: 179,
   },
 ];
 
@@ -176,12 +185,25 @@ export function SolutionsSection() {
               <p className={lbStyles.vpCardEnlargedBody}>{active.body}</p>
             </div>
           ) : (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={active.src}
-              alt={active.alt}
-              className={lbStyles.imgEnlarged}
-            />
+            /*
+              Render the same crop the page shows: matching aspect ratio,
+              objectFit: cover, and objectPosition. Width is constrained to
+              fit within both 80vw and 75vh.
+            */
+            <div
+              className={lbStyles.imgCroppedContainer}
+              style={{
+                aspectRatio: `${active.cropWidth} / ${active.cropHeight}`,
+                width: `min(80vw, calc(75vh * ${active.cropWidth} / ${active.cropHeight}))`,
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={active.src}
+                alt={active.alt}
+                style={{ objectPosition: active.objectPosition }}
+              />
+            </div>
           )}
         </Lightbox>
       )}
