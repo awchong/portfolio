@@ -1,7 +1,7 @@
 /* ============================================================
-   CS02 — Cold Start
+   CS03 — Naming Architecture
    All values sourced from Figma file aAOF7I0rz5hPSQJ724nNVc
-   (v2 page, CS02 frame 258:1959)
+   (v2 page, CS03 frame)
    ============================================================ */
 
 /* ── Nav divider / section dividers ── */
@@ -150,7 +150,16 @@
   margin: 0;
 }
 
-/* 248px wide — same slot as CS01 hero mockup */
+/* Half-column wrapper — 440px matches solutions column width */
+.heroMockupCol {
+  width: 440px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Inner image container — identical to CS01/CS02 heroMockup */
 .heroMockup {
   width: 248px;
   aspect-ratio: 248 / 450;
@@ -161,7 +170,7 @@
 
 /* ============================================================
    Challenge
-   Figma: px-[240px] py-[40px], flex-col gap-[24px]
+   Two paragraphs
    ============================================================ */
 
 .challenge {
@@ -179,12 +188,19 @@
   width: 100%;
 }
 
+.challengeBodySecond {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-loose);
+  color: var(--color-gray);
+  margin: 16px 0 0 0;
+  width: 100%;
+}
+
 /* ============================================================
    Solutions
-   Figma: px-[240px] py-[40px]
-   Outer: flex-col gap-[32px] — label + row1 + row2
-   Row 1: flex gap-[80px] items-start — Sol01 (left) + Sol02 (right)
-   Row 2: flex gap-[80px] items-center — Sol03 text (left) + Sol03 image (right)
+   Three standalone rows (sol01, sol02, sol03) — see below
    ============================================================ */
 
 .solutions {
@@ -192,7 +208,7 @@
   padding-bottom: var(--section-padding-y);
 }
 
-/* Container for both solution rows — gap-32px from label and between rows */
+/* Outer flex-col: label + all solution blocks */
 .solutionsContent {
   display: flex;
   flex-direction: column;
@@ -200,17 +216,8 @@
   margin-top: 32px;
 }
 
-/* ── Row 1: Sol01 + Sol02 side by side ── */
-.solutionsRow {
-  display: flex;
-  gap: 80px;
-  align-items: flex-start;
-  width: 100%;
-}
+/* ── Shared sol typography ── */
 
-/* ── Shared sol typography — used by all three solutions ── */
-
-/* "01" / "02" / "03" — same style as .sectionLabel */
 .solNum {
   display: block;
   font-family: var(--font-sans), system-ui, sans-serif;
@@ -223,7 +230,6 @@
   white-space: nowrap;
 }
 
-/* Solution title — Instrument Serif Regular 20px, lh 1.2, black */
 .solTitle {
   font-family: var(--font-serif), Georgia, serif;
   font-size: var(--text-sol-title);
@@ -234,7 +240,6 @@
   margin: 16px 0 0 0;
 }
 
-/* Solution description — 13.6px sans, lh 1.75, gray */
 .solBody {
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--text-body);
@@ -244,7 +249,6 @@
   margin: 16px 0 0 0;
 }
 
-/* Metrics group — gap-[8px] between individual metric lines */
 .solMetrics {
   display: flex;
   flex-direction: column;
@@ -252,7 +256,6 @@
   margin-top: 20px;
 }
 
-/* Individual metric line — 13.6px sans, lh 1.65, black */
 .solMetric {
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--text-body);
@@ -262,94 +265,95 @@
   margin: 0;
 }
 
-/* ── Sol 01 column ── */
+/* ── Sol 01 — full-width block ──
+   Text content capped at 440px (matches column template).
+   Image spans full container width at all viewports.
+   Source: cs03-sol01-chatnel-matrix.png — 5004×3592
+   ──────────────────────────────────────────────── */
 
-.sol01Col {
-  width: 440px;
-  flex-shrink: 0;
-}
-
-/*
-  Two invite-banner images stacked vertically, each full column width
-  aspect-ratio matches LG source (6956×3256 = 47:22)
-  Separated from metrics by the gap-[56px] of the outer flex-col
-*/
-.sol01Images {
+.sol01Block {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 56px;
-  align-items: center;
-}
-
-.sol01Img {
-  width: 70%;
-  aspect-ratio: 47 / 22;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-/* ── Sol 02 column ── */
-
-.sol02Col {
-  width: 440px;
-  flex-shrink: 0;
+  gap: 32px;
 }
 
 /*
-  Welcome-banner image — aspect-ratio matches source (7572×3000 = 631:250)
-  60% of column width, centred via block margin (avoids flex-stretch / aspect-ratio conflict)
+  Full-width container — aspect-ratio matches source so no letter-boxing
+  with objectFit: contain. Cursor indicates lightbox trigger.
 */
-.sol02Img {
-  display: block;
-  width: 70%;
-  margin: 34px auto 0;
-  aspect-ratio: 631 / 250;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-/* ── Sol 03 row (full-width, second row) ── */
-
-/*
-  Figma: flex gap-[80px] items-center w-full
-  Text col: 440px, flex-shrink-0
-  Image col: flex-1 (fills remaining ~440px), centered, px-[109px]
-*/
-.sol03Row {
-  display: flex;
-  gap: 80px;
-  align-items: flex-start;
+.sol01Image {
   width: 100%;
+  aspect-ratio: 5004 / 3592;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.sol03TextCol {
-  width: 440px;
-  flex-shrink: 0;
-}
+/* ── Sol 02 — full-width block with before/after tables ──
+   Text capped at 440px. Two images side by side at wide viewports
+   (full container width, 60px gap from Figma). Stack at ≤1056px.
+   Before: cs03-sol02-before-table.png — 2496×3311
+   After:  cs03-sol02-after-table.png  — 2496×3183
+   ─────────────────────────────────────────────── */
 
-.sol03ImageCol {
-  flex: 1;
+.sol02Block {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 32px;
 }
 
 /*
-  Phone mockup — border is baked into the source image (member-cold-start-new.png).
-  Outer: 40% of sol03ImageCol (~440px) ≈ 176px, centered by parent flex.
-  Inner: fills outer; aspect-ratio 195:422 (source 4680×10128) governs height;
-         overflow:hidden required for Next.js fill Image.
+  Side-by-side pair: flex row with 60px gap (Figma value).
+  Each image gets flex: 1 so both fill the container equally.
 */
+.sol02Images {
+  display: flex;
+  gap: 60px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.sol02ImageWrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Aspect-ratios match source dimensions exactly */
+.sol02Before {
+  aspect-ratio: 2496 / 3311;
+}
+
+.sol02After {
+  aspect-ratio: 2496 / 3183;
+}
+
+/* ── Sol 03 — two-column row: text left, image right ──
+   Mirrors sol02Images pattern exactly: flex row, 60px gap,
+   flex: 1 children, align-items: flex-start.
+   Source: cs03-sol03-wireframe-omnipicker.png — 2768×3680 → 173/230
+   ─────────────────────────────────────────────────────────────── */
+
+.sol03Block {
+  display: flex;
+  gap: 60px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.sol03Text {
+  flex: 1;
+  min-width: 0;
+}
+
 .sol03ImageOuter {
-  width: 220px;
+  flex: 1;
 }
 
 .sol03ImageInner {
   width: 100%;
-  aspect-ratio: 195 / 422; /* matches source 4680×10128 — never clips */
+  aspect-ratio: 173 / 230;
   overflow: hidden;
   position: relative;
   cursor: pointer;
@@ -357,9 +361,8 @@
 
 /* ============================================================
    Outcome
-   Figma: px-[240px] py-[40px], flex row gap-[80px]
-   Left col: flex-col gap-[36px] → results + pull quotes
-   Right col: flex-col gap-[24px] → Methods & Disciplines
+   No pull quote (CS03 has no user quote).
+   Left: outcomes list · Right: Methods & Disciplines
    ============================================================ */
 
 .outcome {
@@ -379,12 +382,6 @@
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 36px;
-}
-
-.outcomeResults {
-  display: flex;
-  flex-direction: column;
   gap: 24px;
 }
 
@@ -400,35 +397,6 @@
 
 .outcomeList li {
   line-height: var(--lh-relaxed);
-}
-
-/*
-  CS02 has two pull quotes — stacked with gap-[8px] (Figma node 258:2274)
-  Each quote: flex row with terracotta rule + italic serif text
-*/
-.pullQuotes {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.pullQuote {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* .pull-quote-rule comes from globals.css */
-
-.pullQuoteText {
-  font-family: var(--font-serif), Georgia, serif;
-  font-size: var(--text-pull-quote);
-  font-style: italic;
-  font-weight: 400;
-  line-height: var(--lh-normal);
-  color: var(--color-gray);
-  max-width: 425px;
-  margin: 0;
 }
 
 /* ── Right column ── */
@@ -494,34 +462,34 @@
 
 /* ============================================================
    Solutions + Outcome stack (≤1056px)
-   Below this width two 440px cols + 80px gap would overflow.
    ============================================================ */
 
 @media (max-width: 1056px) {
-  /* Row 1: stack Sol01 above Sol02 */
-  .solutionsRow {
+  /* Sol 02 images: stack vertically at this breakpoint */
+  .sol02Images {
     flex-direction: column;
-    gap: 56px;
+    gap: 32px;
   }
 
-  /* Row 2 (Sol03): stack text above image */
-  .sol03Row {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  /* All text columns go full-width when stacked */
-  .sol01Col,
-  .sol02Col,
-  .sol03TextCol {
-    width: 100%;
-  }
-
-  /* Sol03 image col: full-width, centred */
-  .sol03ImageCol {
+  /*
+    Each stacked image is full-width — both wrap to 100% naturally
+    via flex-direction: column. No explicit width override needed since
+    flex: 1 on a column-direction flex becomes full-width.
+  */
+  .sol02ImageWrap {
     flex: none;
     width: 100%;
-    margin-top: 32px;
+  }
+
+  /* Sol 03: stack text above image — mirrors sol02Images stacking */
+  .sol03Block {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .sol03ImageOuter {
+    flex: none;
+    width: 100%;
   }
 
   /* Outcome: stack left/right columns */
@@ -560,6 +528,10 @@
 
   .heroSubhead {
     max-width: 100%;
+  }
+
+  .heroMockupCol {
+    width: 100%;
   }
 
   .heroMockup {
