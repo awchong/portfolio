@@ -1,0 +1,629 @@
+/* ============================================================
+   CS02 — Cold Start
+   All values sourced from Figma file aAOF7I0rz5hPSQJ724nNVc
+   (v2 page, CS02 frame 258:1959)
+   ============================================================ */
+
+/* ── Nav divider / section dividers ── */
+.navDivider {
+  height: 1px;
+  background-color: var(--color-line);
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--color-line);
+}
+
+/* ── Section label (shared across all sections) ── */
+.sectionLabel {
+  display: block;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-label);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-gray);
+}
+
+/* ============================================================
+   Hero
+   Figma: px-[240px] py-[40px], flex row items-center
+   Left col: flex-1 · Right: 248×450 mockup placeholder
+   ============================================================ */
+
+.hero {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+.heroInner {
+  display: flex;
+  align-items: center;
+}
+
+.heroLeft {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.heroUpperGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.heroTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.heroBreadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.heroIndex {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: var(--text-index-num);
+  font-style: italic;
+  color: var(--color-terracotta);
+  flex-shrink: 0;
+}
+
+.heroChips {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-chips);
+  font-weight: 400;
+  letter-spacing: var(--tracking-chips);
+  color: var(--color-gray);
+}
+
+.heroTitle {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: var(--text-hero-title);
+  font-weight: 400;
+  font-style: normal;
+  line-height: var(--lh-tight);
+  color: var(--color-black);
+  max-width: 680px;
+  margin: 0;
+}
+
+.heroSubhead {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-hero-sub);
+  font-weight: 400;
+  line-height: var(--lh-normal);
+  color: var(--color-gray);
+  max-width: 680px;
+  margin: 0;
+}
+
+.heroRoleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.heroRoleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.heroRoleLabel {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-label);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-gray);
+}
+
+.heroRoleText {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-normal);
+  color: var(--color-gray);
+  margin: 0;
+}
+
+.heroMetric {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: var(--text-sol-title);
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  color: var(--color-terracotta);
+  margin: 0;
+}
+
+/* 248px wide — same slot as CS01 hero mockup */
+.heroMockup {
+  width: 248px;
+  aspect-ratio: 248 / 450;
+  flex-shrink: 0;
+  border-radius: 2px;
+  position: relative; /* required for Next.js Image fill */
+}
+
+/* ============================================================
+   Challenge
+   Figma: px-[240px] py-[40px], flex-col gap-[24px]
+   ============================================================ */
+
+.challenge {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+.challengeBody {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-loose);
+  color: var(--color-gray);
+  margin: 24px 0 0 0;
+  width: 100%;
+}
+
+/* ============================================================
+   Solutions
+   Figma: px-[240px] py-[40px]
+   Outer: flex-col gap-[32px] — label + row1 + row2
+   Row 1: flex gap-[80px] items-start — Sol01 (left) + Sol02 (right)
+   Row 2: flex gap-[80px] items-center — Sol03 text (left) + Sol03 image (right)
+   ============================================================ */
+
+.solutions {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+/* Container for both solution rows — gap-32px from label and between rows */
+.solutionsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+/* ── Row 1: Sol01 + Sol02 side by side ── */
+.solutionsRow {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* ── Shared sol typography — used by all three solutions ── */
+
+/* "01" / "02" / "03" — same style as .sectionLabel */
+.solNum {
+  display: block;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-label);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-gray);
+  white-space: nowrap;
+}
+
+/* Solution title — Instrument Serif Regular 20px, lh 1.2, black */
+.solTitle {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: var(--text-sol-title);
+  font-weight: 400;
+  font-style: normal;
+  line-height: var(--lh-snug);
+  color: var(--color-black);
+  margin: 16px 0 0 0;
+}
+
+/* Solution description — 13.6px sans, lh 1.75, gray */
+.solBody {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-loose);
+  color: var(--color-gray);
+  margin: 16px 0 0 0;
+}
+
+/* Metrics group — gap-[8px] between individual metric lines */
+.solMetrics {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+/* Individual metric line — 13.6px sans, lh 1.65, black */
+.solMetric {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-relaxed);
+  color: var(--color-black);
+  margin: 0;
+}
+
+/* ── Sol 01 column ── */
+
+.sol01Col {
+  width: 440px;
+  flex-shrink: 0;
+}
+
+/*
+  Two invite-banner images side by side
+  Figma: flex gap-[16px] items-center, each 212×102px
+  Separated from metrics by the gap-[56px] of the outer flex-col
+*/
+.sol01Images {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 56px;
+}
+
+/* Each invite banner crop — 212px wide, aspect-ratio matches LG source (6956×3256 = 47:22) */
+.sol01Img {
+  width: 212px;
+  aspect-ratio: 47 / 22;
+  flex-shrink: 0;
+  border-radius: 6px; /* Figma: 5.769px */
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+/* ── Sol 02 column ── */
+
+.sol02Col {
+  width: 440px;
+  flex-shrink: 0;
+}
+
+/*
+  Full-width welcome-banner image — aspect-ratio matches source (7572×3000 = 631:250)
+  Separated from metrics by gap-[34px]
+  aspect-ratio ensures proportional height at every viewport width
+*/
+.sol02Img {
+  width: 100%;
+  aspect-ratio: 631 / 250;
+  position: relative;
+  overflow: hidden;
+  margin-top: 34px;
+  cursor: pointer;
+}
+
+/* ── Sol 03 row (full-width, second row) ── */
+
+/*
+  Figma: flex gap-[80px] items-center w-full
+  Text col: 440px, flex-shrink-0
+  Image col: flex-1 (fills remaining ~440px), centered, px-[109px]
+*/
+.sol03Row {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  width: 100%;
+}
+
+.sol03TextCol {
+  width: 440px;
+  flex-shrink: 0;
+}
+
+.sol03ImageCol {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 109px; /* 440 − 218px padding = 222px for image */
+}
+
+/*
+  Phone mockup — border is baked into the source image (member-cold-start-new.png).
+  Outer: structural wrapper only (no CSS border).
+  Inner: 222×480px sized to source aspect ratio (4680×10128 ≈ 195:422);
+         overflow:hidden required for Next.js fill Image.
+*/
+.sol03ImageOuter {
+  flex-shrink: 0;
+}
+
+.sol03ImageInner {
+  width: 222px;
+  height: 480px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+/* ============================================================
+   Outcome
+   Figma: px-[240px] py-[40px], flex row gap-[80px]
+   Left col: flex-col gap-[36px] → results + pull quotes
+   Right col: flex-col gap-[24px] → Methods & Disciplines
+   ============================================================ */
+
+.outcome {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+.outcomeGrid {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+/* ── Left column ── */
+.outcomeLeft {
+  width: 440px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.outcomeResults {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.outcomeList {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-body);
+  font-weight: 400;
+  color: var(--color-black);
+  list-style-type: disc;
+  padding-left: 20.4px;
+  margin: 0;
+}
+
+.outcomeList li {
+  line-height: var(--lh-relaxed);
+}
+
+/*
+  CS02 has two pull quotes — stacked with gap-[8px] (Figma node 258:2274)
+  Each quote: flex row with terracotta rule + italic serif text
+*/
+.pullQuotes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pullQuote {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* .pull-quote-rule comes from globals.css */
+
+.pullQuoteText {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: var(--text-pull-quote);
+  font-style: italic;
+  font-weight: 400;
+  line-height: var(--lh-normal);
+  color: var(--color-gray);
+  max-width: 425px;
+  margin: 0;
+}
+
+/* ── Right column ── */
+.outcomeRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.methodsGrid {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.methodsBold {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-body);
+  font-weight: 500;
+  line-height: var(--lh-relaxed);
+  color: var(--color-black);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.methodsBold p {
+  margin: 0;
+}
+
+.methodsRegular {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-relaxed);
+  color: var(--color-black);
+  white-space: nowrap;
+}
+
+.methodsRegular p {
+  margin: 0;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.footer {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-gray);
+}
+
+.footerLinks {
+  display: flex;
+  gap: 28px;
+}
+
+/* ============================================================
+   Solutions + Outcome stack (≤1056px)
+   Below this width two 440px cols + 80px gap would overflow.
+   ============================================================ */
+
+@media (max-width: 1056px) {
+  /* Row 1: stack Sol01 above Sol02 */
+  .solutionsRow {
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  /* Row 2 (Sol03): stack text above image */
+  .sol03Row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* All text columns go full-width when stacked */
+  .sol01Col,
+  .sol02Col,
+  .sol03TextCol {
+    width: 100%;
+  }
+
+  /* Sol01 images: scale proportionally side-by-side */
+  .sol01Images {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .sol01Img {
+    flex: 1;
+    width: auto;
+    aspect-ratio: 47 / 22;
+  }
+
+  /* Sol02 image: full-width */
+  .sol02Img {
+    width: 100%;
+  }
+
+  /* Sol03 image col: full-width, centred, no side padding */
+  .sol03ImageCol {
+    flex: none;
+    width: 100%;
+    padding: 0;
+    margin-top: 32px;
+  }
+
+  /* Outcome: stack left/right columns */
+  .outcomeGrid {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .outcomeLeft {
+    width: 100%;
+  }
+
+  .outcomeRight {
+    width: 100%;
+    border-top: 1px solid var(--color-line);
+    padding-top: 32px;
+    margin-top: 32px;
+  }
+}
+
+/* ============================================================
+   Hero stacks (≤820px)
+   ============================================================ */
+
+@media (max-width: 820px) {
+  .heroInner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .heroTitle {
+    font-size: 36px;
+    max-width: 100%;
+  }
+
+  .heroSubhead {
+    max-width: 100%;
+  }
+
+  .heroMockup {
+    width: 100%;
+    max-width: 248px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ============================================================
+   Mobile (≤720px)
+   ============================================================ */
+
+@media (max-width: 720px) {
+  .heroTitle {
+    font-size: 32px;
+  }
+
+  .heroMockup {
+    max-width: 248px;
+  }
+
+  /* Sol01 images: stack vertically at mobile */
+  .sol01Images {
+    flex-direction: column;
+  }
+
+  .sol01Img {
+    flex: none;
+    width: 100%;
+    aspect-ratio: 47 / 22;
+  }
+
+  .footer {
+    height: auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .footerLinks {
+    gap: 16px;
+  }
+}
