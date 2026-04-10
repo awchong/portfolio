@@ -19,6 +19,8 @@ type ImageItem = {
   maxDisplayWidth?: number;
   /** Background color applied in the lightbox — use for images with transparent backgrounds */
   lightboxBg?: string;
+  /** Override the lightbox container border-radius — use when the image itself has its own corner treatment */
+  lightboxBorderRadius?: number;
 };
 
 const SOL01_IMAGE: ImageItem = {
@@ -40,6 +42,8 @@ const SOL02_BEFORE_IMAGE: ImageItem = {
   cropWidth: 2496,
   cropHeight: 3311,
   objectPosition: 'center',
+  lightboxBg: '#fff',
+  lightboxBorderRadius: 8,
 };
 
 const SOL02_AFTER_IMAGE: ImageItem = {
@@ -50,6 +54,8 @@ const SOL02_AFTER_IMAGE: ImageItem = {
   cropWidth: 2496,
   cropHeight: 3183,
   objectPosition: 'center',
+  lightboxBg: '#fff',
+  lightboxBorderRadius: 8,
 };
 
 const SOL03_IMAGE: ImageItem = {
@@ -213,6 +219,7 @@ export function SolutionsSection() {
               width: `min(80vw, calc(75vh * ${active.cropWidth} / ${active.cropHeight}))`,
               ...(active.maxDisplayWidth != null && { maxWidth: `${active.maxDisplayWidth}px` }),
               ...(active.lightboxBg != null && { background: active.lightboxBg }),
+              ...(active.lightboxBorderRadius != null && { borderRadius: active.lightboxBorderRadius }),
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
