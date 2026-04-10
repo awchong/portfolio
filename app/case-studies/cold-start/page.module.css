@@ -270,22 +270,21 @@
 }
 
 /*
-  Two invite-banner images side by side
-  Figma: flex gap-[16px] items-center, each 212×102px
+  Two invite-banner images stacked vertically, each full column width
+  aspect-ratio matches LG source (6956×3256 = 47:22)
   Separated from metrics by the gap-[56px] of the outer flex-col
 */
 .sol01Images {
   display: flex;
+  flex-direction: column;
   gap: 16px;
-  align-items: center;
   margin-top: 56px;
+  align-items: center;
 }
 
-/* Each invite banner crop — 212px wide, aspect-ratio matches LG source (6956×3256 = 47:22) */
 .sol01Img {
-  width: 212px;
+  width: 60%;
   aspect-ratio: 47 / 22;
-  flex-shrink: 0;
   border-radius: 6px; /* Figma: 5.769px */
   overflow: hidden;
   position: relative;
@@ -300,16 +299,16 @@
 }
 
 /*
-  Full-width welcome-banner image — aspect-ratio matches source (7572×3000 = 631:250)
-  Separated from metrics by gap-[34px]
-  aspect-ratio ensures proportional height at every viewport width
+  Welcome-banner image — aspect-ratio matches source (7572×3000 = 631:250)
+  60% of column width, centred via block margin (avoids flex-stretch / aspect-ratio conflict)
 */
 .sol02Img {
-  width: 100%;
+  display: block;
+  width: 60%;
+  margin: 34px auto 0;
   aspect-ratio: 631 / 250;
   position: relative;
   overflow: hidden;
-  margin-top: 34px;
   cursor: pointer;
 }
 
@@ -337,22 +336,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 109px; /* 440 − 218px padding = 222px for image */
 }
 
 /*
   Phone mockup — border is baked into the source image (member-cold-start-new.png).
-  Outer: structural wrapper only (no CSS border).
-  Inner: 222×480px sized to source aspect ratio (4680×10128 ≈ 195:422);
+  Outer: 40% of sol03ImageCol (~440px) ≈ 176px, centered by parent flex.
+  Inner: fills outer; aspect-ratio 195:422 (source 4680×10128) governs height;
          overflow:hidden required for Next.js fill Image.
 */
 .sol03ImageOuter {
   flex-shrink: 0;
+  width: 40%;
 }
 
 .sol03ImageInner {
-  width: 222px;
-  height: 480px;
+  width: 100%;
+  aspect-ratio: 195 / 422; /* matches source 4680×10128 — never clips */
   overflow: hidden;
   position: relative;
   cursor: pointer;
@@ -520,30 +519,10 @@
     width: 100%;
   }
 
-  /* Sol01 images: scale proportionally side-by-side */
-  .sol01Images {
-    width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .sol01Img {
-    flex: 1;
-    width: auto;
-    aspect-ratio: 47 / 22;
-  }
-
-  /* Sol02 image: full-width */
-  .sol02Img {
-    width: 100%;
-  }
-
-  /* Sol03 image col: full-width, centred, no side padding */
+  /* Sol03 image col: full-width, centred */
   .sol03ImageCol {
     flex: none;
     width: 100%;
-    padding: 0;
     margin-top: 32px;
   }
 
@@ -604,17 +583,6 @@
 
   .heroMockup {
     max-width: 248px;
-  }
-
-  /* Sol01 images: stack vertically at mobile */
-  .sol01Images {
-    flex-direction: column;
-  }
-
-  .sol01Img {
-    flex: none;
-    width: 100%;
-    aspect-ratio: 47 / 22;
   }
 
   .footer {
