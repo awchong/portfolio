@@ -140,7 +140,7 @@ export default function About() {
               <div className={styles.skillItem}>
                 <span className={styles.skillLabel}>AI tools & workflows</span>
                 <span className={styles.skillValue}>
-                  Prompt engineering, Claude (claude.ai, Claude Code, API), ChatGPT;
+                  Prompt engineering, Claude (claude.ai, Claude Code, API), Gemini CLI, ChatGPT;
                   using LLMs for content critique, design iteration, and product development
                 </span>
               </div>
