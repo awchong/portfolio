@@ -221,8 +221,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 220px;
+  gap: 8px; /* Approx 2 spaces after the text */
   padding: 8px 0;
   transition: color 0.2s ease;
 }
