@@ -235,6 +235,11 @@
   text-underline-offset: 2px;
 }
 
+.arrow {
+  text-decoration: none !important;
+  display: inline-block;
+}
+
 /* ============================================================
    Footer
    ============================================================ */
