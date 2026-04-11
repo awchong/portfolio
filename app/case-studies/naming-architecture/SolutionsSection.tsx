@@ -17,15 +17,15 @@ type ImageItem = {
   cropHeight: number;
   objectPosition: string;
   maxDisplayWidth?: number;
-  /** Background color applied in the lightbox — use for images with transparent backgrounds */
+  /** Background color applied in the lightbox:use for images with transparent backgrounds */
   lightboxBg?: string;
-  /** Override the lightbox container border-radius — use when the image itself has its own corner treatment */
+  /** Override the lightbox container border-radius:use when the image itself has its own corner treatment */
   lightboxBorderRadius?: number;
 };
 
 const SOL01_IMAGE: ImageItem = {
   kind: 'image',
-  caption: 'Community hierarchy diagram — the chatnel matrix',
+  caption: 'Community hierarchy diagram: the chatnel matrix',
   src: '/images/cs03-sol01-chatnel-matrix.png',
   alt: 'Architectural diagram showing how community, channel, and chat relate as structural primitives',
   cropWidth: 5004,
@@ -36,7 +36,7 @@ const SOL01_IMAGE: ImageItem = {
 
 const SOL02_BEFORE_IMAGE: ImageItem = {
   kind: 'image',
-  caption: 'Naming taxonomy — before (6 competing terms)',
+  caption: 'Naming taxonomy: before (6 competing terms)',
   src: '/images/cs03-sol02-before-table.png',
   alt: 'Table showing the fragmented naming taxonomy before the alignment work',
   cropWidth: 2496,
@@ -48,7 +48,7 @@ const SOL02_BEFORE_IMAGE: ImageItem = {
 
 const SOL02_AFTER_IMAGE: ImageItem = {
   kind: 'image',
-  caption: 'Naming taxonomy — after (4 unified terms)',
+  caption: 'Naming taxonomy: after (4 unified terms)',
   src: '/images/cs03-sol02-after-table.png',
   alt: 'Table showing the unified naming taxonomy after the alignment work',
   cropWidth: 2496,
@@ -60,7 +60,7 @@ const SOL02_AFTER_IMAGE: ImageItem = {
 
 const SOL03_IMAGE: ImageItem = {
   kind: 'image',
-  caption: 'Omnipicker — annotated wireframe for future verticals',
+  caption: 'Omnipicker: annotated wireframe for future verticals',
   src: '/images/cs03-sol03-wireframe-omnipicker.png',
   alt: 'Annotated phone wireframe showing the omnipicker designed to scale naming across new verticals',
   cropWidth: 2768,
@@ -82,7 +82,7 @@ export function SolutionsSection() {
 
           <div className={styles.solutionsContent}>
 
-            {/* ── Sol 01 — Architecting "community" as a meta-primitive ── */}
+            {/* ── Sol 01:Architecting "community" as a meta-primitive ── */}
             <div className={styles.sol01Block}>
               <div>
                 <span className={styles.solNum}>01</span>
@@ -115,7 +115,7 @@ export function SolutionsSection() {
               </div>
             </div>
 
-            {/* ── Sol 02 — Developing a unified product taxonomy ── */}
+            {/* ── Sol 02:Developing a unified product taxonomy ── */}
             <div className={styles.sol02Block}>
               <div>
                 <span className={styles.solNum}>02</span>
@@ -169,7 +169,7 @@ export function SolutionsSection() {
               </div>
             </div>
 
-            {/* ── Sol 03 — Future-proofing for new verticals ── */}
+            {/* ── Sol 03:Future-proofing for new verticals ── */}
             <div className={styles.sol03Block}>
 
               {/* Sol 03 text */}
@@ -184,7 +184,7 @@ export function SolutionsSection() {
                 </p>
               </div>
 
-              {/* Sol 03 image — below text, centered at 320px */}
+              {/* Sol 03 image:below text, centered at 320px */}
               <div className={styles.sol03ImageOuter}>
                 <div
                   className={styles.sol03ImageInner}
