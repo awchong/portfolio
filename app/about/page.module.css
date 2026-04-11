@@ -113,7 +113,7 @@
 }
 
 .bioImage {
-  width: 414.4px;
+  width: 310px; /* Reduced from 414.4px to align bottom with text */
   aspect-ratio: 414.4 / 736.7;
   position: relative;
   flex-shrink: 0;
@@ -269,14 +269,15 @@
     width: 100%;
     max-width: 100%;
   }
-  .bioImage,
-  .personalImage {
+  .bioImage {
     width: 100%;
-    max-width: 414px; /* Maintain scale */
+    max-width: 310px;
     margin: 0 auto;
   }
   .personalImage {
+    width: 100%;
     max-width: 400px;
+    margin: 0 auto;
   }
 }
 
