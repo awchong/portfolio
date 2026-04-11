@@ -8,7 +8,7 @@ export default function About() {
 
       {/* ── Hero ── */}
       <section className={styles.hero}>
-        <div className={`container ${styles.heroInner}`}>
+        <div className={`${styles.aboutContainer} ${styles.heroInner}`}>
           <span className={styles.heroLabel}>About me</span>
           <h1 className={styles.heroTitle}>
             A designer who started<br />in the classroom.
@@ -23,11 +23,11 @@ export default function About() {
       <div className={styles.divider} />
 
       {/* ── Bio / How'd I get here? ── */}
-      <section className={styles.bio}>
-        <div className={`container ${styles.bioGrid}`}>
-          <div className={styles.bioLeft}>
-            <h2 className={styles.bioTitle}>How&rsquo;d I get here?</h2>
-            <div className={styles.bioText}>
+      <section className={styles.section}>
+        <div className={styles.aboutContainer}>
+          <h2 className={styles.sectionTitle}>How&rsquo;d I get here?</h2>
+          <div className={styles.grid}>
+            <div className={styles.textCol}>
               <p>
                 I grew up in a bilingual household. English at school, Cantonese at home
                 with my grandmother. Language was never just words; it was connection,
@@ -44,8 +44,6 @@ export default function About() {
                 experiences that could meet every student where they were. The same
                 lesson had to challenge a gifted reader, support an English learner,
                 and reach a student who needed a completely different entry point.
-              </p>
-              <p>
                 That&rsquo;s where I internalized what good design actually does: it
                 doesn&rsquo;t pick a user and optimize for them. It finds the
                 structures that work across the widest range of people, and makes
@@ -59,15 +57,15 @@ export default function About() {
                 friction, and design for the edges.
               </p>
             </div>
-          </div>
-          <div className={styles.bioRight}>
-            <Image
-              src="/images/allen-grandma.png"
-              alt="Allen with his grandmother"
-              fill
-              style={{ objectFit: 'cover' }}
-              priority
-            />
+            <div className={styles.bioImage}>
+              <Image
+                src="/images/allen-grandma.png"
+                alt="Allen with his grandmother"
+                fill
+                style={{ objectFit: 'cover' }}
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -76,11 +74,11 @@ export default function About() {
 
       {/* ── Career & Education ── */}
       <section className={styles.careerSection}>
-        <div className={`container ${styles.careerGrid}`}>
+        <div className={`${styles.aboutContainer} ${styles.careerGrid}`}>
           <div className={styles.careerLeft}>
             {/* Career */}
             <div className={styles.careerGroup}>
-              <h2 className={styles.sectionTitle}>Career</h2>
+              <h2 className={styles.careerTitle}>Career</h2>
               <div className={styles.itemList}>
                 <div className={styles.item}>
                   <span className={styles.itemHeader}>Staff Content Designer</span>
@@ -107,7 +105,7 @@ export default function About() {
 
             {/* Education */}
             <div className={styles.careerGroup}>
-              <h2 className={styles.sectionTitle}>Education</h2>
+              <h2 className={styles.careerTitle}>Education</h2>
               <div className={styles.itemList}>
                 <div className={styles.item}>
                   <span className={styles.itemHeader}>M.Ed., Education</span>
@@ -123,7 +121,7 @@ export default function About() {
 
           <div className={styles.careerRight}>
             <div className={styles.skillGroup}>
-              <h2 className={styles.sectionTitle}>Other skills</h2>
+              <h2 className={styles.careerTitle}>Other skills</h2>
               
               <div className={styles.skillItem}>
                 <span className={styles.skillLabel}>Languages</span>
@@ -172,11 +170,11 @@ export default function About() {
       <div className={styles.divider} />
 
       {/* ── Personal ── */}
-      <section className={styles.personal}>
-        <div className={`container ${styles.personalGrid}`}>
-          <div className={styles.personalLeft}>
-            <h2 className={styles.sectionTitle}>Personal</h2>
-            <div className={styles.personalContent}>
+      <section className={styles.section}>
+        <div className={styles.aboutContainer}>
+          <h2 className={styles.sectionTitle}>Personal</h2>
+          <div className={styles.grid}>
+            <div className={styles.textCol}>
               <p>Barry&rsquo;s Bootcamp cult member; judo novice</p>
               <p>
                 Scuba diver; logged dives with manta rays, sea turtles, and sharks in
@@ -191,14 +189,14 @@ export default function About() {
                 Claude Code
               </p>
             </div>
-          </div>
-          <div className={styles.personalRight}>
-            <Image
-              src="/images/manta-ray.png"
-              alt="Manta ray underwater"
-              fill
-              style={{ objectFit: 'cover' }}
-            />
+            <div className={styles.personalImage}>
+              <Image
+                src="/images/manta-ray.png"
+                alt="Manta ray underwater"
+                fill
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -207,7 +205,7 @@ export default function About() {
 
       {/* ── Footer ── */}
       <footer>
-        <div className={`container ${styles.footer}`}>
+        <div className={`${styles.aboutContainer} ${styles.footer}`}>
           <span>© 2026 Allen Chong</span>
           <div className={styles.footerLinks}>
             <a href="https://linkedin.com/in/allenchong" target="_blank" rel="noopener noreferrer">LinkedIn</a>

@@ -15,6 +15,15 @@
   background-color: var(--color-line);
 }
 
+/* Custom container for About page to match Figma's 943px-960px content width */
+.aboutContainer {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 8px; /* Results in 944px content width, matching Figma's ~943px */
+  padding-right: 8px;
+}
+
 /* ============================================================
    Hero
    Figma: 96px top/bottom padding
@@ -62,46 +71,39 @@
 }
 
 /* ============================================================
-   How'd I get here?
-   Two columns: Text left (445px), Image right (414px)
-   Gap: 80px
+   Common Section Layout
+   Used for Bio and Personal sections
    ============================================================ */
 
-.bio {
-  padding-top: 80px;
-  padding-bottom: 80px;
+.section {
+  padding-top: 82.8px;
+  padding-bottom: 82.8px;
 }
 
-.bioGrid {
-  display: flex;
-  gap: 80px;
-  align-items: flex-start;
-}
-
-.bioLeft {
-  flex: 1;
-  max-width: 445px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.bioTitle {
+.sectionTitle {
   font-family: var(--font-serif), Georgia, serif;
   font-size: 41.4px;
   font-weight: 400;
   line-height: 1.15;
   color: var(--color-black);
-  margin: 0;
+  margin-bottom: 8px; /* Figma gap: 8px */
 }
 
-.bioText {
+.grid {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.textCol {
+  flex: 1;
+  max-width: 445.5px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 16.5px; /* Figma gap: 16.57px */
 }
 
-.bioText p {
+.textCol p {
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 15.25px;
   font-weight: 400;
@@ -110,9 +112,9 @@
   margin: 0;
 }
 
-.bioRight {
-  width: 414px;
-  aspect-ratio: 414 / 736;
+.bioImage {
+  width: 414.4px;
+  aspect-ratio: 414.4 / 736.7;
   position: relative;
   flex-shrink: 0;
 }
@@ -147,7 +149,7 @@
   gap: 24px;
 }
 
-.sectionTitle {
+.careerTitle {
   font-family: var(--font-serif), Georgia, serif;
   font-size: 28px;
   font-weight: 400;
@@ -221,45 +223,9 @@
 
 /* ============================================================
    Personal
-   Two columns: Text left (445px), Image right (400px)
-   Gap: 80px
    ============================================================ */
 
-.personal {
-  padding-top: 80px;
-  padding-bottom: 80px;
-}
-
-.personalGrid {
-  display: flex;
-  gap: 80px;
-  align-items: flex-start;
-}
-
-.personalLeft {
-  flex: 1;
-  max-width: 445px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.personalContent {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.personalContent p {
-  font-family: var(--font-sans), system-ui, sans-serif;
-  font-size: 15.25px;
-  font-weight: 400;
-  line-height: 1.8;
-  color: var(--color-gray);
-  margin: 0;
-}
-
-.personalRight {
+.personalImage {
   width: 400px;
   aspect-ratio: 400 / 300;
   position: relative;
@@ -292,26 +258,24 @@
    ============================================================ */
 
 @media (max-width: 1056px) {
-  .bioGrid,
-  .careerGrid,
-  .personalGrid {
+  .grid,
+  .careerGrid {
     flex-direction: column;
     gap: 40px;
   }
-  .bioLeft,
+  .textCol,
   .careerLeft,
-  .careerRight,
-  .personalLeft {
+  .careerRight {
     width: 100%;
     max-width: 100%;
   }
-  .bioRight,
-  .personalRight {
+  .bioImage,
+  .personalImage {
     width: 100%;
     max-width: 414px; /* Maintain scale */
     margin: 0 auto;
   }
-  .personalRight {
+  .personalImage {
     max-width: 400px;
   }
 }
@@ -329,6 +293,10 @@
 @media (max-width: 720px) {
   .heroTitle {
     font-size: 32px;
+  }
+  .aboutContainer {
+    padding-left: 24px;
+    padding-right: 24px;
   }
   .footer {
     height: auto;
