@@ -59,7 +59,7 @@ export default function Home() {
                 discoverability feel safe.
               </p>
               <Link href="/case-studies/paradigm-shift" className="cta-link">
-                See more →
+                <span>See more</span> <span className={styles.arrow}>→</span>
               </Link>
             </div>
             <div className={styles.csImage}>
@@ -92,7 +92,7 @@ export default function Home() {
                 for both admins and members.
               </p>
               <Link href="/case-studies/cold-start" className="cta-link">
-                See more →
+                <span>See more</span> <span className={styles.arrow}>→</span>
               </Link>
             </div>
             <div className={styles.csImage}>
@@ -125,7 +125,7 @@ export default function Home() {
                 messaging ecosystem.
               </p>
               <Link href="/case-studies/naming-architecture" className="cta-link">
-                See more →
+                <span>See more</span> <span className={styles.arrow}>→</span>
               </Link>
             </div>
             <div className={styles.csImage}>
@@ -151,7 +151,7 @@ export default function Home() {
           <div className={styles.highlightsHeader}>
             <span className={styles.sectionLabel}>Highlights</span>
             <Link href="/highlights" className="cta-link">
-              See more →
+              <span>See more</span> <span className={styles.arrow}>→</span>
             </Link>
           </div>
           <div className={styles.sectionDivider} />
@@ -203,7 +203,7 @@ export default function Home() {
                 respect for how people learn and process information.
               </p>
               <Link href="/about" className="cta-link">
-                About me →
+                <span>About me</span> <span className={styles.arrow}>→</span>
               </Link>
             </div>
           </div>

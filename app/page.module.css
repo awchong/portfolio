@@ -296,3 +296,19 @@
   display: flex;
   gap: 28px;
 }
+
+/* ── CTA Link Hover Polish ── */
+:global(.cta-link):hover {
+  text-decoration: none; /* Disable default underline */
+}
+
+:global(.cta-link):hover span:not(.arrow) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.arrow {
+  text-decoration: none !important;
+  display: inline-block;
+  margin-left: 4px;
+}
