@@ -188,9 +188,9 @@ export default function Home() {
       <div className={styles.navDivider} />
       <section className={styles.about}>
         <div className="container">
+          <span className={styles.sectionLabel}>About</span>
           <div className={styles.aboutInner}>
             <div className={styles.aboutLeft}>
-              <span className={styles.sectionLabel}>About</span>
               <p className={styles.aboutHeadline}>
                 Staff-level craft,<br />relentless curiosity.
               </p>

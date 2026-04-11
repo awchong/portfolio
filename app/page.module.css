@@ -240,9 +240,15 @@
   padding-bottom: 96px;
 }
 
+.about .sectionLabel {
+  display: block;
+  margin-bottom: 24px;
+}
+
 .aboutInner {
   display: flex;
   gap: 80px;
+  align-items: flex-start;
 }
 
 .aboutLeft {
