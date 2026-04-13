@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { SolutionsSection } from './SolutionsSection';
+import ContactForm from '../../components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Paradigm Shift — Allen Chong',
@@ -136,15 +137,22 @@ export default function ParadigmShift() {
 
           </div>
         </div>
-      </section>
+      <div className={styles.navDivider} />
+
+      <ContactForm />
+
+      <div className={styles.navDivider} />
 
       {/* ── Footer ── */}
-      <div className={styles.navDivider} />
       <footer>
         <div className={`container ${styles.footer}`}>
           <span>© 2026 Allen Chong</span>
           <div className={styles.footerLinks}>
-            <a href="https://linkedin.com/in/allenchong" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://linkedin.com/in/allenchong"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               LinkedIn
             </a>
             <a
@@ -154,10 +162,8 @@ export default function ParadigmShift() {
             >
               Substack
             </a>
-            <a href="mailto:hello@allenchong.studio">Contact</a>
+            <a href="#contact">Contact</a>
           </div>
         </div>
       </footer>
-    </>
-  );
-}
+
