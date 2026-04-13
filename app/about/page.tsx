@@ -1,6 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import styles from './page.module.css';
-import ContactForm from '../components/ContactForm';
+import { openContactForm } from '../components/ContactFormModal';
 
 export default function About() {
   return (
@@ -204,10 +206,6 @@ export default function About() {
 
       <div className={styles.navDivider} />
 
-      <ContactForm />
-
-      <div className={styles.navDivider} />
-
       {/* ── Footer ── */}
       <footer>
         <div className={`${styles.aboutContainer} ${styles.footer}`}>
@@ -215,7 +213,7 @@ export default function About() {
           <div className={styles.footerLinks}>
             <a href="https://linkedin.com/in/allenchong" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://allenchong.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
-            <a href="#contact">Contact</a>
+            <button onClick={openContactForm} className={styles.footerLinkButton}>Contact</button>
           </div>
         </div>
       </footer>

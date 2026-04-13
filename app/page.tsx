@@ -1,7 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
-import ContactForm from './components/ContactForm';
+import { openContactForm } from './components/ContactFormModal';
 
 export default function Home() {
   return (
@@ -211,10 +213,6 @@ export default function Home() {
         </div>
       </section>
 
-      <div className={styles.navDivider} />
-
-      <ContactForm />
-
       {/* ── Footer ── */}
       <div className={styles.navDivider} />
       <footer>
@@ -223,7 +221,7 @@ export default function Home() {
           <div className={styles.footerLinks}>
             <a href="https://linkedin.com/in/allenchong" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://allenchong.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
-            <a href="#contact">Contact</a>
+            <button onClick={openContactForm} className={styles.footerLinkButton}>Contact</button>
           </div>
         </div>
       </footer>

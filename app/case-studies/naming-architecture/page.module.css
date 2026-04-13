@@ -460,6 +460,22 @@
   gap: 28px;
 }
 
+.footerLinkButton {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.footerLinkButton:hover {
+  color: var(--color-terracotta);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* ============================================================
    Solutions + Outcome stack (≤1056px)
    ============================================================ */

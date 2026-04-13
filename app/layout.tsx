@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Instrument_Sans } from "next/font/google";
 import Nav from "./components/Nav";
+import ContactFormModal from "./components/ContactFormModal";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body>
         <Nav />
         {children}
+        <ContactFormModal />
       </body>
     </html>
   );

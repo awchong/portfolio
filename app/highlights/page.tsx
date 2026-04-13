@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import Script from 'next/script';
 import styles from './page.module.css';
-import ContactForm from '../components/ContactForm';
+import { openContactForm } from '../components/ContactFormModal';
 
 // Lazy load Wistia player for performance
 const WistiaPlayer = dynamic(
@@ -223,10 +223,6 @@ export default function Highlights() {
 
       <div className={styles.navDivider} />
 
-      <ContactForm />
-
-      <div className={styles.navDivider} />
-
       {/* ── Footer ── */}
       <footer>
         <div className={`${styles.highlightsContainer} ${styles.footer}`}>
@@ -234,7 +230,7 @@ export default function Highlights() {
           <div className={styles.footerLinks}>
             <a href="https://linkedin.com/in/allenchong" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://allenchong.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>
-            <a href="#contact">Contact</a>
+            <button onClick={openContactForm} className={styles.footerLinkButton}>Contact</button>
           </div>
         </div>
       </footer>

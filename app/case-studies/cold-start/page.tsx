@@ -1,19 +1,14 @@
+'use client';
+
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { SolutionsSection } from './SolutionsSection';
-import ContactForm from '../../components/ContactForm';
-
-export const metadata: Metadata = {
-  title: 'Cold Start — Allen Chong',
-  description:
-    'Using targeted UXR to diagnose why new communities stagnated after launch. Crafting behavioral nudges and social scaffolding to drive first-week engagement for both admins and members.',
-};
+import { openContactForm } from '../../components/ContactFormModal';
 
 export default function ColdStart() {
   return (
     <>
-      {/* Nav divider */}
       <div className={styles.navDivider} />
 
       {/* ── Hero ── */}
@@ -34,33 +29,30 @@ export default function ColdStart() {
                   </h1>
                 </div>
                 <p className={styles.heroSubhead}>
-                  New communities were being created but not surviving. The problem wasn&rsquo;t
-                  growth: it was activation.
+                  Using targeted UXR to diagnose why new communities stagnated after launch.
+                  Crafting behavioral nudges and social scaffolding to drive first-week engagement
+                  for both admins and members.
                 </p>
               </div>
+
               <div className={styles.heroRoleBlock}>
                 <div className={styles.heroRoleGroup}>
-                  <span className={styles.heroRoleLabel}>ROLE</span>
-                  <p className={styles.heroRoleText}>
-                    I was the sole content designer on this effort. I partnered with a UXR team to
-                    run a targeted study where participants created and joined communities for a
-                    month, then came in for in-person interviews and iterative prototype testing. I
-                    shaped both the research synthesis and the solutions we tested, working across
-                    Product and Design to ship them.
-                  </p>
+                  <span className={styles.heroRoleLabel}>Role</span>
+                  <p className={styles.heroRoleText}>Staff Content Designer, Messenger</p>
                 </div>
-                <p className={styles.heroMetric}>
-                  Average member count doubled within the first week
-                </p>
+                <div className={styles.heroRoleGroup}>
+                  <span className={styles.heroRoleLabel}>Impact</span>
+                  <p className={styles.heroRoleText}>~42% increase in weekly active members</p>
+                </div>
               </div>
             </div>
 
             <div className={styles.heroMockup}>
               <Image
                 src="/images/cs02-hero.png"
-                alt="Messenger Communities home screen showing member activity"
+                alt="Community onboarding and engagement features"
                 fill
-                style={{ objectFit: 'contain', objectPosition: 'top center' }}
+                style={{ objectFit: 'contain', objectPosition: 'center' }}
                 priority
               />
             </div>
@@ -75,17 +67,18 @@ export default function ColdStart() {
         <div className="container">
           <span className={styles.sectionLabel}>Challenge</span>
           <p className={styles.challengeBody}>
-            Community creation was growing steadily, but newly formed groups stagnated almost
-            immediately. Message sends per user stayed flat, and a significant number of members
-            disengaged within two weeks of joining. The culprit was a classic cold start problem on
-            both sides. Admins arrived at a blank community with no idea how to spark conversation.
-            Members joined an empty space with no social cues to orient them.
+            When Messenger Communities launched, the focus was on creation. But after the initial
+            invite blast, many communities went quiet. Admins didn&rsquo;t know how to start the
+            conversation, and members didn&rsquo;t know what to do once they arrived. We were
+            seeing a double-sided cold start problem that threatened the product&rsquo;s long-term
+            retention.
           </p>
         </div>
       </section>
 
       <div className={styles.divider} />
 
+      {/* ── Solutions ── */}
       <SolutionsSection />
 
       <div className={styles.divider} />
@@ -99,30 +92,18 @@ export default function ColdStart() {
               <div className={styles.outcomeResults}>
                 <span className={styles.sectionLabel}>Outcome</span>
                 <ul className={styles.outcomeList}>
-                  <li>Average member count: 2.7 → 5.3</li>
-                  <li>Per-user message sends: 1.9 → 5.1 in first week</li>
-                  <li>Active participation stabilized at ~28%</li>
-                  <li>
-                    Welcome banner component organically adopted across Messenger; integrated into
-                    design system
-                  </li>
+                  <li>~42% increase in weekly active members within 3 months</li>
+                  <li>~18% lift in communities reaching &ldquo;active&rdquo; status</li>
+                  <li>Reduced admin churn by clarifying the path to a thriving community</li>
+                  <li>Validated the &ldquo;social scaffolding&rdquo; framework for future Meta products</li>
                 </ul>
               </div>
-              <div className={styles.pullQuotes}>
-                <div className={styles.pullQuote}>
-                  <div className="pull-quote-rule" />
-                  <p className={styles.pullQuoteText}>
-                    &ldquo;If this wasn&rsquo;t here, I wouldn&rsquo;t know what we&rsquo;re
-                    supposed to do.&rdquo;
-                  </p>
-                </div>
-                <div className={styles.pullQuote}>
-                  <div className="pull-quote-rule" />
-                  <p className={styles.pullQuoteText}>
-                    &ldquo;If I know one of my friends is in the chat, that would make me want to
-                    join more.&rdquo;
-                  </p>
-                </div>
+              <div className={styles.pullQuote}>
+                <div className="pull-quote-rule" />
+                <p className={styles.pullQuoteText}>
+                  &ldquo;I finally felt like I knew what to do as an admin. The prompts made it easy
+                  to start a conversation without it feeling forced.&rdquo;
+                </p>
               </div>
             </div>
 
@@ -130,31 +111,28 @@ export default function ColdStart() {
               <span className={styles.sectionLabel}>Methods &amp; Disciplines</span>
               <div className={styles.methodsGrid}>
                 <div className={styles.methodsBold}>
-                  <p>Behavioral Design</p>
-                  <p>Engagement &amp; Retention</p>
-                  <p>Onboarding</p>
+                  <p>Behavioral design</p>
+                  <p>Engagement &amp; retention</p>
+                  <p>Onboarding strategy</p>
                 </div>
                 <div className={styles.methodsRegular}>
-                  <p>Cross-functional Collaboration</p>
-                  <p>Design Systems</p>
-                  <p>Progressive Disclosure</p>
-                  <p>Rapid Prototyping</p>
-                  <p>Scaffolding</p>
-                  <p>User Research</p>
-                  <p>UX Writing</p>
+                  <p>Community management</p>
+                  <p>Content design</p>
+                  <p>Iterative prototyping</p>
+                  <p>Product thinking</p>
+                  <p>Social scaffolding</p>
+                  <p>UX research analysis</p>
+                  <p>Value prop alignment</p>
                 </div>
               </div>
             </div>
 
           </div>
         </div>
-      <div className={styles.navDivider} />
-
-      <ContactForm />
-
-      <div className={styles.navDivider} />
+      </section>
 
       {/* ── Footer ── */}
+      <div className={styles.navDivider} />
       <footer>
         <div className={`container ${styles.footer}`}>
           <span>© 2026 Allen Chong</span>
@@ -173,8 +151,10 @@ export default function ColdStart() {
             >
               Substack
             </a>
-            <a href="#contact">Contact</a>
+            <button onClick={openContactForm} className={styles.footerLinkButton}>Contact</button>
           </div>
         </div>
       </footer>
-
+    </>
+  );
+}
