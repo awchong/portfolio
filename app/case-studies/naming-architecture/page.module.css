@@ -385,6 +385,12 @@
   gap: 24px;
 }
 
+.outcomeResults {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .outcomeList {
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--text-body);
@@ -397,6 +403,25 @@
 
 .outcomeList li {
   line-height: var(--lh-relaxed);
+}
+
+.pullQuote {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* .pull-quote-rule comes from globals.css */
+
+.pullQuoteText {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: var(--text-pull-quote);
+  font-style: italic;
+  font-weight: 400;
+  line-height: var(--lh-normal);
+  color: var(--color-gray);
+  max-width: 425px;
+  margin: 0;
 }
 
 /* ── Right column ── */

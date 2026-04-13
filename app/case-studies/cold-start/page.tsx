@@ -42,7 +42,7 @@ export default function ColdStart() {
                 </div>
                 <div className={styles.heroRoleGroup}>
                   <span className={styles.heroRoleLabel}>Impact</span>
-                  <p className={styles.heroRoleText}>~42% increase in weekly active members</p>
+                  <p className={styles.heroRoleText}>Average member count doubled within the first week</p>
                 </div>
               </div>
             </div>
@@ -92,18 +92,30 @@ export default function ColdStart() {
               <div className={styles.outcomeResults}>
                 <span className={styles.sectionLabel}>Outcome</span>
                 <ul className={styles.outcomeList}>
-                  <li>~42% increase in weekly active members within 3 months</li>
-                  <li>~18% lift in communities reaching &ldquo;active&rdquo; status</li>
-                  <li>Reduced admin churn by clarifying the path to a thriving community</li>
-                  <li>Validated the &ldquo;social scaffolding&rdquo; framework for future Meta products</li>
+                  <li>Average member count: 2.7 → 5.3</li>
+                  <li>Per-user message sends: 1.9 → 5.1 in first week</li>
+                  <li>Active participation stabilized at ~28%</li>
+                  <li>
+                    Welcome banner component organically adopted across Messenger; integrated into
+                    design system
+                  </li>
                 </ul>
               </div>
-              <div className={styles.pullQuote}>
-                <div className="pull-quote-rule" />
-                <p className={styles.pullQuoteText}>
-                  &ldquo;I finally felt like I knew what to do as an admin. The prompts made it easy
-                  to start a conversation without it feeling forced.&rdquo;
-                </p>
+              <div className={styles.pullQuotes}>
+                <div className={styles.pullQuote}>
+                  <div className="pull-quote-rule" />
+                  <p className={styles.pullQuoteText}>
+                    &ldquo;If this wasn&rsquo;t here, I wouldn&rsquo;t know what we&rsquo;re supposed
+                    to do.&rdquo;
+                  </p>
+                </div>
+                <div className={styles.pullQuote}>
+                  <div className="pull-quote-rule" />
+                  <p className={styles.pullQuoteText}>
+                    &ldquo;If I know one of my friends is in the chat, that would make me want to
+                    join more.&rdquo;
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -111,18 +123,18 @@ export default function ColdStart() {
               <span className={styles.sectionLabel}>Methods &amp; Disciplines</span>
               <div className={styles.methodsGrid}>
                 <div className={styles.methodsBold}>
-                  <p>Behavioral design</p>
-                  <p>Engagement &amp; retention</p>
-                  <p>Onboarding strategy</p>
+                  <p>Behavioral Design</p>
+                  <p>Engagement &amp; Retention</p>
+                  <p>Onboarding</p>
                 </div>
                 <div className={styles.methodsRegular}>
-                  <p>Community management</p>
-                  <p>Content design</p>
-                  <p>Iterative prototyping</p>
-                  <p>Product thinking</p>
-                  <p>Social scaffolding</p>
-                  <p>UX research analysis</p>
-                  <p>Value prop alignment</p>
+                  <p>Cross-functional Collaboration</p>
+                  <p>Design Systems</p>
+                  <p>Progressive Disclosure</p>
+                  <p>Rapid Prototyping</p>
+                  <p>Scaffolding</p>
+                  <p>User Research</p>
+                  <p>UX Writing</p>
                 </div>
               </div>
             </div>

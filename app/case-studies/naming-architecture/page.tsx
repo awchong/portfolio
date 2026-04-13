@@ -93,25 +93,21 @@ export default function NamingArchitecture() {
               <div className={styles.outcomeResults}>
                 <span className={styles.sectionLabel}>Outcome</span>
                 <ul className={styles.outcomeList}>
+                  <li>Taxonomy reduced from 6 terms to 4</li>
                   <li>
-                    Established a single source of truth for community terminology across Meta
+                    First terminology alignment between IG and Messenger for community messaging
+                    products
+                  </li>
+                  <li>&ldquo;Broadcast&rdquo; and &ldquo;social&rdquo; modifiers eliminated</li>
+                  <li>
+                    Channel and chat established as core primitives; community as meta-primitive
                   </li>
                   <li>
-                    Reduced localization overhead by consolidating redundant strings across apps
+                    Engineering, Product, and Legal provided a locked term database, reducing naming
+                    negotiation cycles
                   </li>
-                  <li>
-                    Simplified the &ldquo;Omnipicker&rdquo; experience, making it easier for users
-                    to find and join communities
-                  </li>
-                  <li>Aligned Messenger and IG roadmaps around a unified content system</li>
+                  <li>Naming system designed to scale into new verticals without future renames</li>
                 </ul>
-              </div>
-              <div className={styles.pullQuote}>
-                <div className="pull-quote-rule" />
-                <p className={styles.pullQuoteText}>
-                  &ldquo;This is the first time both teams are actually speaking the same language.
-                  It makes everything from design to dev so much faster.&rdquo;
-                </p>
               </div>
             </div>
 
@@ -119,17 +115,18 @@ export default function NamingArchitecture() {
               <span className={styles.sectionLabel}>Methods &amp; Disciplines</span>
               <div className={styles.methodsGrid}>
                 <div className={styles.methodsBold}>
-                  <p>Content strategy</p>
+                  <p>Content Strategy</p>
                   <p>Localization</p>
-                  <p>Taxonomy design</p>
+                  <p>Taxonomy Design</p>
                 </div>
                 <div className={styles.methodsRegular}>
-                  <p>Cross-app alignment</p>
-                  <p>Information architecture</p>
-                  <p>Stakeholder management</p>
-                  <p>String consolidation</p>
-                  <p>Terminology management</p>
-                  <p>UX writing systems</p>
+                  <p>Content Design</p>
+                  <p>Cross-app Design</p>
+                  <p>Cross-functional Collaboration</p>
+                  <p>Information Architecture</p>
+                  <p>Nomenclature</p>
+                  <p>Stakeholder Alignment</p>
+                  <p>Systems Thinking</p>
                 </div>
               </div>
             </div>
