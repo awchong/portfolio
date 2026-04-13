@@ -50,10 +50,7 @@ export default function ContactFormModal() {
         </button>
         
         <div className={styles.headerGroup}>
-          <h2 className={styles.header}>Let’s Talk</h2>
-          <p className={styles.subheader}>
-            Available for content design strategy, mentorship, or just a coffee in the Mission.
-          </p>
+          <h2 className={styles.header}>Contact me</h2>
         </div>
 
         <ContactForm />
