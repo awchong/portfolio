@@ -2,8 +2,20 @@
 
 import dynamic from 'next/dynamic';
 import Script from 'next/script';
+import { useEffect } from 'react';
 import styles from './page.module.css';
 import { openContactForm } from '../components/ContactFormModal';
+
+// Extend Window interface for Instagram embed script
+declare global {
+  interface Window {
+    instgrm?: {
+      Embeds: {
+        process: () => void;
+      };
+    };
+  }
+}
 
 // Lazy load Wistia player for performance
 const WistiaPlayer = dynamic(
@@ -12,11 +24,24 @@ const WistiaPlayer = dynamic(
 );
 
 export default function Highlights() {
+  useEffect(() => {
+    // Manually trigger Instagram embed processing when the component mounts
+    if (window.instgrm) {
+      window.instgrm.Embeds.process();
+    }
+  }, []);
+
   return (
     <>
       <Script
         src="https://www.instagram.com/embed.js"
         strategy="lazyOnload"
+        onLoad={() => {
+          // Process embeds immediately once the script loads for the first time
+          if (window.instgrm) {
+            window.instgrm.Embeds.process();
+          }
+        }}
       />
 
       {/* Nav divider */}

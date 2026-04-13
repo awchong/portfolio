@@ -315,11 +315,4 @@
     padding-left: 24px;
     padding-right: 24px;
   }
-  .footer {
-    height: auto;
-    padding: 16px 0;
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
-  }
 }
