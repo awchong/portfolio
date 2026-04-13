@@ -57,8 +57,8 @@ const SOL02_IMAGES = [
     alt: 'Require approval to join toggle in off state',
     containerClass: styles.sol02ImgTopLeft,
     objectPosition: 'center',
-    cropWidth: 212,
-    cropHeight: 61,
+    cropWidth: 4680,
+    cropHeight: 1352,
   },
   {
     kind: 'image' as const,
@@ -67,8 +67,8 @@ const SOL02_IMAGES = [
     alt: 'Require approval to join toggle in on state',
     containerClass: styles.sol02ImgBottomLeft,
     objectPosition: 'center',
-    cropWidth: 213,
-    cropHeight: 62,
+    cropWidth: 4680,
+    cropHeight: 1352,
   },
   {
     kind: 'image' as const,
@@ -77,8 +77,8 @@ const SOL02_IMAGES = [
     alt: 'About this community panel showing visibility and safety disclosures',
     containerClass: styles.sol02ImgRight,
     objectPosition: 'bottom',
-    cropWidth: 213,
-    cropHeight: 179,
+    cropWidth: 4680,
+    cropHeight: 4204,
   },
 ];
 
