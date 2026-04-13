@@ -24,7 +24,7 @@ const SOL01_IMAGES: ImageItem[] = [
   {
     kind: 'image',
     caption: 'New community invite banner: 0 members',
-    src: '/images/invite-banner-start-LG.png',
+    src: '/images/invite-banner-start-LG1.png',
     alt: 'Invite banner showing a new community with 0 members',
     cropWidth: 47,
     cropHeight: 22,
@@ -33,7 +33,7 @@ const SOL01_IMAGES: ImageItem[] = [
   {
     kind: 'image',
     caption: 'New community invite banner: 5 members',
-    src: '/images/invite-banner-end-LG.png',
+    src: '/images/invite-banner-end-LG1.png',
     alt: 'Invite banner showing a new community with 5 members',
     cropWidth: 47,
     cropHeight: 22,
@@ -44,7 +44,7 @@ const SOL01_IMAGES: ImageItem[] = [
 const SOL02_IMAGE: ImageItem = {
   kind: 'image',
   caption: 'New community welcome banner: replaces invite banner',
-  src: '/images/welcome-banner-new.png',
+  src: '/images/welcome-banner-new1.png',
   alt: 'New community welcome banner shown to all members on entry',
   cropWidth: 631,
   cropHeight: 250,
@@ -54,7 +54,7 @@ const SOL02_IMAGE: ImageItem = {
 const SOL03_IMAGE: ImageItem = {
   kind: 'image',
   caption: 'New community home: member side',
-  src: '/images/member-cold-start-new.png',
+  src: '/images/member-cold-start-new1.png',
   alt: 'New community home screen showing member experience with pinned chat and social cues',
   cropWidth: 195,
   cropHeight: 422,
