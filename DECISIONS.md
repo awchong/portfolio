@@ -84,6 +84,9 @@ finalization
 ## Writing Rules
 - Em dashes are acceptable in hero subheads and as closing punches
   at the end of paragraphs. Not acceptable within body prose.
+- Hero titles on About and Highlights pages use a more editorial, 
+  punchy style: no trailing periods; commas preferred over em dashes 
+  to maintain visual lightness.
 - Participial "-ing" verb form in all case study titles
 - Two sentences per case study description, consistent length
 - <strong> for company names — contrast without callout boxes
@@ -579,3 +582,4 @@ Sol03 ("Reducing member cold start") had no standalone quantitative metric. Both
 
 ### Lightbox Aesthetic (updated 2026-04-14)
 - **Decision:** The `.imgCroppedContainer` in `Lightbox.module.css` has NO padding. An earlier version added `padding: 8px`, but this caused a geometry bug: `aspect-ratio` applies to the border box, so with padding the content box had a slightly different ratio than the image, producing ~9px of letterbox on the top and bottom (but not the sides) — visually asymmetric. Removing padding fixes this; the border hugs the image cleanly. `border-radius: 16px` + `overflow: hidden` still frames the image. Applies globally to all lightbox images.
+- **Exception (2026-04-14):** The Case Study 03 "Omnipicker" wireframe (Sol 03) uses `lightboxPadding: 8` as an exception to ensure the annotated elements are properly framed within the white background container. This is passed as a prop and applied as an inline style.
