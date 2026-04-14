@@ -1,6 +1,5 @@
 'use client';
 
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { SolutionsSection } from './SolutionsSection';
@@ -38,11 +37,12 @@ export default function ParadigmShift() {
               <div className={styles.heroRoleBlock}>
                 <div className={styles.heroRoleGroup}>
                   <span className={styles.heroRoleLabel}>Role</span>
-                  <p className={styles.heroRoleText}>Staff Content Designer, Messenger</p>
-                </div>
-                <div className={styles.heroRoleGroup}>
-                  <span className={styles.heroRoleLabel}>Impact</span>
-                  <p className={styles.heroRoleText}>~23% lift in community creation within 6 weeks</p>
+                  <p className={styles.heroRoleText}>
+                    I was the sole content designer on this zero-to-one launch, a company-level
+                    priority. Working across Product, Design, Research, and Legal, I owned the
+                    product identity, the new user experience, and the trust and safety content
+                    strategy from the ground up.
+                  </p>
                 </div>
               </div>
             </div>

@@ -15,15 +15,6 @@
   background-color: var(--color-line);
 }
 
-/* Custom container for About page to match Figma's 943px-960px content width */
-.aboutContainer {
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 8px; /* Results in 944px content width, matching Figma's ~943px */
-  padding-right: 8px;
-}
-
 /* ============================================================
    Hero
    Figma: 96px top/bottom padding
@@ -42,10 +33,10 @@
 
 .heroLabel {
   font-family: var(--font-sans), system-ui, sans-serif;
-  font-size: 11.2px;
+  font-size: var(--text-label);
   font-weight: 400;
-  line-height: 1.22;
-  letter-spacing: 0.15em;
+  line-height: 1;
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-gray);
 }
@@ -76,8 +67,8 @@
    ============================================================ */
 
 .section {
-  padding-top: 82.8px;
-  padding-bottom: 82.8px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .sectionTitle {
@@ -137,7 +128,7 @@
 }
 
 .careerLeft {
-  width: 400px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -187,7 +178,7 @@
 }
 
 .careerRight {
-  width: 440px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -270,24 +261,25 @@
 
 /* ============================================================
    Responsive
-   Match CS01 threshold (1056px) for stacking columns.
+   Two different snap thresholds:
+   — Text + image (.grid): stack at 820px, where the text column
+     beside a 365–400px image becomes too narrow to read comfortably.
+   — Text + text (.careerGrid): stack at 720px (mobile), since flex
+     columns can share space all the way down to that width.
    ============================================================ */
 
-@media (max-width: 1056px) {
-  .grid,
-  .careerGrid {
+@media (max-width: 820px) {
+  .grid {
     flex-direction: column;
     gap: 40px;
   }
-  .textCol,
-  .careerLeft,
-  .careerRight {
+  .textCol {
     width: 100%;
     max-width: 100%;
   }
   .bioImage {
     width: 100%;
-    max-width: 365px; /* Aligned with updated bioImage width */
+    max-width: 365px;
     margin: 0 auto;
   }
   .personalImage {
@@ -295,9 +287,6 @@
     max-width: 400px;
     margin: 0 auto;
   }
-}
-
-@media (max-width: 820px) {
   .heroTitle {
     font-size: 48px;
     max-width: 100%;
@@ -308,11 +297,16 @@
 }
 
 @media (max-width: 720px) {
+  .careerGrid {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .careerLeft,
+  .careerRight {
+    width: 100%;
+    max-width: 100%;
+  }
   .heroTitle {
     font-size: 32px;
-  }
-  .aboutContainer {
-    padding-left: 24px;
-    padding-right: 24px;
   }
 }

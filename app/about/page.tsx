@@ -11,7 +11,7 @@ export default function About() {
 
       {/* ── Hero ── */}
       <section className={styles.hero}>
-        <div className={`${styles.aboutContainer} ${styles.heroInner}`}>
+        <div className={`container ${styles.heroInner}`}>
           <span className={styles.heroLabel}>About me</span>
           <h1 className={styles.heroTitle}>
             A designer who started<br />in the classroom.
@@ -27,7 +27,7 @@ export default function About() {
 
       {/* ── Bio / How'd I get here? ── */}
       <section className={styles.section}>
-        <div className={styles.aboutContainer}>
+        <div className="container">
           <h2 className={styles.sectionTitle}>How&rsquo;d I get here?</h2>
           <div className={styles.grid}>
             <div className={styles.textCol}>
@@ -77,7 +77,7 @@ export default function About() {
 
       {/* ── Career & Education ── */}
       <section className={styles.careerSection}>
-        <div className={`${styles.aboutContainer} ${styles.careerGrid}`}>
+        <div className={`container ${styles.careerGrid}`}>
           <div className={styles.careerLeft}>
             {/* Career */}
             <div className={styles.careerGroup}>
@@ -174,7 +174,7 @@ export default function About() {
 
       {/* ── Personal ── */}
       <section className={styles.section}>
-        <div className={styles.aboutContainer}>
+        <div className="container">
           <h2 className={styles.sectionTitle}>Personal</h2>
           <div className={styles.grid}>
             <div className={styles.textCol}>
@@ -208,7 +208,7 @@ export default function About() {
 
       {/* ── Footer ── */}
       <footer>
-        <div className={`${styles.aboutContainer} ${styles.footer}`}>
+        <div className={`container ${styles.footer}`}>
           <span>© 2026 Allen Chong</span>
           <div className={styles.footerLinks}>
             <a href="https://linkedin.com/in/allenchong" target="_blank" rel="noopener noreferrer">LinkedIn</a>

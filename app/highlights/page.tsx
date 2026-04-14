@@ -49,7 +49,7 @@ export default function Highlights() {
 
       {/* ── Hero ── */}
       <section className={styles.hero}>
-        <div className={styles.highlightsContainer}>
+        <div className="container">
           <div className={styles.heroInner}>
             <span className={styles.heroLabel}>HIGHLIGHTS</span>
             <h1 className={styles.heroTitle}>
@@ -67,7 +67,7 @@ export default function Highlights() {
 
       {/* ── Section 1: Games ── */}
       <section className={styles.section}>
-        <div className={styles.highlightsContainer}>
+        <div className="container">
           <div className={styles.sectionHeader}>
             <span className={styles.sectionLabel}>GAMES</span>
             <h2 className={styles.itemTitle}>Commas game · Elevate Labs</h2>
@@ -111,7 +111,7 @@ export default function Highlights() {
 
       {/* ── Section 2: Curriculum ── */}
       <section className={styles.section}>
-        <div className={styles.highlightsContainer}>
+        <div className="container">
           <div className={styles.sectionHeader}>
             <span className={styles.sectionLabel}>CURRICULUM</span>
             <h2 className={styles.itemTitle}>Language arts skill library · IXL Learning</h2>
@@ -157,7 +157,7 @@ export default function Highlights() {
 
       {/* ── Section 3: Marketing (Meta) ── */}
       <section className={styles.section}>
-        <div className={styles.highlightsContainer}>
+        <div className="container">
           <div className={styles.sectionHeader}>
             <span className={styles.sectionLabel}>MARKETING</span>
             <h2 className={styles.itemTitle}>Back-to-school campaign · Messenger @ Meta</h2>
@@ -206,7 +206,7 @@ export default function Highlights() {
 
       {/* ── Section 4: Marketing (Growth) ── */}
       <section className={styles.section}>
-        <div className={styles.highlightsContainer}>
+        <div className="container">
           <div className={styles.sectionHeader}>
             <span className={styles.sectionLabel}>MARKETING</span>
             <h2 className={styles.itemTitle}>Growth campaign · Elevate Labs</h2>
@@ -250,7 +250,7 @@ export default function Highlights() {
 
       {/* ── Footer ── */}
       <footer>
-        <div className={`${styles.highlightsContainer} ${styles.footer}`}>
+        <div className={`container ${styles.footer}`}>
           <span>© 2026 Allen Chong</span>
           <div className={styles.footerLinks}>
             <a href="https://linkedin.com/in/allenchong" target="_blank" rel="noopener noreferrer">LinkedIn</a>

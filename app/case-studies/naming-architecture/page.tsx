@@ -1,6 +1,5 @@
 'use client';
 
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { SolutionsSection } from './SolutionsSection';
@@ -29,20 +28,23 @@ export default function NamingArchitecture() {
                   </h1>
                 </div>
                 <p className={styles.heroSubhead}>
-                  Reconciling two years of fragmented, internally confusing naming across IG and
-                  Messenger into a unified, localization-ready taxonomy built to scale across
-                  Meta&rsquo;s community ecosystem.
+                  Reconciling two years of fractured, redundant naming across Instagram and
+                  Messenger into a single unified taxonomy — localization-ready and built to
+                  scale across Meta&rsquo;s community ecosystem.
                 </p>
               </div>
 
               <div className={styles.heroRoleBlock}>
                 <div className={styles.heroRoleGroup}>
                   <span className={styles.heroRoleLabel}>Role</span>
-                  <p className={styles.heroRoleText}>Staff Content Designer, Messenger</p>
-                </div>
-                <div className={styles.heroRoleGroup}>
-                  <span className={styles.heroRoleLabel}>Impact</span>
-                  <p className={styles.heroRoleText}>Successful cross-app reconciliation</p>
+                  <p className={styles.heroRoleText}>
+                    I represented Messenger&rsquo;s community messaging pillar as part of a
+                    cross-functional v-team of content designers spanning Instagram and Messenger.
+                    While the taxonomy work was collaborative, I owned the naming architecture
+                    for my product area and drove alignment across teams, brokering agreement
+                    between IG and MSGR on shared vocabulary, and leading the linguistic audit
+                    that became the foundation for the unified system.
+                  </p>
                 </div>
               </div>
             </div>
