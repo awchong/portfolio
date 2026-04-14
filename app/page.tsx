@@ -25,7 +25,7 @@ export default function Home() {
           <div className={styles.headline}>
             <span className={styles.headlineLine}>Instructive</span>
             <span className={styles.headlineLine}>&amp; impactful,</span>
-            <span className={styles.headlineAccent}>by design.</span>
+            <span className={styles.headlineAccent}>by design</span>
           </div>
           <p className={styles.heroBody}>
             I&rsquo;ve designed products at scale for <strong>Meta</strong>. I&rsquo;ve created educational
@@ -195,7 +195,7 @@ export default function Home() {
           <div className={styles.aboutInner}>
             <div className={styles.aboutLeft}>
               <p className={styles.aboutHeadline}>
-                Staff-level craft,<br />relentless curiosity.
+                Curiosity<br />&amp; craft
               </p>
             </div>
             <div className={styles.aboutRight}>
