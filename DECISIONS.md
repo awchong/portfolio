@@ -126,10 +126,7 @@ finalization
   (Em dash removed — reads as AI-generated; "designing" → 
   "crafting" to avoid repeating CS1's verb)
 
-- CS3: "Reconciling two years of fragmented, internally confusing
-  naming across Instagram and Messenger into a unified,
-  localization-ready taxonomy built to scale across Meta's
-  community ecosystem."  (Cut from longer draft with em dashes; "resolving" → 
+- CS3: "Reconciling two years of naming debt across Instagram and Messenger into a single unified taxonomy — localization-ready and built to scale across Meta’s community ecosystem."  (Cut from longer draft with em dashes; "resolving" → 
   "reconciling" — more specific and active)
 
 ---

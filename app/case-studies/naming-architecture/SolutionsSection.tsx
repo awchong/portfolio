@@ -95,7 +95,7 @@ export function SolutionsSection() {
                 <p className={styles.solBody}>
                   The core problem was structural: &ldquo;community&rdquo; meant different things
                   to different teams. I led cross-functional efforts to redefine it not as a UI
-                  container but as a shared audience identity — a membership anyone could join
+                  container but as a shared audience identity: a membership anyone could join
                   around shared interests. This freed social connections to scale across diverse
                   messaging objects without forcing users into a single rigid UI structure.
                 </p>
@@ -124,7 +124,7 @@ export function SolutionsSection() {
                 <span className={styles.solNum}>02</span>
                 <p className={styles.solTitle}>Developing a unified product taxonomy</p>
                 <p className={styles.solBody}>
-                  I conducted a comprehensive linguistic audit to eliminate term drift and redundant
+                  We conducted a comprehensive linguistic audit to eliminate term drift and redundant
                   naming patterns across both apps. The goal was a single source of truth:
                   consistent terms, consistent definitions, consistent behavior — regardless of
                   which app you were in.
@@ -181,7 +181,7 @@ export function SolutionsSection() {
                 <p className={styles.solTitle}>Future-proofing for new verticals</p>
                 <p className={styles.solBody}>
                   The naming system needed to scale beyond general-interest communities into
-                  segment-specific models like schools and subscriptions — without requiring new
+                  segment-specific models like schools and subscriptions without requiring new
                   naming conventions each time. I built the architecture to accommodate new
                   verticals by design, not by exception.
                 </p>

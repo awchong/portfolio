@@ -68,12 +68,17 @@ export default function NamingArchitecture() {
         <div className="container">
           <span className={styles.sectionLabel}>Challenge</span>
           <p className={styles.challengeBody}>
-            As Messenger and Instagram Community products evolved in parallel, so did their
-            vocabularies. By 2024, we had &ldquo;Channels,&rdquo; &ldquo;Chats,&rdquo;
-            &ldquo;Groups,&rdquo; and &ldquo;Communities&rdquo; all performing similar functions
-            but using different names — sometimes even within the same app. This wasn&rsquo;t just
-            a branding issue; it was causing user confusion, localization bloat, and making
-            cross-app feature parity impossible to explain.
+            Across Instagram and Messenger, the same feature had accumulated two years of naming debt
+            from independent teams building in parallel. Instagram called it a &ldquo;social channel.&rdquo;
+            Messenger called it a &ldquo;community chat.&rdquo; The same feature, a space where anyone could
+            join and message over shared interests, had two different names depending on which app you opened.
+          </p>
+          <p className={styles.challengeBodySecond}>
+            The problem ran deeper than branding. &ldquo;Broadcast channel&rdquo; had been introduced to
+            distinguish one-way from two-way communication, but with &ldquo;social channel&rdquo; largely
+            deprecated from the UI, the modifier had become redundant. It localized poorly, confused younger
+            audiences, and created internal misalignment across Product, Engineering, and Legal. Six competing
+            terms, two apps, one product vision, and no shared vocabulary to hold it together.
           </p>
         </div>
       </section>
