@@ -67,7 +67,7 @@ const SOL03_IMAGE: ImageItem = {
   alt: 'Annotated phone wireframe showing the omnipicker designed to scale naming across new verticals',
   cropWidth: 2768,
   cropHeight: 3680,
-  objectPosition: 'top',
+  objectPosition: 'center',
   lightboxBg: '#fff',
   lightboxPadding: 8,
 };
