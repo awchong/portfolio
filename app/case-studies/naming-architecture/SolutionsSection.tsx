@@ -129,7 +129,7 @@ export function SolutionsSection() {
                 <div className={styles.solMetrics}>
                   <p className={styles.solMetric}>Taxonomy reduced from 6 terms to 4</p>
                   <p className={styles.solMetric}>
-                    First-ever terminology alignment between IG and Messenger for community
+                    First-ever terminology alignment between Instagram and Messenger for community
                     messaging products
                   </p>
                 </div>

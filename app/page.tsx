@@ -123,7 +123,7 @@ export default function Home() {
                 Unifying naming architecture across Messenger and Instagram
               </p>
               <p className={styles.csDesc}>
-                Reconciling years of fragmented, redundant naming across IG and Messenger into a
+                Reconciling years of fragmented, redundant naming across Instagram and Messenger into a
                 unified, localization-ready taxonomy built to scale across Meta&rsquo;s community
                 messaging ecosystem.
               </p>

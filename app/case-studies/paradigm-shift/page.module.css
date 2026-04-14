@@ -388,8 +388,6 @@
   top: 0;
   width: 213px;
   height: 179px;
-  border: 1px solid var(--color-black);
-  border-radius: 19px;
   overflow: hidden;
 }
 
@@ -400,8 +398,6 @@
   top: 22px;
   width: 212px;
   height: 61px;
-  border: 1px solid var(--color-black);
-  border-radius: 19px;
   overflow: hidden;
 }
 
@@ -412,8 +408,6 @@
   top: 95px;
   width: 213px;
   height: 62px;
-  border: 1px solid var(--color-black);
-  border-radius: 19px;
   overflow: hidden;
 }
 

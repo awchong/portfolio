@@ -42,9 +42,8 @@ export default function NamingArchitecture() {
                     cross-functional v-team of content designers spanning Instagram and Messenger.
                     While the taxonomy work was collaborative, I owned the naming architecture
                     for my product area and drove alignment across teams, brokering agreement
-                    between IG and MSGR on shared vocabulary, and leading the linguistic audit
-                    that became the foundation for the unified system.
-                  </p>
+                    between Instagram and Messenger on shared vocabulary, and leading the linguistic audit
+                    that became the foundation for the unified system.                  </p>
                 </div>
               </div>
             </div>
@@ -97,11 +96,10 @@ export default function NamingArchitecture() {
                 <ul className={styles.outcomeList}>
                   <li>Taxonomy reduced from 6 terms to 4</li>
                   <li>
-                    First terminology alignment between IG and Messenger for community messaging
+                    First terminology alignment between Instagram and Messenger for community messaging
                     products
                   </li>
-                  <li>&ldquo;Broadcast&rdquo; and &ldquo;social&rdquo; modifiers eliminated</li>
-                  <li>
+                  <li>&ldquo;Broadcast&rdquo; and &ldquo;social&rdquo; modifiers eliminated</li>                  <li>
                     Channel and chat established as core primitives; community as meta-primitive
                   </li>
                   <li>

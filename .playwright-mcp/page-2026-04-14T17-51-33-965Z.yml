@@ -1,0 +1,105 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "Allen Chong" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - navigation [ref=e4]:
+      - generic [ref=e5]:
+        - button "Case studies" [ref=e6] [cursor=pointer]
+        - generic [ref=e7]:
+          - link "01. Paradigm shift" [ref=e8] [cursor=pointer]:
+            - /url: /case-studies/paradigm-shift
+          - generic [ref=e9]: "|"
+          - link "02. Cold start" [ref=e10] [cursor=pointer]:
+            - /url: /case-studies/cold-start
+          - generic [ref=e11]: "|"
+          - link "03. Naming architecture" [ref=e12] [cursor=pointer]:
+            - /url: /case-studies/naming-architecture
+      - link "Highlights" [ref=e13] [cursor=pointer]:
+        - /url: /highlights
+      - link "About" [ref=e14] [cursor=pointer]:
+        - /url: /about
+  - generic [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e22]:
+            - generic [ref=e23]: "01"
+            - generic [ref=e24]: Product Positioning · Trust & Safety · UX Writing
+          - heading "Launching a new product category inside a private-messaging app" [level=1] [ref=e25]
+        - paragraph [ref=e26]: Owning the product positioning for a zero-to-one launch that required users to rethink what Messenger is. Building the trust architecture that made discoverability feel safe.
+      - generic [ref=e28]:
+        - generic [ref=e29]: Role
+        - paragraph [ref=e30]: I was the sole content designer on this zero-to-one launch, a company-level priority. Working across Product, Design, Research, and Legal, I owned the product identity, the new user experience, and the trust and safety content strategy from the ground up.
+    - img "Messenger Communities discoverability and onboarding flow" [ref=e32]
+  - generic [ref=e35]:
+    - generic [ref=e36]: Challenge
+    - paragraph [ref=e37]: "Messenger has always meant private communication between friends and family — a mental model reinforced by the rollout of end-to-end encryption in 2023–24. Messenger Communities introduced something categorically different: semi-public, interest-based groups that anyone could discover and join. The product didn’t need better copy. It needed a new mental model."
+  - generic [ref=e40]:
+    - generic [ref=e41]: Solutions
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]: "01"
+        - paragraph [ref=e45]: Reframing the value proposition
+        - paragraph [ref=e46]: "The initial value props were PM-drafted and growth-oriented — accurate internally, but not built around how a real user evaluates something new. I rewrote them around user-centered needs surfaced by research: building community without the overhead of a Facebook group, the appeal of scale, and the need to feel in control."
+        - paragraph [ref=e47]: ~23% lift in new community creation within 6 weeks of NUX launch
+        - generic [ref=e48]:
+          - 'button "Enlarge: Value prop 1: Create community without the overhead" [ref=e49] [cursor=pointer]':
+            - paragraph [ref=e50]: Build a chat-based community on Messenger
+            - paragraph [ref=e51]: Plan events, find support and share information with your community, all in one place. No Facebook group needed.
+          - 'button "Enlarge: Value prop 2: Appeal to scale" [ref=e52] [cursor=pointer]':
+            - paragraph [ref=e53]: Bring up to 5,000 real-world connections online
+            - paragraph [ref=e54]: Create a community space on Messenger for any group or organization and give it room to grow.
+          - 'button "Enlarge: Value prop 3: Safety and control" [ref=e55] [cursor=pointer]':
+            - paragraph [ref=e56]: Use simple tools to help your community thrive
+            - paragraph [ref=e57]: Unlock admin tools to help you safely manage your community so you can focus on building relationships.
+      - generic [ref=e58]:
+        - generic [ref=e59]: "02"
+        - paragraph [ref=e60]: Building a trust and safety content system
+        - paragraph [ref=e61]: Discoverability only works if users feel safe. I shaped the “Request to Join” feature concept and its content experience — giving admins meaningful control over membership while clearly communicating the public nature of communities to new members. I partnered with Legal to translate moderation requirements into plain, reassuring language.
+        - paragraph [ref=e62]: ~14% increase in new community creation the month following launch
+        - paragraph [ref=e63]: ~39% of new communities opted into request-to-join
+        - generic [ref=e64]:
+          - 'button "Enlarge: Require approval to join: off state" [ref=e65] [cursor=pointer]':
+            - img "Require approval to join toggle in off state" [ref=e66]
+          - 'button "Enlarge: Require approval to join: on state" [ref=e67] [cursor=pointer]':
+            - img "Require approval to join toggle in on state" [ref=e68]
+          - 'button "Enlarge: Disclosure" [ref=e69] [cursor=pointer]':
+            - img "About this community panel showing visibility and safety disclosures" [ref=e70]
+  - generic [ref=e74]:
+    - generic [ref=e75]:
+      - generic [ref=e76]:
+        - generic [ref=e77]: Outcome
+        - list [ref=e78]:
+          - listitem [ref=e79]: ~23% lift in community creation within 6 weeks of NUX launch
+          - listitem [ref=e80]: ~14% increase in new community creation the month following trust & safety launch
+          - listitem [ref=e81]: ~39% of new communities opted into request-to-join
+          - listitem [ref=e82]: Majority of surveyed users reported improved clarity
+      - paragraph [ref=e85]: “This makes sense. It makes sense you can search for the things you’re interested in.”
+    - generic [ref=e86]:
+      - generic [ref=e87]: Methods & Disciplines
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - paragraph [ref=e90]: Product positioning
+          - paragraph [ref=e91]: Trust & safety
+          - paragraph [ref=e92]: UX writing
+        - generic [ref=e93]:
+          - paragraph [ref=e94]: A/B testing
+          - paragraph [ref=e95]: Content strategy
+          - paragraph [ref=e96]: Cross-functional collaboration
+          - paragraph [ref=e97]: Instructional design
+          - paragraph [ref=e98]: Mental model design
+          - paragraph [ref=e99]: Onboarding
+          - paragraph [ref=e100]: User research
+          - paragraph [ref=e101]: Value proposition design
+  - contentinfo [ref=e103]:
+    - generic [ref=e104]:
+      - generic [ref=e105]: © 2026 Allen Chong
+      - generic [ref=e106]:
+        - link "LinkedIn" [ref=e107] [cursor=pointer]:
+          - /url: https://linkedin.com/in/allenchong
+        - link "Substack" [ref=e108] [cursor=pointer]:
+          - /url: https://allenchong.substack.com
+        - button "Contact" [ref=e109] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=e115] [cursor=pointer]:
+    - img [ref=e116]
+  - alert [ref=e119]

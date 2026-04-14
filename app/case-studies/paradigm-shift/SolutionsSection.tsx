@@ -53,7 +53,7 @@ const SOL02_IMAGES = [
   {
     kind: 'image' as const,
     caption: 'Require approval to join: off state',
-    src: '/images/cs01-sol02-top.png',
+    src: '/images/cs01-sol02-top1.png',
     alt: 'Require approval to join toggle in off state',
     containerClass: styles.sol02ImgTopLeft,
     objectPosition: 'center',
@@ -63,7 +63,7 @@ const SOL02_IMAGES = [
   {
     kind: 'image' as const,
     caption: 'Require approval to join: on state',
-    src: '/images/cs01-sol02-bottom.png',
+    src: '/images/cs01-sol02-bottom1.png',
     alt: 'Require approval to join toggle in on state',
     containerClass: styles.sol02ImgBottomLeft,
     objectPosition: 'center',
@@ -73,7 +73,7 @@ const SOL02_IMAGES = [
   {
     kind: 'image' as const,
     caption: 'Disclosure',
-    src: '/images/cs01-sol02-right.png',
+    src: '/images/cs01-sol02-right1.png',
     alt: 'About this community panel showing visibility and safety disclosures',
     containerClass: styles.sol02ImgRight,
     objectPosition: 'bottom',
@@ -165,7 +165,7 @@ export function SolutionsSection() {
                       src={img.src}
                       alt={img.alt}
                       fill
-                      style={{ objectFit: 'cover', objectPosition: img.objectPosition }}
+                      style={{ objectFit: 'contain', objectPosition: img.objectPosition }}
                     />
                   </div>
                 ))}
