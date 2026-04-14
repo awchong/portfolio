@@ -24,7 +24,7 @@ const SOL01_IMAGES: ImageItem[] = [
   {
     kind: 'image',
     caption: 'New community invite banner: 0 members',
-    src: '/images/invite-banner-start-LG1.png',
+    src: '/images/invite-banner-start-LG2.png',
     alt: 'Invite banner showing a new community with 0 members',
     cropWidth: 47,
     cropHeight: 22,
@@ -33,7 +33,7 @@ const SOL01_IMAGES: ImageItem[] = [
   {
     kind: 'image',
     caption: 'New community invite banner: 5 members',
-    src: '/images/invite-banner-end-LG1.png',
+    src: '/images/invite-banner-end-LG2.png',
     alt: 'Invite banner showing a new community with 5 members',
     cropWidth: 47,
     cropHeight: 22,
@@ -44,7 +44,7 @@ const SOL01_IMAGES: ImageItem[] = [
 const SOL02_IMAGE: ImageItem = {
   kind: 'image',
   caption: 'New community welcome banner: replaces invite banner',
-  src: '/images/welcome-banner-new1.png',
+  src: '/images/welcome-banner-new2.png',
   alt: 'New community welcome banner shown to all members on entry',
   cropWidth: 631,
   cropHeight: 250,
@@ -54,7 +54,7 @@ const SOL02_IMAGE: ImageItem = {
 const SOL03_IMAGE: ImageItem = {
   kind: 'image',
   caption: 'New community home: member side',
-  src: '/images/member-cold-start-new1.png',
+  src: '/images/member-cold-start-new2.png',
   alt: 'New community home screen showing member experience with pinned chat and social cues',
   cropWidth: 195,
   cropHeight: 422,
@@ -107,7 +107,7 @@ export function SolutionsSection() {
                         src={img.src}
                         alt={img.alt}
                         fill
-                        style={{ objectFit: 'cover', objectPosition: img.objectPosition }}
+                        style={{ objectFit: 'contain', objectPosition: img.objectPosition }}
                       />
                     </div>
                   ))}
@@ -143,7 +143,7 @@ export function SolutionsSection() {
                     src={SOL02_IMAGE.src}
                     alt={SOL02_IMAGE.alt}
                     fill
-                    style={{ objectFit: 'cover', objectPosition: SOL02_IMAGE.objectPosition }}
+                    style={{ objectFit: 'contain', objectPosition: SOL02_IMAGE.objectPosition }}
                   />
                 </div>
               </div>
@@ -165,8 +165,9 @@ export function SolutionsSection() {
                   to each chat, giving members social proof to feel confident enough to participate.
                 </p>
                 <div className={styles.solMetrics}>
-                  <p className={styles.solMetric}>Average member count: 2.7 → 5.3</p>
-                  <p className={styles.solMetric}>Active participation stabilized at ~28%</p>
+                  <p className={styles.solMetric}>User feedback:</p>
+                  <p className={styles.solMetric}>&ldquo;If this wasn&rsquo;t here, I wouldn&rsquo;t know what we&rsquo;re supposed to do.&rdquo;</p>
+                  <p className={styles.solMetric}>&ldquo;If I know one of my friends is in the chat, that would make me want to join more.&rdquo;</p>
                 </div>
               </div>
 
@@ -212,7 +213,6 @@ export function SolutionsSection() {
             <img
               src={active.src}
               alt={active.alt}
-              style={{ objectPosition: active.objectPosition }}
             />
           </div>
         </Lightbox>

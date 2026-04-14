@@ -1,6 +1,5 @@
 'use client';
 
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { SolutionsSection } from './SolutionsSection';
@@ -38,11 +37,13 @@ export default function ColdStart() {
               <div className={styles.heroRoleBlock}>
                 <div className={styles.heroRoleGroup}>
                   <span className={styles.heroRoleLabel}>Role</span>
-                  <p className={styles.heroRoleText}>Staff Content Designer, Messenger</p>
-                </div>
-                <div className={styles.heroRoleGroup}>
-                  <span className={styles.heroRoleLabel}>Impact</span>
-                  <p className={styles.heroRoleText}>Average member count doubled within the first week</p>
+                  <p className={styles.heroRoleText}>
+                    I was the sole content designer on this effort. I partnered with a UXR team
+                    to run a targeted study where participants created and joined communities for
+                    a month, then came in for in-person interviews and iterative prototype testing.
+                    I shaped both the research synthesis and the solutions we tested, working
+                    across Product and Design to ship them.
+                  </p>
                 </div>
               </div>
             </div>

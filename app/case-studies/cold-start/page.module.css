@@ -338,7 +338,7 @@
 }
 
 /*
-  Phone mockup — border is baked into the source image (member-cold-start-new.png).
+  Phone mockup — border applied via inset box-shadow.
   Outer: 40% of sol03ImageCol (~440px) ≈ 176px, centered by parent flex.
   Inner: fills outer; aspect-ratio 195:422 (source 4680×10128) governs height;
          overflow:hidden required for Next.js fill Image.

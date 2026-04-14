@@ -33,8 +33,7 @@
   overflow: hidden;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 8px; /* Standard padding */
-  display: flex; /* Use flex to center the image */
+  display: flex;
   align-items: center;
   justify-content: center;
 }
