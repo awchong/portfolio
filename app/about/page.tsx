@@ -14,7 +14,7 @@ export default function About() {
         <div className={`container ${styles.heroInner}`}>
           <span className={styles.heroLabel}>About me</span>
           <h1 className={styles.heroTitle}>
-            A designer who started<br />in the classroom.
+            A designer who started<br />in the classroom
           </h1>
           <p className={styles.heroSubhead}>
             I&rsquo;ve designed at scale for Meta, Autodesk, and Elevate, but the

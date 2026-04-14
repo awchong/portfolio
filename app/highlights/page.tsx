@@ -53,7 +53,7 @@ export default function Highlights() {
           <div className={styles.heroInner}>
             <span className={styles.heroLabel}>HIGHLIGHTS</span>
             <h1 className={styles.heroTitle}>
-              Good content design leaves a mark — whatever form it takes.
+              Good content design leaves a mark, whatever form it takes
             </h1>
             <p className={styles.heroSubhead}>
               Marketing creative, curriculum, and educational games: work that 
