@@ -11,7 +11,8 @@ Last updated: 2026-04-14
 - **Terminology Alignment:** Replaced all instances of "IG" with "Instagram" and "MSGR" with "Messenger" across Case Study 03, the Home page, and project documentation for professional consistency.
 - **Content Polish:** Refined hero titles on About and Highlights pages (removed trailing periods and replaced em dash with a comma) to match the editorial tone of the case study pages.
 - **Lightbox Exception:** Implemented a specific 8px padding exception for the Case Study 03 "Omnipicker" wireframe (Sol 03) in lightbox mode. This ensures the annotated wireframe remains readable and properly framed, overriding the global "no-padding" lightbox rule for this specific asset.
-- **CI/CD:** Verified all changes with a clean production build (`npm run build`) and merged the `dev` branch into `main`.
+- **CI/CD:** Verified all changes with a clean production build (`npm run build`) and merged the \`dev\` branch into \`main\`.
+- **Contact Form Fix:** Resolved a server-side crash in the contact form by properly configuring the Resend API environment. Refined the success message UI to use the terracotta brand color and updated the confirmation text for a cleaner editorial feel.
 
 ---
 

@@ -152,7 +152,7 @@
 .successMessage p {
   font-family: var(--font-serif), Georgia, serif;
   font-size: 24px;
-  color: var(--color-black);
+  color: var(--color-terracotta);
 }
 
 .resetButton {

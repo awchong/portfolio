@@ -36,7 +36,7 @@ export default function ContactForm() {
   if (state?.success) {
     return (
       <div className={styles.successMessage}>
-        <p>Message sent!</p>
+        <p>Message sent</p>
         <button 
           onClick={() => setState(null)} 
           className={styles.resetButton}
