@@ -21,6 +21,8 @@ type ImageItem = {
   lightboxBg?: string;
   /** Override the lightbox container border-radius:use when the image itself has its own corner treatment */
   lightboxBorderRadius?: number;
+  /** Inner padding (px) applied inside the lightbox container on all sides */
+  lightboxPadding?: number;
 };
 
 const SOL01_IMAGE: ImageItem = {
@@ -67,6 +69,7 @@ const SOL03_IMAGE: ImageItem = {
   cropHeight: 3680,
   objectPosition: 'top',
   lightboxBg: '#fff',
+  lightboxPadding: 8,
 };
 
 // ─── Component ───────────────────────────────────────────────
@@ -220,6 +223,7 @@ export function SolutionsSection() {
               ...(active.maxDisplayWidth != null && { maxWidth: `${active.maxDisplayWidth}px` }),
               ...(active.lightboxBg != null && { background: active.lightboxBg }),
               ...(active.lightboxBorderRadius != null && { borderRadius: active.lightboxBorderRadius }),
+              ...(active.lightboxPadding != null && { padding: active.lightboxPadding }),
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
