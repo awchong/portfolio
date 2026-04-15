@@ -3,13 +3,10 @@
 import Image from 'next/image';
 import styles from './page.module.css';
 import { SolutionsSection } from './SolutionsSection';
-import { openContactForm } from '../../components/ContactFormModal';
 
 export default function AgenticWorkflow() {
   return (
     <>
-      <div className={styles.navDivider} />
-
       {/* ── Hero ── */}
       <section className={styles.hero}>
         <div className="container">
@@ -175,30 +172,6 @@ export default function AgenticWorkflow() {
         </div>
       </section>
 
-      {/* ── Footer ── */}
-      <div className={styles.navDivider} />
-      <footer>
-        <div className={`container ${styles.footer}`}>
-          <span>© 2026 Allen Chong</span>
-          <div className={styles.footerLinks}>
-            <a
-              href="https://linkedin.com/in/allenchong"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://allenchong.substack.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Substack
-            </a>
-            <button onClick={openContactForm} className={styles.footerLinkButton}>Contact</button>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }

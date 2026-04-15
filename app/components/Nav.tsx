@@ -12,13 +12,14 @@ const CS_ROUTES = {
   cs03: '/case-studies/naming-architecture',
 } as const;
 
-type PageId = 'home' | 'cs01' | 'cs02' | 'cs03' | 'highlights' | 'about';
+type PageId = 'home' | 'cs01' | 'cs02' | 'cs03' | 'journal' | 'highlights' | 'about';
 
 function getPageId(pathname: string): PageId {
   if (pathname === '/') return 'home';
   if (pathname.startsWith(CS_ROUTES.cs01)) return 'cs01';
   if (pathname.startsWith(CS_ROUTES.cs02)) return 'cs02';
   if (pathname.startsWith(CS_ROUTES.cs03)) return 'cs03';
+  if (pathname.startsWith('/design-journal')) return 'journal';
   if (pathname === '/highlights') return 'highlights';
   if (pathname === '/about') return 'about';
   return 'home';
@@ -102,6 +103,8 @@ export default function Nav() {
   const cs02Color = pageId === 'cs02' ? 'var(--color-terracotta)' : 'var(--color-gray)';
   const cs03Color = pageId === 'cs03' ? 'var(--color-terracotta)' : 'var(--color-gray)';
 
+  const journalColor =
+    pageId === 'journal' ? 'var(--color-terracotta)' : 'var(--color-gray)';
   const highlightsColor =
     pageId === 'highlights' ? 'var(--color-terracotta)' : 'var(--color-gray)';
   const aboutColor =
@@ -199,6 +202,9 @@ export default function Nav() {
           </div>
         </div>
 
+        <Link href="/design-journal/agentic-workflow" className={styles.link} style={{ color: journalColor }}>
+          Design journal
+        </Link>
         <Link href="/highlights" className={styles.link} style={{ color: highlightsColor }}>
           Highlights
         </Link>

@@ -42,7 +42,7 @@
 
 .heroInner {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 /* Left text column — fills remaining space after 248px mockup */
@@ -201,13 +201,20 @@
   padding-bottom: var(--section-padding-y);
 }
 
-/* gap-[32px] between "Solutions" label and the two-column grid */
-.solutionsGrid {
+/* flex-col container for all solution rows — gap-[32px] from label and between rows */
+.solutionsContent {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+/* Each row: two 440px columns side by side, gap-[80px] */
+.solutionsRow {
+  display: flex;
   gap: 80px;
   align-items: flex-start;
-  margin-top: 32px;
+  width: 100%;
 }
 
 /*
@@ -215,6 +222,18 @@
 */
 
 /* ── Shared sol typography ── */
+
+/* "01" / "02" / "03" number label */
+.solNum {
+  display: block;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-label);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-gray);
+}
 
 /* Solution title — Instrument Serif Regular 20px, lh 1.2, black */
 .solTitle {
@@ -225,7 +244,7 @@
   font-style: normal;
   line-height: var(--lh-snug);      /* 1.2 */
   color: var(--color-black);
-  margin: 0;
+  margin: 16px 0 0 0;
 }
 
 /* Solution description — 13.6px sans, lh 1.75, gray */
@@ -540,7 +559,7 @@
 
 @media (max-width: 1056px) {
   /* Stack solution columns vertically */
-  .solutionsGrid {
+  .solutionsRow {
     flex-direction: column;
     gap: 56px;
   }
