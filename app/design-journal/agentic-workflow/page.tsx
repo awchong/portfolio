@@ -58,21 +58,20 @@ export default function AgenticWorkflow() {
             <p>
               My portfolio has seen a few iterations over the years. The first version was 
               literally a slide deck — looking back, I&rsquo;m still a little shocked by how 
-              much mileage that got me. I eventually upgraded to an actual website built 
-              on a site builder, which was a step up from Google Slides but came with its 
+              much mileage that got me. I eventually upgraded to an actual website using 
+              a site builder, which was a step up from Google Slides. But that came with its 
               own frustrations: limited control over design and layout, clunky tools, weird 
-              baked-in padding issues I could never fully design around. I did my best to 
-              work within those constraints, but I eventually hit a ceiling. I wanted to 
-              build something from the ground up — greater autonomy, no arbitrary 
-              limitations, a real artifact of myself that I could actually execute a vision on.
+              baked-in padding constraints I could never fully design around. I wanted the 
+              autonomy of a custom build—no more arbitrary limitations, just the freedom to 
+              execute my design vision exactly as intended.
             </p>
             <p style={{ marginTop: '24px' }}>
               This refresh was also the perfect opportunity to go deeper on something 
               I&rsquo;d been wanting to explore: building a genuine agentic workflow. 
               So I decided to rebuild the site from scratch in Next.js, despite having 
-              zero experience shipping a production Next.js app. The learning curve was 
-              steep. I was internalizing React Server Components, debugging hydration 
-              errors I didn&rsquo;t fully understand yet, and making meaningful architectural 
+              zero experience with coding. The learning curve was steep. I was 
+              internalizing React Server Components, debugging hydration errors 
+              I didn&rsquo;t fully understand yet, and making meaningful architectural 
               decisions — all at the same time, all solo, with no one to gut-check 
               anything with.
             </p>
@@ -107,8 +106,8 @@ export default function AgenticWorkflow() {
                 <span className={styles.sectionLabel}>Takeaways</span>
                 <div className={styles.challengeBody}>
                   <p>
-                    The site shipped. But the more useful outcome was the workflow I 
-                    didn&rsquo;t have at the start.
+                    The site shipped (you're looking at it!). But the more useful outcome was the workflow I 
+                    developed along the way.
                   </p>
                   <p style={{ marginTop: '24px' }}>
                     The clearest sign it was working: I stopped hitting usage limits. Not 
