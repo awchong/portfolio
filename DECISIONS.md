@@ -502,22 +502,101 @@ Each CS page's `getPageId()` returns `'cs01'` / `'cs02'` / `'cs03'`. This makes 
 
 Identical across all CS pages: copyright left, LinkedIn / Substack / Contact right. Styles live in each page's `.module.css` (not a shared component) — copy from CS01.
 
-### Image sizing and treatment — case study pages
+## Solution Section Layout Variants & Image System
 
-**Landscape UI screenshots** (e.g. banner components, card artifacts)
-- Width: 60% of their containing column, centered
-- No background container, padding, or border-radius wrapper — images sit directly on the page
-- No fixed height on any ancestor element; ensure no `overflow: hidden` in the ancestor chain that could clip the image
+### Canonical layout variant names
 
-**Portrait phone mockups**
-- Width: 40% of their containing column, centered
-- Same no-container rule applies — no wrapper background or border
+Three named variants cover all solution section layouts across case study and approach pages. These names are the canonical reference — use them consistently in code comments, component names, and future documentation.
 
-**Grid alignment**
-- Solution grids with mixed content (text + image) must use `align-items: flex-start` to ensure images are top-aligned to their column, not vertically centered or stretched
+- **Split** — Two columns, two solutions side by side. Each column contains one solution: text stacked above image within the column. If there are no images and there is more than one solution on the page, Split is the default. Best for small images (CS01).
+- **Feature** — Two columns, one solution. Text on the left, image on the right. Best for large portrait images (CS02 sol03, CS03 sol03).
+- **Stack** — One column, one solution. Text on top, image(s) below. Best for landscape images, square images, or layouts with more than one image (CS03 sol01, sol02). Also the default when there is no image and only one solution on the page.
 
-**General principle**
-- Images are supporting evidence, not hero moments. Size them so text and metrics read as the primary content.
+### Responsive behavior by variant
+
+**Split:**
+- At narrow viewports (≤720px): the right column stacks beneath the left column
+- Internal order within each column is preserved — text remains above image after reflow
+- Both columns become full-width; image sizing percentages apply to the new full-width column, not the original half-width column
+
+**Feature:**
+- No reflow at any viewport width — text remains on top, image below at all sizes
+- The two-column arrangement simply narrows as the viewport narrows
+
+**Stack:**
+- No reflow at any viewport width — text remains on top, image(s) below at all sizes
+
+### Image taxonomy
+
+All images on case study and approach pages fall into one of two tiers. The tier determines the legibility obligation and interaction model.
+
+**Hero images (no lightbox):**
+- Purpose: atmosphere and context, not evidence
+- No legibility obligation for any text inside the image
+- Scale freely with the viewport
+- Guard with a max-height ceiling (suggested: `max-height: 60vh`) to prevent dominating narrow viewports
+- Never add a lightbox to a hero image
+
+**Solution images (lightbox required):**
+- Purpose: evidence of specific thinking, approach, or output
+- On-page legibility obligation: recognition-level only — readable as a UI screenshot, not required to be readable at the copy level
+- Lightbox handles full legibility at all viewport sizes
+- Every solution image that contains UI text must have a lightbox
+- Size for compositional proportion relative to surrounding text, not for text legibility
+
+This two-tier taxonomy is the canonical rule for deciding whether an image gets a lightbox. If the image is evidence, it gets a lightbox. If it is ambient, it does not.
+
+### Image sizing rules
+
+**Governing principle:** Images are always sized as a percentage of their containing column, never in pixels. The percentage stays constant at all viewport widths. The column width changes; the image scales with it.
+
+**Starting points by variant:**
+- **Split:** images at 55–65% of their column width. All images within the same Split section must use the same percentage — never mix percentages within a single section.
+- **Feature:** portrait phone mockups at 40% of the full content area; landscape UI screenshots at 60%.
+- **Stack:** 60% of the full content area, centered. In multi-image layouts, all images share the same width.
+
+Do not derive image container size mechanically from Figma pixel values at 1:1. Figma frames are often at a scale that does not translate directly to the page's content column width. Always verify at the rendered size.
+
+**Consistency within a page:** All images within a single case study or approach page must use sizes from the same relative scale. Mixing 40% and 65% containers on the same page will always look unintentional.
+
+### Responsive image behavior
+
+Images must scale proportionally with their column at all viewport widths. Never use fixed pixel widths for image containers at any breakpoint. Use `clamp()` to enforce a minimum readable size and a maximum size without breakpoint jumps:
+
+```css
+width: clamp([min], [preferred %], [max]);
+```
+
+Example for a portrait phone mockup in a Feature layout:
+
+```css
+width: clamp(160px, 40%, 360px);
+```
+
+The minimum (160px) is the legibility floor — below this the image is too small to register as a UI screenshot even at recognition level. The maximum (360px) prevents portrait mockups from becoming absurdly large on wide viewports. The preferred value (40%) maintains the constant proportion relationship to the column.
+
+For Stack layout landscape images, add a max-height guard to prevent the image from consuming the full screen on narrow viewports:
+
+```css
+max-height: 50vh;
+```
+
+Never use breakpoint-stepped pixel values for image widths. The jump between a desktop pixel value and a mobile percentage is the primary cause of images that look correct at one viewport size and blow up or collapse at another.
+
+Note: CS01 and CS02 predate the clamp() standard and use breakpoint-stepped pixel values. They are not required to be retrofitted unless a responsive issue is reported.
+
+### Export and resolution
+
+- Export all solution images at 2× minimum. 1× exports produce visible fuzz on retina displays, which is especially noticeable on UI text inside screenshots.
+- Hero images may be exported at 1× if file size is a concern, since no text legibility is required.
+
+### What not to do
+
+- Do not mix fixed pixel image widths with fluid text columns — this is the root cause of disproportionate scaling across viewport sizes
+- Do not size images to make their internal UI text fully readable on the page — that is the lightbox's job
+- Do not add a lightbox to a hero image
+- Do not use different image size percentages within the same solution section
+- Do not export solution images at 1×
 
 ---
 

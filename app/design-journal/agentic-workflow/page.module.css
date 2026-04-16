@@ -42,16 +42,22 @@
 
 .heroInner {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 32px;
 }
 
-/* Left text column — fills remaining space after 248px mockup */
+/* Left text column */
 .heroLeft {
-  flex: 1;
-  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 20px; /* gap between upper group (title/subhead) and role block */
+}
+
+/* Full-width slide-deck image below hero text */
+.heroSlideImg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* Title + subhead group: gap-[28px] between title block and subhead */
@@ -161,14 +167,6 @@
   margin: 0;
 }
 
-/* Phone mockup — 248px wide, aspect-ratio preserves proportions at all viewport sizes */
-.heroMockup {
-  width: 248px;
-  aspect-ratio: 248 / 450;
-  flex-shrink: 0;
-  border-radius: 2px;
-  position: relative;
-}
 
 /* ============================================================
    Challenge
@@ -189,6 +187,38 @@
   color: var(--color-gray);
   margin: 24px 0 0 0;
   width: 100%; /* full 960px container width */
+}
+
+/* web-builder.png — 75% width, centered, below first paragraph */
+.webBuilderImg {
+  display: block;
+  width: 75%;
+  height: auto;
+  margin: 24px auto 0;
+}
+
+/* Final paragraph as two-column layout with usage-limits.png */
+.challengeFinalRow {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.challengeFinalText {
+  flex: 1;
+  margin: 0;
+}
+
+.challengeUsageLimitsWrap {
+  flex-shrink: 0;
+  width: 28%;
+}
+
+.usageLimitsImg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* ============================================================
@@ -471,12 +501,27 @@
   margin: 0;
 }
 
+/* decisions-markdown.png — full width of its 440px column */
+.decisionsImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 24px;
+}
+
 /* ── Right column ── */
 .outcomeRight {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+/* claude-screenshot-sessions.png — full column width, above Tools & Logic */
+.sessionImg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* Methods grid: bold skills | regular skills, gap-[16px] */
@@ -684,12 +729,6 @@
    ============================================================ */
 
 @media (max-width: 820px) {
-  .heroInner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 32px;
-  }
-
   /* Scale title down when it goes full-width */
   .heroTitle {
     font-size: 36px;
@@ -700,13 +739,16 @@
     max-width: 100%;
   }
 
-  /* Allow mockup to shrink on narrow screens while keeping aspect ratio */
-  .heroMockup {
-    width: 100%;
-    max-width: 248px;
+  /* Stack the final Context paragraph on narrower screens */
+  .challengeFinalRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .challengeUsageLimitsWrap {
+    width: 75%;
     margin-left: auto;
     margin-right: auto;
-    /* aspect-ratio: 248/450 from base style keeps height proportional automatically */
   }
 }
 
@@ -716,13 +758,6 @@
    ============================================================ */
 
 @media (max-width: 720px) {
-  /* Shrink mockup proportionally for narrow screens */
-  .heroMockup {
-    width: 100%;
-    max-width: 248px;
-    /* height is governed by aspect-ratio: 248/450 from base style — no fixed override needed */
-  }
-
   .heroTitle {
     font-size: 32px;
   }

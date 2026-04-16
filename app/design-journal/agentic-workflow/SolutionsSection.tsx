@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Lightbox } from '@/app/components/Lightbox';
 import lbStyles from '@/app/components/Lightbox.module.css';
 import styles from './page.module.css';
@@ -131,9 +132,13 @@ export function SolutionsSection() {
                     overhead to set up. It wasn&rsquo;t.
                   </p>
                 </div>
-                <div style={{ marginTop: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--color-line)', borderRadius: '8px', height: '179px', width: '440px' }}>
-                  <span style={{ color: 'var(--color-gray)', fontSize: '12px' }}>Workflow Visualization Placeholder</span>
-                </div>
+                <Image
+                  src="/images/design-journal/agentic-workflow/decisions-markdown.png"
+                  alt=""
+                  width={2732}
+                  height={3176}
+                  className={styles.decisionsImg}
+                />
               </div>
 
               {/* Col 2 — Ditching Figma (mostly) */}

@@ -31,19 +31,14 @@ export default function AgenticWorkflow() {
               </div>
             </div>
 
-            <div className={styles.heroMockup}>
-              <div style={{ 
-                width: '100%', 
-                height: '100%', 
-                background: 'var(--color-line)', 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'center',
-                borderRadius: '8px'
-              }}>
-                <span style={{ color: 'var(--color-gray)', fontSize: '12px' }}>Hero Image</span>
-              </div>
-            </div>
+          <Image
+            src="/images/design-journal/agentic-workflow/slide-deck.png"
+            alt=""
+            width={4756}
+            height={3332}
+            className={styles.heroSlideImg}
+            priority
+          />
           </div>
         </div>
       </section>
@@ -56,35 +51,53 @@ export default function AgenticWorkflow() {
           <span className={styles.sectionLabel}>Context</span>
           <div className={styles.challengeBody}>
             <p>
-              My portfolio has seen a few iterations over the years. The first version was 
-              literally a slide deck — looking back, I&rsquo;m still a little shocked by how 
-              much mileage that got me. I eventually upgraded to an actual website using 
-              a site builder, which was a step up from Google Slides. But that came with its 
-              own frustrations: limited control over design and layout, clunky tools, weird 
-              baked-in padding constraints I could never fully design around. I wanted the 
-              autonomy of a custom build—no more arbitrary limitations, just the freedom to 
+              My portfolio has seen a few iterations over the years. The first version was
+              literally a slide deck — looking back, I&rsquo;m still a little shocked by how
+              much mileage that got me. I eventually upgraded to an actual website using
+              a site builder, which was a step up from Google Slides. But that came with its
+              own frustrations: limited control over design and layout, clunky tools, weird
+              baked-in padding constraints I could never fully design around. I wanted the
+              autonomy of a custom build—no more arbitrary limitations, just the freedom to
               execute my design vision exactly as intended.
             </p>
+            <Image
+              src="/images/design-journal/agentic-workflow/web-builder.png"
+              alt=""
+              width={2992}
+              height={3332}
+              className={styles.webBuilderImg}
+            />
             <p style={{ marginTop: '24px' }}>
-              This refresh was also the perfect opportunity to go deeper on something 
-              I&rsquo;d been wanting to explore: building a genuine agentic workflow. 
-              So I decided to rebuild the site from scratch in Next.js, despite having 
-              zero experience with coding. The learning curve was steep. I was 
-              internalizing React Server Components, debugging hydration errors 
-              I didn&rsquo;t fully understand yet, and making meaningful architectural 
-              decisions — all at the same time, all solo, with no one to gut-check 
+              This refresh was also the perfect opportunity to go deeper on something
+              I&rsquo;d been wanting to explore: building a genuine agentic workflow.
+              So I decided to rebuild the site from scratch in Next.js, despite having
+              zero experience with coding. The learning curve was steep. I was
+              internalizing React Server Components, debugging hydration errors
+              I didn&rsquo;t fully understand yet, and making meaningful architectural
+              decisions — all at the same time, all solo, with no one to gut-check
               anything with.
             </p>
-            <p style={{ marginTop: '24px' }}>
-              The bigger problem surfaced quickly. I was burning through Claude&rsquo;s 
-              usage limits on messy, incomplete prompts. As anyone who knows me can 
-              tell you, I love to talk — and at first I approached this the same way, 
-              like a conversation: iterative, exploratory, thinking out loud. I quickly 
-              learned that doesn&rsquo;t scale here. Every vague or under-specified request 
-              cost me in tokens, in bad output, and in time cleaning up the mess. I may 
-              have vented to Claude once or twice. It was, after all, my 
-              only collaborator on this.
-            </p>
+            <div className={styles.challengeFinalRow}>
+              <p className={styles.challengeFinalText}>
+                The bigger problem surfaced quickly. I was burning through Claude&rsquo;s
+                usage limits on messy, incomplete prompts. As anyone who knows me can
+                tell you, I love to talk — and at first I approached this the same way,
+                like a conversation: iterative, exploratory, thinking out loud. I quickly
+                learned that doesn&rsquo;t scale here. Every vague or under-specified request
+                cost me in tokens, in bad output, and in time cleaning up the mess. I may
+                have vented to Claude once or twice. It was, after all, my
+                only collaborator on this.
+              </p>
+              <div className={styles.challengeUsageLimitsWrap}>
+                <Image
+                  src="/images/design-journal/agentic-workflow/usage-limits.png"
+                  alt=""
+                  width={1672}
+                  height={1280}
+                  className={styles.usageLimitsImg}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -149,6 +162,13 @@ export default function AgenticWorkflow() {
             </div>
 
             <div className={styles.outcomeRight}>
+              <Image
+                src="/images/design-journal/agentic-workflow/claude-screenshot-sessions.png"
+                alt=""
+                width={916}
+                height={3332}
+                className={styles.sessionImg}
+              />
               <span className={styles.sectionLabel}>Tools &amp; Logic</span>
               <div className={styles.methodsGrid}>
                 <div className={styles.methodsBold}>
