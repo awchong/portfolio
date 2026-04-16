@@ -32,10 +32,10 @@ export default function AgenticWorkflow() {
             </div>
 
           <Image
-            src="/images/design-journal/agentic-workflow/slide-deck.png"
+            src="/images/design-journal/agentic-workflow/slide-deck-short.png"
             alt=""
-            width={4756}
-            height={3332}
+            width={4748}
+            height={1224}
             className={styles.heroSlideImg}
             priority
           />
@@ -61,10 +61,10 @@ export default function AgenticWorkflow() {
               execute my design vision exactly as intended.
             </p>
             <Image
-              src="/images/design-journal/agentic-workflow/web-builder.png"
+              src="/images/design-journal/agentic-workflow/web-builder-landscape.png"
               alt=""
-              width={2992}
-              height={3332}
+              width={5364}
+              height={1592}
               className={styles.webBuilderImg}
             />
             <p style={{ marginTop: '24px' }}>

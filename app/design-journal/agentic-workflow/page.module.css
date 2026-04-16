@@ -467,6 +467,13 @@
   gap: 24px;
 }
 
+/* challengeBody carries margin-top: 24px for use in the challenge section.
+   Inside outcomeResults the flex gap already provides that 24px — override
+   the margin so we don't double up to 48px. */
+.outcomeResults .challengeBody {
+  margin-top: 0;
+}
+
 .outcomeList {
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: var(--text-body);   /* 13.6px */
@@ -611,7 +618,8 @@
 
   /* Reset absolute positioning → normal document flow */
   .sol01Col,
-  .sol02Col {
+  .sol02Col,
+  .sol03Col {
     position: static;
     width: 100%;
     height: auto;

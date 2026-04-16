@@ -142,7 +142,7 @@ export function SolutionsSection() {
               </div>
 
               {/* Col 2 — Ditching Figma (mostly) */}
-              <div className={styles.sol02Col}>
+              <div className={styles.sol03Col}>
                 <span className={styles.solNum}>04</span>
                 <p className={styles.solTitle}>Ditching Figma (mostly)</p>
                 <div className={styles.solBody}>
