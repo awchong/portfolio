@@ -182,9 +182,10 @@ export function SolutionsSection() {
                 <p className={styles.solBody}>
                   The naming system needed to scale beyond general-interest communities into
                   segment-specific models like schools and subscriptions without requiring new
-                  naming conventions each time. I designed the architecture to accommodate new verticals 
-                  by design, not by exception, developing proof-of-concept wireframes to demonstrate how 
-                  the system could scale.
+                  naming conventions each time. I developed proof-of-concept wireframes showing 
+                  how the naming system could bring greater coherence across Instagram and 
+                  Messenger while scaling into new verticals, demonstrating extensibility by 
+                  design, not by exception.
                 </p>
               </div>
 
