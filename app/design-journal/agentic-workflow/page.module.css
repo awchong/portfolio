@@ -354,13 +354,8 @@
 }
 
 /* ── Sol 02 column ── */
-
-.sol02Col {
-  position: relative;
-  width: 440px;
-  height: 473px;
-  flex-shrink: 0;
-}
+/* Note: the height/position override for the old absolute-positioned image
+   composite has been removed. The grouped rule above now governs sol02Col. */
 
 /* Sol02 has two metric lines at different vertical positions */
 .sol02MetricA {
@@ -514,6 +509,59 @@
   width: 100%;
   height: auto;
   margin-top: 24px;
+}
+
+/* ============================================================
+   Split row (Sol 02) — two text-only columns, stacks at ≤720px
+   Canonical Split variant per DECISIONS.md
+   ============================================================ */
+
+.splitRow {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.splitLeftCol,
+.splitRightCol {
+  width: 440px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   Feature row (Sol 03) — text left / image right, no reflow
+   Canonical Feature variant per DECISIONS.md
+   ============================================================ */
+
+.featureRow {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.featureTextCol {
+  width: 440px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.featureImgCol {
+  flex: 1;
+  min-width: 0;
+}
+
+/* decisions-markdown.png in the Feature image column.
+   clamp() floor (220px) preserves recognition-level legibility;
+   100% fills the 440px flex column; ceiling caps on wide viewports. */
+.featureDecisionsImg {
+  display: block;
+  width: clamp(220px, 100%, 440px);
+  height: auto;
 }
 
 /* ── Right column ── */
@@ -779,5 +827,16 @@
 
   .footerLinks {
     gap: 16px;
+  }
+
+  /* Split row: stack right column beneath left at ≤720px */
+  .splitRow {
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  .splitLeftCol,
+  .splitRightCol {
+    width: 100%;
   }
 }

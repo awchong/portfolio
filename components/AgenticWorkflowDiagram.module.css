@@ -6,28 +6,17 @@
    ============================================================ */
 
 .diagram {
-  /* Light-mode color tokens */
-  --d-border:   rgba(0, 0, 0, 0.15);
-  --d-label:    rgba(0, 0, 0, 0.35);
-  --d-dot:      rgba(0, 0, 0, 0.25);
-  --d-line:     rgba(0, 0, 0, 0.12);
-  --d-title:    rgba(0, 0, 0, 0.85);
-  --d-body:     rgba(0, 0, 0, 0.5);
-  --d-loop:     rgba(0, 0, 0, 0.3);
+  /* Terracotta for all structural lines; site text tokens for copy.
+     Dark mode removed — site intentionally has no dark mode. */
+  --d-border:   var(--color-terracotta);
+  --d-dot:      var(--color-terracotta);
+  --d-line:     var(--color-terracotta);
+  --d-label:    var(--color-gray);
+  --d-title:    var(--color-black);
+  --d-body:     var(--color-gray);
+  --d-loop:     var(--color-gray);
 
   width: 100%;
-}
-
-@media (prefers-color-scheme: dark) {
-  .diagram {
-    --d-border:   rgba(255, 255, 255, 0.15);
-    --d-label:    rgba(255, 255, 255, 0.35);
-    --d-dot:      rgba(255, 255, 255, 0.25);
-    --d-line:     rgba(255, 255, 255, 0.12);
-    --d-title:    rgba(255, 255, 255, 0.85);
-    --d-body:     rgba(255, 255, 255, 0.5);
-    --d-loop:     rgba(255, 255, 255, 0.3);
-  }
 }
 
 /* Three-column grid: label | connector | content */
