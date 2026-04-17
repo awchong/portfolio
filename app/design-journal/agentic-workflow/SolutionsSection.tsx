@@ -1,47 +1,12 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
-import { Lightbox } from '@/app/components/Lightbox';
-import lbStyles from '@/app/components/Lightbox.module.css';
+import { AgenticWorkflowDiagram } from '@/components/AgenticWorkflowDiagram';
 import styles from './page.module.css';
-
-// ─── Data ────────────────────────────────────────────────────
-
-type VpCardItem = {
-  kind: 'vpcard';
-  caption: string;
-  title: string;
-  body: string;
-};
-
-type ActiveItem = VpCardItem;
-
-const VP_CARDS: VpCardItem[] = [
-  {
-    kind: 'vpcard',
-    caption: 'Strategy & Execution Routing',
-    title: 'Building the pipeline',
-    body: 'I landed on a two-model setup: Claude for strategy and design; Gemini CLI for the grunt work in between; then back to Claude for pixel polish and review.',
-  },
-  {
-    kind: 'vpcard',
-    caption: 'Session Continuity',
-    title: 'Solving the context problem',
-    body: 'I moved to structured state files—BRIEF.md, DECISIONS.md, STATUS.md. Feeding those in meant I wasn\'t starting from zero every session.',
-  },
-  {
-    kind: 'vpcard',
-    caption: 'Advanced Prompting',
-    title: 'Writing prompts that did more work',
-    body: 'Less describing what I wanted, more specifying the full picture: context, constraints, what done looked like, and what to avoid.',
-  },
-];
 
 // ─── Component ───────────────────────────────────────────────
 
 export function SolutionsSection() {
-  const [active, setActive] = useState<ActiveItem | null>(null);
 
   return (
     <>
@@ -51,7 +16,7 @@ export function SolutionsSection() {
 
           <div className={styles.solutionsContent}>
 
-            {/* Row 1: Building the pipeline | Writing prompts that did more work upfront */}
+            {/* Row 1 (Feature variant): text left / diagram right */}
             <div className={styles.solutionsRow}>
 
               {/* Col 1 — Building the pipeline */}
@@ -71,22 +36,6 @@ export function SolutionsSection() {
                     intentionally, the quality and consistency of the output improved noticeably.
                   </p>
                 </div>
-                <div className={styles.vpCards}>
-                  {VP_CARDS.map((card) => (
-                    <div
-                      key={card.caption}
-                      className={styles.vpCard}
-                      onClick={() => setActive(card)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyDown={(e) => e.key === 'Enter' && setActive(card)}
-                      aria-label={`Enlarge: ${card.caption}`}
-                    >
-                      <p className={styles.vpCardTitle}>{card.title}</p>
-                      <p className={styles.vpCardBody}>{card.body}</p>
-                    </div>
-                  ))}
-                </div>
               </div>
 
               {/* Col 2 — Writing prompts that did more work upfront */}
@@ -105,8 +54,8 @@ export function SolutionsSection() {
                     output after the fact.
                   </p>
                 </div>
-                <div style={{ marginTop: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--color-line)', borderRadius: '8px', height: '179px', width: '440px' }}>
-                  <span style={{ color: 'var(--color-gray)', fontSize: '12px' }}>Prompt Engineering Visualization</span>
+                <div style={{ marginTop: '24px' }}>
+                  <AgenticWorkflowDiagram />
                 </div>
               </div>
 
@@ -173,17 +122,6 @@ export function SolutionsSection() {
         </div>
       </section>
 
-      {/* Lightbox */}
-      {active && (
-        <Lightbox caption={active.caption} onClose={() => setActive(null)}>
-          {active.kind === 'vpcard' && (
-            <div className={lbStyles.vpCardEnlarged}>
-              <p className={lbStyles.vpCardEnlargedTitle}>{active.title}</p>
-              <p className={lbStyles.vpCardEnlargedBody}>{active.body}</p>
-            </div>
-          )}
-        </Lightbox>
-      )}
     </>
   );
 }

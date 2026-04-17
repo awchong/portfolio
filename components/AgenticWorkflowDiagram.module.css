@@ -1,0 +1,122 @@
+/* ============================================================
+   AgenticWorkflowDiagram
+   Visual spec: public/images/design-journal/agentic-workflow/workflow-diagram.html
+   All colors use local CSS variables so the diagram responds
+   to prefers-color-scheme: dark without relying on site-wide tokens.
+   ============================================================ */
+
+.diagram {
+  /* Light-mode color tokens */
+  --d-border:   rgba(0, 0, 0, 0.15);
+  --d-label:    rgba(0, 0, 0, 0.35);
+  --d-dot:      rgba(0, 0, 0, 0.25);
+  --d-line:     rgba(0, 0, 0, 0.12);
+  --d-title:    rgba(0, 0, 0, 0.85);
+  --d-body:     rgba(0, 0, 0, 0.5);
+  --d-loop:     rgba(0, 0, 0, 0.3);
+
+  width: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .diagram {
+    --d-border:   rgba(255, 255, 255, 0.15);
+    --d-label:    rgba(255, 255, 255, 0.35);
+    --d-dot:      rgba(255, 255, 255, 0.25);
+    --d-line:     rgba(255, 255, 255, 0.12);
+    --d-title:    rgba(255, 255, 255, 0.85);
+    --d-body:     rgba(255, 255, 255, 0.5);
+    --d-loop:     rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Three-column grid: label | connector | content */
+.grid {
+  display: grid;
+  grid-template-columns: 100px 32px 1fr;
+  align-items: start;
+}
+
+/* ── Label column ── */
+.label {
+  padding-top: 1.35rem;
+  padding-bottom: 1.25rem;
+  border-top: 0.5px solid var(--d-border);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  color: var(--d-label);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* ── Connector column ── */
+.connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.35rem;
+  border-top: 0.5px solid var(--d-border);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--d-dot);
+  flex-shrink: 0;
+}
+
+.line {
+  width: 0.5px;
+  flex: 1;
+  background: var(--d-line);
+  min-height: 48px;
+}
+
+.lineTall {
+  width: 0.5px;
+  flex: 1;
+  background: var(--d-line);
+  min-height: 64px;
+}
+
+/* ── Content column ── */
+.content {
+  padding: 1.25rem 0 1.25rem 1rem;
+  border-top: 0.5px solid var(--d-border);
+}
+
+.contentLast {
+  padding: 1.25rem 0 0 1rem;
+  border-top: 0.5px solid var(--d-border);
+}
+
+.contentTitle {
+  margin: 0 0 4px;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--d-title);
+  line-height: 1.4;
+}
+
+.contentBody {
+  margin: 0;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: var(--d-body);
+  line-height: 1.5;
+}
+
+.contentLoop {
+  margin: 10px 0 0;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  color: var(--d-loop);
+  line-height: 1.5;
+}
