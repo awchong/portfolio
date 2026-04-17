@@ -38,12 +38,12 @@ export default function NamingArchitecture() {
                 <div className={styles.heroRoleGroup}>
                   <span className={styles.heroRoleLabel}>Role</span>
                   <p className={styles.heroRoleText}>
-                    I represented Messenger&rsquo;s community messaging pillar as part of a
-                    cross-functional v-team of content designers spanning Instagram and Messenger.
-                    While the taxonomy work was collaborative, I owned the naming architecture
-                    for my product area and drove alignment across teams, brokering agreement
-                    between Instagram and Messenger on shared vocabulary, and leading the linguistic audit
-                    that became the foundation for the unified system.                  </p>
+                    I represented Messenger&rsquo;s community messaging pillar as part of a 
+                    cross-functional v-team of content designers spanning Instagram and Messenger. 
+                    While the taxonomy work was collaborative, I owned the naming architecture for 
+                    my pillar, drove alignment across teams, brokered agreement on shared vocabulary, 
+                    and led the linguistic audit for my pillar, one of the building blocks of 
+                    the unified system.                  </p>
                 </div>
               </div>
             </div>
