@@ -124,10 +124,10 @@ export function SolutionsSection() {
                 <span className={styles.solNum}>02</span>
                 <p className={styles.solTitle}>Developing a unified product taxonomy</p>
                 <p className={styles.solBody}>
-                  We conducted a comprehensive linguistic audit to eliminate term drift and redundant
-                  naming patterns across both apps. The goal was a single source of truth:
-                  consistent terms, consistent definitions, consistent behavior — regardless of
-                  which app you were in.
+                  We each conducted a linguistic audit of our respective product areas to eliminate 
+                  term drift and redundant naming patterns across both apps, then synthesized findings 
+                  into a unified taxonomy. The goal was a single source of truth: consistent terms, 
+                  consistent definitions, consistent behavior — regardless of which app you were in.
                 </p>
                 <div className={styles.solMetrics}>
                   <p className={styles.solMetric}>Taxonomy reduced from 6 terms to 4</p>
