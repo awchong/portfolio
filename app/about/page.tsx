@@ -124,12 +124,13 @@ export default function About() {
 
           <div className={styles.careerRight}>
             <div className={styles.skillGroup}>
-              <h2 className={styles.careerTitle}>Other skills</h2>
-              
+              <h2 className={styles.careerTitle}>Skills</h2>
+
               <div className={styles.skillItem}>
-                <span className={styles.skillLabel}>Languages</span>
+                <span className={styles.skillLabel}>AI tools & workflows</span>
                 <span className={styles.skillValue}>
-                  English (native), Spanish (conversational), Cantonese (heritage)
+                  Prompt engineering, Claude (claude.ai, Claude Code, API), Gemini CLI, ChatGPT;
+                  using LLMs for content critique, design iteration, and product development
                 </span>
               </div>
 
@@ -141,19 +142,9 @@ export default function About() {
               </div>
 
               <div className={styles.skillItem}>
-                <span className={styles.skillLabel}>AI tools & workflows</span>
+                <span className={styles.skillLabel}>Languages</span>
                 <span className={styles.skillValue}>
-                  Prompt engineering, Claude (claude.ai, Claude Code, API), Gemini CLI, ChatGPT;
-                  using LLMs for content critique, design iteration, and product development
-                </span>
-              </div>
-
-              <div className={styles.skillItem}>
-                <span className={styles.skillLabel}>UX experience</span>
-                <span className={styles.skillValue}>
-                  UX writing, content strategy, product thinking, content-first design,
-                  microcopy, wireframing, design systems, information architecture,
-                  accessibility, localization/internationalization, voice & tone
+                  English (native), Spanish (conversational), Cantonese (heritage)
                 </span>
               </div>
 
@@ -163,6 +154,15 @@ export default function About() {
                   Social campaign creative, paid media content, cross-functional
                   collaboration with brand and growth teams, adapting voice for marketing
                   contexts across platforms
+                </span>
+              </div>
+
+              <div className={styles.skillItem}>
+                <span className={styles.skillLabel}>UX experience</span>
+                <span className={styles.skillValue}>
+                  UX writing, content strategy, product thinking, content-first design,
+                  microcopy, wireframing, design systems, information architecture,
+                  accessibility, localization/internationalization, voice & tone
                 </span>
               </div>
             </div>

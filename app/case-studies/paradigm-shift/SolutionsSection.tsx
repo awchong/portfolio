@@ -195,6 +195,7 @@ export function SolutionsSection() {
               style={{
                 aspectRatio: `${active.cropWidth} / ${active.cropHeight}`,
                 width: `min(80vw, calc(75vh * ${active.cropWidth} / ${active.cropHeight}))`,
+                border: 'none',
               }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}

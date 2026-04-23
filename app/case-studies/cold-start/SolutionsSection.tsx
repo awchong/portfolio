@@ -207,6 +207,7 @@ export function SolutionsSection() {
               aspectRatio: `${active.cropWidth} / ${active.cropHeight}`,
               width: `min(80vw, calc(75vh * ${active.cropWidth} / ${active.cropHeight}))`,
               ...(active.maxDisplayWidth != null && { maxWidth: `${active.maxDisplayWidth}px` }),
+              border: 'none',
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}

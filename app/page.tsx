@@ -192,24 +192,15 @@ export default function Home() {
       <section className={styles.about}>
         <div className="container">
           <span className={styles.sectionLabel}>About</span>
-          <div className={styles.aboutInner}>
-            <div className={styles.aboutLeft}>
-              <p className={styles.aboutHeadline}>
-                Curiosity<br />&amp; craft
-              </p>
-            </div>
-            <div className={styles.aboutRight}>
-              <p className={styles.aboutBody}>
-                Before designing for big tech, I spent years in education: teaching, then
-                state-level assessment development and curriculum design. That background
-                informs everything: information architecture, systems thinking, and a deep
-                respect for how people learn and process information.
-              </p>
-              <Link href="/about" className="cta-link">
-                <span>About me</span> <span className={styles.arrow}>→</span>
-              </Link>
-            </div>
-          </div>
+          <p className={styles.aboutBody}>
+            Before designing for big tech, I spent years in education: teaching, then
+            state-level assessment development and curriculum design. That background
+            informs everything: information architecture, systems thinking, and a deep
+            respect for how people learn and process information.
+          </p>
+          <Link href="/about" className="cta-link">
+            <span>About me</span> <span className={styles.arrow}>→</span>
+          </Link>
         </div>
       </section>
 
