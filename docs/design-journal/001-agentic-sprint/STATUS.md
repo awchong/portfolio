@@ -1,12 +1,19 @@
 # Project Status: Journal Entry / 001
 
 ## COMPLETED
-- [x] **Path Migration**: Directory structure created at `/app/case-studies/agentic-workflow/`.
+- [x] **Path Migration**: Directory structure created at `/app/design-journal/agentic-workflow/`.
 - [x] **UI Scaffolding**: Layout, CSS modules, and component skeletons established.
 - [x] **Structural & Tonal Pivot**: Labels (`Context`, `Tools & Logic`, `Journal Entry`) and first-person voice implemented.
 - [x] **Baseline Documentation**: `BRIEF.md`, `DECISIONS.md`, and `STATUS.md` initialized.
+- [x] **Context Section Simplified**: Removed `webBuilderImg` (web-builder-landscape.png) and the `challengeFinalRow` (usage-limits.png + two-column layout). Context section is now plain paragraphs. Associated CSS classes deleted: `webBuilderImg`, `challengeFinalRow`, `challengeFinalText`, `challengeUsageLimitsWrap`, `usageLimitsImg`.
+- [x] **Hero/Context Divider Removed**: The `divider` element between the Hero and Context sections has been removed.
+- [x] **Solutions Renumbered**: Sol 03 "Ditching Figma (mostly)" now carries `solNum 03`. "Solving the context problem" renumbered to sol 04. All four solutions are now explicitly numbered.
+- [x] **Pipeline Diagram Wrapped**: `AgenticWorkflowDiagram` in `sol02Col` wrapped in `<figure class="diagramFigure">` with warm terracotta background, border, and 24px radius.
+- [x] **Images Updated**:
+  - `featureDecisionsImg` → `2x_ROUNDED_decisions-markdown.png` (2x retina, rounded corners; 5464×6352)
+  - `sessionImg` → `CROPPED_claude-screenshot-sessions2.png` (2676×4395), 85% width centered, repositioned after methods grid
+- [x] **Footer Added**: © 2026 Allen Chong with LinkedIn, Substack, and Contact links. Wired to `openContactForm`.
 
 ## NEXT STEPS
-- [ ] **Content Drafting**: Finalize the deep-dive narrative for "Journal Entry / 001."
-- [ ] **Image Placeholders**: Replace generic placeholder divs with finalized SVGs or images for the Hero and Solutions sections.
+- [ ] **Lightbox for `featureDecisionsImg`**: Sol 04 image (`2x_ROUNDED_decisions-markdown.png`) contains legible UI text and requires a lightbox. No lightbox mechanism currently exists on this page. Flag for a future session.
 - [ ] **Validation**: Full audit of the `agentic-workflow` page across all viewport sizes.

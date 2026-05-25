@@ -46,18 +46,18 @@
   gap: 32px;
 }
 
-/* Left text column */
-.heroLeft {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* gap between upper group (title/subhead) and role block */
-}
-
 /* Full-width slide-deck image below hero text */
 .heroSlideImg {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* Left text column */
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* gap between upper group (title/subhead) and role block */
 }
 
 /* Title + subhead group: gap-[28px] between title block and subhead */
@@ -187,38 +187,6 @@
   color: var(--color-gray);
   margin: 24px 0 0 0;
   width: 100%; /* full 960px container width */
-}
-
-/* web-builder.png — 75% width, centered, below first paragraph */
-.webBuilderImg {
-  display: block;
-  width: 75%;
-  height: auto;
-  margin: 24px auto 0;
-}
-
-/* Final paragraph as two-column layout with usage-limits.png */
-.challengeFinalRow {
-  display: flex;
-  gap: 2.5rem;
-  align-items: center;
-  margin-top: 24px;
-}
-
-.challengeFinalText {
-  flex: 1;
-  margin: 0;
-}
-
-.challengeUsageLimitsWrap {
-  flex-shrink: 0;
-  width: 28%;
-}
-
-.usageLimitsImg {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 /* ============================================================
@@ -351,6 +319,17 @@
   line-height: 1.24;
   color: #666666;
   margin: 0;
+}
+
+/* Pipeline diagram figure — seated in sol02Col, warm tinted background */
+.diagramFigure {
+  margin: 0;                                  /* reset <figure> default margins */
+  padding: 32px;                              /* uniform — matches horizontal inset */
+  background-color: rgba(184, 115, 80, 0.05); /* 5% terracotta — subtle warm field */
+  border: 1px solid var(--color-black);
+  border-radius: 24px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 /* ── Sol 02 column ── */
@@ -565,19 +544,15 @@
 }
 
 /* ── Right column ── */
+/* padding-top aligns the body text with the left column's body text:
+   sectionLabel height (var(--text-label) = 10.4px, line-height: 1) + outcomeResults gap (24px) */
 .outcomeRight {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  padding-top: calc(var(--text-label) + 24px);
 }
 
-/* claude-screenshot-sessions.png — full column width, above Tools & Logic */
-.sessionImg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
+
+
 
 /* Methods grid: bold skills | regular skills, gap-[16px] */
 .methodsGrid {
@@ -770,12 +745,13 @@
     width: 100%;
   }
 
+  /* Continuation prose — reset the desktop alignment offset, simple top gap */
   .outcomeRight {
     width: 100%;
-    border-top: 1px solid var(--color-line);
-    padding-top: 32px;
-    margin-top: 32px;
+    padding-top: 0;
+    margin-top: 24px;
   }
+
 }
 
 /* ============================================================
@@ -795,17 +771,6 @@
     max-width: 100%;
   }
 
-  /* Stack the final Context paragraph on narrower screens */
-  .challengeFinalRow {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .challengeUsageLimitsWrap {
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
 
 /* ============================================================

@@ -15,24 +15,34 @@ To maintain development speed and allow for independent UI evolution, we've dupl
 
 ## Solutions Section Layout Pattern
 
-This page uses the same grid structure as the existing case studies (e.g. `cold-start`). Any agent working on this section must read `app/case-studies/cold-start/SolutionsSection.tsx` before making layout changes.
+This page uses a three-row structure inside `solutionsContent`. Any agent working on this section must read `app/case-studies/cold-start/SolutionsSection.tsx` before making layout changes.
 
 - **Outer wrapper**: `solutionsContent` — flex column, `gap: 32px`, `margin-top: 32px` from the section label
-- **Each row**: `solutionsRow` — flex row, `gap: 80px`, two columns side by side
-- **Columns**: `sol01Col` (left) and `sol02Col` (right) — each 440px wide
-- **Rule**: two solutions per row maximum. A third solution gets its own `solutionsRow` below, occupying `sol01Col` only
-- **Number labels**: each solution has a `solNum` span (`01`, `02`, `03`) above the title
+- **Rule**: two solutions per row maximum. A third or fourth solution gets its own row.
+- **Number labels**: each solution has a `solNum` span (`01`, `02`, `03`, `04`) above the title. All four solutions are numbered.
 
 Do not use `solutionsGrid`, inline `marginTop`, or any other ad-hoc structure. The pattern is established and must be followed exactly.
 
-### Layout variant (canonical name: Split)
+### Row structure (current)
 
-Both solution rows on this page are **Split** — two columns, two solutions side by side, text stacked above image/cards within each column. This is the canonical name for this pattern; use it in code comments and future documentation.
+**Row 1 — `solutionsRow`**: Sol 01 text (left, `sol01Col`) + `AgenticWorkflowDiagram` (right, `sol02Col`). The diagram carries no `solNum` — it is a visual, not a solution column.
 
-Row 1 (sols 01 + 02): text + VP cards (left), text + placeholder image (right).
-Row 2 (sols 03 + 04): text + `decisionsImg` (left), text only (right). Two solutions with no shared images — Split remains the correct variant (not Stack, which is single-solution only).
+**Row 2 — `splitRow` (canonical name: Split)**: Sol 02 "Writing prompts that did more work upfront" (left, `splitLeftCol`) + Sol 03 "Ditching Figma (mostly)" (right, `splitRightCol`). Both columns are text-only. Note: sol 03 appears in the right column of row 2 and sol 04 in the left column of row 3 — the numbers follow content order, not left-to-right visual order across rows.
 
-Responsive behavior: at ≤1056px, both columns stack via `flex-direction: column`. Internal order within each column is preserved — text remains above image after reflow. Both columns become full-width.
+**Row 3 — `featureRow` (canonical name: Feature)**: Sol 04 "Solving the context problem" (left, `featureTextCol`) + `featureDecisionsImg` (right, `featureImgCol`). No reflow at any viewport — this row is fixed two-column at all sizes.
+
+Responsive behavior: `solutionsRow` and `splitRow` stack via `flex-direction: column` at ≤1056px. `featureRow` does not reflow. Internal order within each column is preserved after reflow.
+
+### Pipeline diagram figure
+
+The `AgenticWorkflowDiagram` SVG in `sol02Col` is wrapped in `<figure className={styles.diagramFigure}>`. This provides:
+- `padding: 32px` uniform inset
+- `background-color: rgba(184, 115, 80, 0.05)` — 5% terracotta warm field
+- `border: 1px solid var(--color-black)`
+- `border-radius: 24px`
+- `width: 100%`; `margin: 0` (resets `<figure>` default margins)
+
+Do not remove the `<figure>` wrapper or apply the background directly to the SVG component.
 
 ## Image System
 
@@ -42,14 +52,12 @@ All images on this page are classified under the two-tier system from the site-w
 
 **Hero images (no lightbox):**
 - `heroSlideImg` — full-width slide deck photo below hero text. Atmosphere and context; no legibility obligation.
-- `webBuilderImg` — 75% width, in the Context section. Illustrates the old site builder; ambient, not evidence of a specific design decision.
-- `usageLimitsImg` — 28% width in the Context section two-column row. Illustrates the usage limits problem; ambient illustration, not a UI artifact requiring inspection.
 
 **Solution images (lightbox required):**
-- `decisionsImg` — full width of its 440px column, in sol 03 ("Solving the context problem"). This is a screenshot of a DECISIONS.md file. It is evidence of the structured state file approach and contains UI text. **Lightbox required; currently not implemented.** Flag for a future session.
+- `featureDecisionsImg` — full width of `featureImgCol` (right col of featureRow), in sol 04 ("Solving the context problem"). This is a VS Code screenshot of DECISIONS.md. It is evidence of the structured state file approach and contains UI text. **Lightbox required; currently not implemented.** Flag for a future session.
 
-**Borderline — treat as hero for now:**
-- `sessionImg` — full width of `outcomeRight` column, in the Takeaways section. Shows Claude session history. No specific UI text that requires legibility; serves as ambient visual evidence of the volume of sessions. No lightbox needed unless the content is updated to show decision-level detail.
+**Ambient evidence images (no lightbox):**
+- `sessionImg` — 85% width, centered, below the methods grid in `outcomeRight`. Shows Claude session history. Serves as ambient visual evidence of session volume; no specific UI text requiring legibility. No lightbox needed unless content is updated to show decision-level detail.
 
 ### Sizing
 
@@ -58,12 +66,29 @@ All image containers on this page use percentage-based or fluid widths — confo
 | Image | Current sizing | Notes |
 |---|---|---|
 | `heroSlideImg` | `width: 100%` | Full-width hero; correct |
-| `webBuilderImg` | `width: 75%` | 75% of content area, centered; correct |
-| `usageLimitsImg` | `width: 100%` of a `28%` wrapper | Wrapper is percentage-based; correct |
-| `decisionsImg` | `width: 100%` of its 440px column | Scales with column; correct |
-| `sessionImg` | `width: 100%` of `outcomeRight` (flex: 1) | Fluid; correct |
+| `featureDecisionsImg` | `width: 100%` of `featureImgCol` (flex: 1) | Fluid; correct |
+| `sessionImg` | `width: 85%`, `margin: 0 auto` | Centered, slightly inset from column edge; correct |
 
-No `clamp()` is used on any image container. This page was built concurrently with the `clamp()` standard being established. The current sizing is acceptable as-is — all containers are already fluid and proportional. Retrofit to `clamp()` only if a specific responsive issue is reported.
+No `clamp()` is used on any image container. The current sizing is acceptable as-is — all containers are fluid and proportional. Retrofit to `clamp()` only if a specific responsive issue is reported.
+
+### Image files (current)
+
+| Class | File | Dimensions |
+|---|---|---|
+| `heroSlideImg` | `slide-deck-short.png` | 4748×1224 |
+| `featureDecisionsImg` | `2x_ROUNDED_decisions-markdown.png` | 5464×6352 (2x retina, rounded) |
+| `sessionImg` | `CROPPED_claude-screenshot-sessions2.png` | 2676×4395 |
+
+The `ROUNDED_decisions-markdown.png` (1x) and earlier session screenshot variants are in `public/images/design-journal/agentic-workflow/` but are not currently referenced in the page.
+
+## Footer
+
+This page has its own footer (identical in structure to the home page footer). It is rendered inside `page.tsx` after a `navDivider`, with:
+- © 2026 Allen Chong
+- LinkedIn and Substack as `<a>` links
+- Contact wired to `openContactForm` from `../../components/ContactFormModal`
+
+The footer CSS lives in `page.module.css` and mirrors the home page pattern (see comment `/* Same as home page footer */`).
 
 ## Voice & Tone
 The system now prioritizes a first-person, candid, and personable voice.

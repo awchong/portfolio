@@ -38,7 +38,9 @@ export function SolutionsSection() {
 
             {/* Right: workflow diagram */}
             <div className={styles.sol02Col}>
-              <AgenticWorkflowDiagram />
+              <figure className={styles.diagramFigure}>
+                <AgenticWorkflowDiagram />
+              </figure>
             </div>
 
           </div>
@@ -67,8 +69,9 @@ export function SolutionsSection() {
               </div>
             </div>
 
-            {/* Right: Ditching Figma (mostly) — no index number */}
+            {/* Right: Ditching Figma (mostly) */}
             <div className={styles.splitRightCol}>
+              <span className={styles.solNum}>03</span>
               <p className={styles.solTitle}>Ditching Figma (mostly)</p>
               <div className={styles.solBody}>
                 <p>
@@ -94,7 +97,7 @@ export function SolutionsSection() {
 
           </div>
 
-          {/* ── Sol 03 — Feature variant: Solving the context problem ────────────
+          {/* ── Sol 04 — Feature variant: Solving the context problem ────────────
               Text left / VS Code screenshot right. No reflow at any viewport.
               Image taxonomy: solution evidence with UI text → lightbox required
               per DECISIONS.md image taxonomy. Not yet implemented; flagged for
@@ -103,7 +106,7 @@ export function SolutionsSection() {
 
             {/* Left: text */}
             <div className={styles.featureTextCol}>
-              <span className={styles.solNum}>03</span>
+              <span className={styles.solNum}>04</span>
               <p className={styles.solTitle}>Solving the context problem</p>
               <div className={styles.solBody}>
                 <p>
@@ -123,10 +126,10 @@ export function SolutionsSection() {
             {/* Right: VS Code screenshot of DECISIONS.md */}
             <div className={styles.featureImgCol}>
               <Image
-                src="/images/design-journal/agentic-workflow/decisions-markdown.png"
+                src="/images/design-journal/agentic-workflow/2x_ROUNDED_decisions-markdown.png"
                 alt=""
-                width={2732}
-                height={3176}
+                width={5464}
+                height={6352}
                 className={styles.featureDecisionsImg}
               />
             </div>
