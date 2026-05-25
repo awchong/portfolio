@@ -56,9 +56,6 @@ All images on this page are classified under the two-tier system from the site-w
 **Solution images (lightbox required):**
 - `featureDecisionsImg` — full width of `featureImgCol` (right col of featureRow), in sol 04 ("Solving the context problem"). This is a VS Code screenshot of DECISIONS.md. It is evidence of the structured state file approach and contains UI text. **Lightbox required; currently not implemented.** Flag for a future session.
 
-**Ambient evidence images (no lightbox):**
-- `sessionImg` — 85% width, centered, below the methods grid in `outcomeRight`. Shows Claude session history. Serves as ambient visual evidence of session volume; no specific UI text requiring legibility. No lightbox needed unless content is updated to show decision-level detail.
-
 ### Sizing
 
 All image containers on this page use percentage-based or fluid widths — conformant with the site-wide rule that image containers must never use fixed pixel widths.
@@ -67,7 +64,6 @@ All image containers on this page use percentage-based or fluid widths — confo
 |---|---|---|
 | `heroSlideImg` | `width: 100%` | Full-width hero; correct |
 | `featureDecisionsImg` | `width: 100%` of `featureImgCol` (flex: 1) | Fluid; correct |
-| `sessionImg` | `width: 85%`, `margin: 0 auto` | Centered, slightly inset from column edge; correct |
 
 No `clamp()` is used on any image container. The current sizing is acceptable as-is — all containers are fluid and proportional. Retrofit to `clamp()` only if a specific responsive issue is reported.
 
@@ -77,9 +73,29 @@ No `clamp()` is used on any image container. The current sizing is acceptable as
 |---|---|---|
 | `heroSlideImg` | `slide-deck-short.png` | 4748×1224 |
 | `featureDecisionsImg` | `2x_ROUNDED_decisions-markdown.png` | 5464×6352 (2x retina, rounded) |
-| `sessionImg` | `CROPPED_claude-screenshot-sessions2.png` | 2676×4395 |
 
-The `ROUNDED_decisions-markdown.png` (1x) and earlier session screenshot variants are in `public/images/design-journal/agentic-workflow/` but are not currently referenced in the page.
+The `ROUNDED_decisions-markdown.png` (1x) and session screenshot variants (`CROPPED_claude-screenshot-sessions*.png`) are in `public/images/design-journal/agentic-workflow/` but are not referenced in the page.
+
+## Takeaways Section Layout
+
+The Takeaways section (`section.outcome`) uses a two-column `outcomeGrid` (flex row, `gap: 80px`, `align-items: flex-start`).
+
+### Left column (`outcomeLeft`, `width: 440px`)
+Contains `outcomeResults` (flex column, `gap: 24px`):
+- `sectionLabel` "Takeaways"
+- `challengeBody` with the first three narrative paragraphs + "A few things I'm carrying into future work" heading + `outcomeList`
+
+### Right column (`outcomeRight`, `flex: 1`)
+Contains the continuation of the narrative aligned with the left column's body text, followed by Tools & Logic inline — no separate row or divider:
+- `challengeBody` (`style={{ marginTop: 0 }}`) with "The next things I want to explore" heading + `outcomeList` + closing paragraph
+- `sectionLabel` "Tools & Logic" (`style={{ marginTop: '32px' }}`)
+- `methodsGrid` (`style={{ marginTop: '24px' }}`)
+
+### Alignment rule
+`outcomeRight` uses `padding-top: calc(var(--text-label) + 24px)` to align its first line of body text with the body text in `outcomeLeft` (accounting for the 10.4px label height + 24px flex gap in `outcomeResults`). At ≤1056px when the grid stacks, this is reset to `padding-top: 0; margin-top: 24px` in the responsive block.
+
+### No session screenshot
+The `sessionImg` class and `CROPPED_claude-screenshot-sessions2.png` were removed from this section. The right column is text and metadata only.
 
 ## Footer
 

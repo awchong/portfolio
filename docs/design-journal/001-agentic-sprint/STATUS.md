@@ -9,10 +9,10 @@
 - [x] **Hero/Context Divider Removed**: The `divider` element between the Hero and Context sections has been removed.
 - [x] **Solutions Renumbered**: Sol 03 "Ditching Figma (mostly)" now carries `solNum 03`. "Solving the context problem" renumbered to sol 04. All four solutions are now explicitly numbered.
 - [x] **Pipeline Diagram Wrapped**: `AgenticWorkflowDiagram` in `sol02Col` wrapped in `<figure class="diagramFigure">` with warm terracotta background, border, and 24px radius.
-- [x] **Images Updated**:
-  - `featureDecisionsImg` → `2x_ROUNDED_decisions-markdown.png` (2x retina, rounded corners; 5464×6352)
-  - `sessionImg` → `CROPPED_claude-screenshot-sessions2.png` (2676×4395), 85% width centered, repositioned after methods grid
+- [x] **Images Updated**: `featureDecisionsImg` → `2x_ROUNDED_decisions-markdown.png` (2x retina, rounded corners; 5464×6352).
+- [x] **Session Screenshot Removed**: `sessionImg` and `.sessionImg` CSS deleted entirely. The Takeaways right column is text and metadata only.
 - [x] **Footer Added**: © 2026 Allen Chong with LinkedIn, Substack, and Contact links. Wired to `openContactForm`.
+- [x] **Takeaways Section Restructured**: Narrative split across two columns. Left: label + first 3 paragraphs + "A few things" list. Right: "The next things" list + closing paragraph + Tools & Logic label + methods grid. Right column body text aligned with left via `padding-top: calc(var(--text-label) + 24px)`. No separate Tools & Logic row; no image in the section.
 
 ## NEXT STEPS
 - [ ] **Lightbox for `featureDecisionsImg`**: Sol 04 image (`2x_ROUNDED_decisions-markdown.png`) contains legible UI text and requires a lightbox. No lightbox mechanism currently exists on this page. Flag for a future session.
