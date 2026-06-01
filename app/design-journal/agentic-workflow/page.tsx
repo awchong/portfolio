@@ -152,12 +152,10 @@ export default function AgenticWorkflow() {
                     <p>Requirement Engineering</p>
                   </div>
                   <div className={styles.methodsRegular}>
-                    <p>State Machine Design</p>
+                    <p>Context Management</p>
+                    <p>Mental Model Design</p>
                     <p>Prompt Engineering</p>
-                    <p>System Architecture</p>
-                    <p>Error Recovery Patterns</p>
-                    <p>Performance Optimization</p>
-                    <p>LLM Observability</p>
+                    <p>Workflow Design</p>
                   </div>
                 </div>
               </div>
