@@ -16,7 +16,7 @@ export default function AgenticWorkflow() {
               <div className={styles.heroUpperGroup}>
                 <div className={styles.heroTitleGroup}>
                   <div className={styles.heroBreadcrumb}>
-                    <span className={styles.heroIndex}>Journal Entry / 001</span>
+                    <span className={styles.heroIndex}>Journal Entry / 01</span>
                     <span className={styles.heroChips}>
                       Agentic Orchestration · Multi-model Workflows · Requirement Engineering
                     </span>
