@@ -106,9 +106,18 @@
   text-underline-offset: 2px;
 }
 
-/* Colon after "Case studies" in expanded inline mode */
+/* Colon after toggle label in expanded inline mode */
 .csColon {
   /* visible at ≥820px when expanded (React renders it conditionally) */
+}
+
+/* Non-interactive placeholder text in expanded menus ("More coming soon") */
+.navPlaceholder {
+  color: var(--color-gray);
+  opacity: 0.5;
+  white-space: nowrap;
+  cursor: default;
+  pointer-events: none;
 }
 
 /* ============================================================
