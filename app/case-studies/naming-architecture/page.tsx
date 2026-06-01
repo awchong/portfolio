@@ -40,10 +40,10 @@ export default function NamingArchitecture() {
                   <p className={styles.heroRoleText}>
                     I represented Messenger&rsquo;s community messaging pillar as part of a 
                     cross-functional v-team of content designers spanning Instagram and Messenger. 
-                    While the taxonomy work was collaborative, I owned the naming architecture for 
-                    my pillar, drove alignment across teams, brokered agreement on shared vocabulary, 
-                    and led the linguistic audit for my pillar, one of the building blocks of 
-                    the unified system.                  </p>
+                    While the taxonomy work was collaborative, I owned the naming architecture
+                    for my pillar, drove alignment across teams, brokered agreement on shared
+                    vocabulary, and led the linguistic audit for my pillar, one of the building blocks
+                    of the unified system.                  </p>
                 </div>
               </div>
             </div>
@@ -143,7 +143,7 @@ export default function NamingArchitecture() {
       {/* ── Footer ── */}
       <div className={styles.navDivider} />
       <footer>
-        <div className={`container ${styles.footer}`}>
+        <div className={styles.footer}>
           <span>© 2026 Allen Chong</span>
           <div className={styles.footerLinks}>
             <a

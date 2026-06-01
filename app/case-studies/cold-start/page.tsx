@@ -147,7 +147,7 @@ export default function ColdStart() {
       {/* ── Footer ── */}
       <div className={styles.navDivider} />
       <footer>
-        <div className={`container ${styles.footer}`}>
+        <div className={styles.footer}>
           <span>© 2026 Allen Chong</span>
           <div className={styles.footerLinks}>
             <a

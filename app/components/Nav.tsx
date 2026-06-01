@@ -12,13 +12,14 @@ const CS_ROUTES = {
   cs03: '/case-studies/naming-architecture',
 } as const;
 
-type PageId = 'home' | 'cs01' | 'cs02' | 'cs03' | 'highlights' | 'about';
+type PageId = 'home' | 'cs01' | 'cs02' | 'cs03' | 'journal' | 'highlights' | 'about';
 
 function getPageId(pathname: string): PageId {
   if (pathname === '/') return 'home';
   if (pathname.startsWith(CS_ROUTES.cs01)) return 'cs01';
   if (pathname.startsWith(CS_ROUTES.cs02)) return 'cs02';
   if (pathname.startsWith(CS_ROUTES.cs03)) return 'cs03';
+  if (pathname.startsWith('/design-journal')) return 'journal';
   if (pathname === '/highlights') return 'highlights';
   if (pathname === '/about') return 'about';
   return 'home';
@@ -28,57 +29,65 @@ export default function Nav() {
   const pathname = usePathname();
   const pageId = getPageId(pathname);
   const [expanded, setExpanded] = useState(false);
+  const [djExpanded, setDjExpanded] = useState(false);
   const navRef = useRef<HTMLElement>(null);
 
   const isCS = pageId === 'cs01' || pageId === 'cs02' || pageId === 'cs03';
+  const isJournal = pageId === 'journal';
 
-  // Tracks whether the cursor is hovering over .csMenu (drives dropdown in narrow mode)
+  // Tracks whether the cursor is hovering over .csMenu / .djMenu (drives dropdown in narrow mode)
   const [hoverActive, setHoverActive] = useState(false);
+  const [djHoverActive, setDjHoverActive] = useState(false);
   // Prevents onMouseEnter from re-opening the dropdown immediately after a click-to-close
   const justClosedRef = useRef(false);
+  const djJustClosedRef = useRef(false);
 
   // Collapse on route change — useLayoutEffect runs synchronously before paint
   // so the expanded state is already false when the new page renders, preventing
   // a visible flash where the dropdown briefly shows on the destination page.
   useLayoutEffect(() => {
     setExpanded(false);
+    setDjExpanded(false);
     setHoverActive(false);
+    setDjHoverActive(false);
     (document.activeElement as HTMLElement)?.blur();
   }, [pathname]);
 
   // Collapse when clicking outside the nav
   useEffect(() => {
-    if (!expanded) return;
+    if (!expanded && !djExpanded) return;
     function handleClickOutside(e: MouseEvent) {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
         setExpanded(false);
+        setDjExpanded(false);
         setHoverActive(false);
+        setDjHoverActive(false);
       }
     }
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
-  }, [expanded]);
+  }, [expanded, djExpanded]);
 
   // Collapse on scroll — only in dropdown mode (<820px) where the menu obscures content.
   // The inline slide-reveal (≥820px) sits in the nav bar and doesn't need scroll dismissal.
   useEffect(() => {
-    if (!expanded) return;
+    if (!expanded && !djExpanded) return;
     function handleScroll() {
-      if (window.innerWidth < 820) setExpanded(false);
+      if (window.innerWidth < 820) {
+        setExpanded(false);
+        setDjExpanded(false);
+      }
     }
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [expanded]);
+  }, [expanded, djExpanded]);
 
-  // Dropdown is visible when hover-active OR click-toggled open
+  // Dropdowns are visible when hover-active OR click-toggled open
   const dropdownShowing = expanded || hoverActive;
+  const djDropdownShowing = djExpanded || djHoverActive;
 
   function handleCsClick(e: React.MouseEvent<HTMLButtonElement>) {
     if (expanded) {
-      // Second click: close definitively.
-      // Blur the button so :focus-within doesn't keep the dropdown visible,
-      // and suppress onMouseEnter for a short window so post-click mouse
-      // events can't immediately re-open the menu.
       setExpanded(false);
       setHoverActive(false);
       (e.currentTarget as HTMLButtonElement).blur();
@@ -87,6 +96,19 @@ export default function Nav() {
     } else {
       setExpanded(true);
       justClosedRef.current = false;
+    }
+  }
+
+  function handleDjClick(e: React.MouseEvent<HTMLButtonElement>) {
+    if (djExpanded) {
+      setDjExpanded(false);
+      setDjHoverActive(false);
+      (e.currentTarget as HTMLButtonElement).blur();
+      djJustClosedRef.current = true;
+      setTimeout(() => { djJustClosedRef.current = false; }, 300);
+    } else {
+      setDjExpanded(true);
+      djJustClosedRef.current = false;
     }
   }
 
@@ -102,6 +124,11 @@ export default function Nav() {
   const cs02Color = pageId === 'cs02' ? 'var(--color-terracotta)' : 'var(--color-gray)';
   const cs03Color = pageId === 'cs03' ? 'var(--color-terracotta)' : 'var(--color-gray)';
 
+  // Terracotta only when on a journal page — NOT just because the dropdown is open.
+  const djToggleColor =
+    isJournal ? 'var(--color-terracotta)' : 'var(--color-gray)';
+
+  const dj01Color = pageId === 'journal' ? 'var(--color-terracotta)' : 'var(--color-gray)';
   const highlightsColor =
     pageId === 'highlights' ? 'var(--color-terracotta)' : 'var(--color-gray)';
   const aboutColor =
@@ -199,6 +226,58 @@ export default function Nav() {
           </div>
         </div>
 
+        {/* Design journal: inline slide-reveal (≥820px) or hover dropdown (<820px) */}
+        <div
+          className={`${styles.csMenu} ${djDropdownShowing ? styles.csMenuExpanded : ''}`}
+          onMouseEnter={() => {
+            if (!djJustClosedRef.current) setDjHoverActive(true);
+          }}
+          onMouseLeave={() => {
+            setDjHoverActive(false);
+          }}
+        >
+          <button
+            type="button"
+            className={styles.csToggle}
+            style={{ color: djToggleColor }}
+            onClick={(e) => handleDjClick(e)}
+            aria-expanded={djExpanded}
+          >
+            Design journal
+            {djExpanded && (
+              <span className={styles.csColon} aria-hidden="true">:</span>
+            )}
+          </button>
+
+          {/* Inline slide-reveal — visible at ≥820px only */}
+          <div
+            className={`${styles.csItemsOuter} ${djExpanded ? styles.csItemsOuterExpanded : ''}`}
+          >
+            <div
+              className={`${styles.csItemsInner} ${djExpanded ? styles.csItemsInnerExpanded : ''}`}
+            >
+              <Link href="/design-journal/agentic-workflow" className={styles.link} style={{ color: dj01Color }}>
+                01: Bootstrapping an agentic workflow
+              </Link>
+              <span className={styles.pipe} aria-hidden="true">|</span>
+              <span className={styles.navPlaceholder}>More coming soon</span>
+            </div>
+          </div>
+
+          {/* Hover dropdown — visible at <820px only */}
+          <div className={styles.csDropdown}>
+            <Link
+              href="/design-journal/agentic-workflow"
+              className={styles.csDropdownLink}
+              style={{ color: dj01Color }}
+            >
+              01: Bootstrapping an agentic workflow
+            </Link>
+            <span className={`${styles.csDropdownLink} ${styles.navPlaceholder}`}>
+              More coming soon
+            </span>
+          </div>
+        </div>
         <Link href="/highlights" className={styles.link} style={{ color: highlightsColor }}>
           Highlights
         </Link>
