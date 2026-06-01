@@ -4,15 +4,23 @@
    (v2 page, CS01 frame 125:2)
    ============================================================ */
 
-/* ── Nav divider / section dividers ── */
-.navDivider {
-  height: 1px;
-  background-color: var(--color-line);
-}
-
+/* ── Nav divider / section dividers ──
+   Full-bleed: spans viewport width and crosses the terracotta spine for a
+   clean `+` intersection. z-index 8 sits below the sidebar (9) and the
+   spine (10), so sidebar text overlays the line and the spine stays
+   unbroken. Sidebar has no background fill, so the line shows through
+   empty sidebar space. */
+.navDivider,
 .divider {
   height: 1px;
   background-color: var(--color-line);
+  position: relative;
+  width: 100vw;
+  /* Negate .content's dynamic padding-left so the line starts at viewport x=0,
+     regardless of viewport width. .content has padding-left:
+     max(0px, calc(1424px - 100vw)). */
+  margin-left: calc(-1 * max(0px, 1424px - 100vw));
+  z-index: 8;
 }
 
 /* ── Section label (shared across all sections) ── */

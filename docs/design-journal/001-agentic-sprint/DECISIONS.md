@@ -106,6 +106,17 @@ This page has its own footer (identical in structure to the home page footer). I
 
 The footer CSS lives in `page.module.css` and mirrors the home page pattern (see comment `/* Same as home page footer */`).
 
+## Left Rail — Parked (entire journal-specific chrome)
+
+The journal originally had a dedicated left rail with three pieces: an entry-index sidebar (entries grouped by year), a fixed terracotta vertical spine at `left: 48px`, and a content column with `padding-left` compensation to make room for the sidebar. The goal is for the journal entry page to look like the case-studies pages, which have no per-section layout chrome — just the root nav and the content column.
+
+All three pieces are now **parked** — kept in the codebase, not rendered. The journal layout is a passthrough.
+
+- **Layout state**: [`app/design-journal/layout.tsx`](../../../app/design-journal/layout.tsx) is now `({ children }) => <>{children}</>`. No `.shell` wrapper, no terracotta spine, no `<main>` wrapper, no fade animation. Children render directly under the root layout — same shape as case-studies pages.
+- **Entry-index component**: [`app/design-journal/JournalEntryIndex.tsx`](../../../app/design-journal/JournalEntryIndex.tsx). Self-contained client component (`'use client'`) that owns its own data (`ENTRIES`), `groupByYear` helper, and `usePathname` call. Not imported anywhere.
+- **CSS preserved**: [`layout.module.css`](../../../app/design-journal/layout.module.css) is kept intact (including `.shell`, `.shell::before` spine, `.sidebar`, `.content`, `.contentInner`, `.entryItem`, etc.). Do not delete — `JournalEntryIndex` depends on the sidebar classes, and the spine + content padding classes are needed if the chrome is revived.
+- **Revival**: To restore the original chrome and rail, replace the layout body with the previous structure: wrap children in `<div className={styles.shell}>` with `<JournalEntryIndex />` (after importing it) and `<main className={styles.content}>` containing `<div className={styles.contentInner} key={pathname}>{children}</div>`. That single edit brings back the spine, content padding, fade animation, and entry index.
+
 ## Voice & Tone
 The system now prioritizes a first-person, candid, and personable voice.
 - **Goal**: To document the experiment as a senior designer talking to peers, prioritizing technical rationale and "gritty" implementation details over corporate reporting.

@@ -38,7 +38,9 @@
   flex-direction: column;
   gap: 24px;
   z-index: 9;
-  background-color: var(--color-white);
+  /* No background: full-bleed section dividers (z-index 8) need to show
+     through the sidebar's empty space. Sidebar text and the terracotta
+     spine still paint over the divider via stacking order. */
 }
 
 .sidebarHeading {

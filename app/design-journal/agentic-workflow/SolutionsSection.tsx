@@ -60,11 +60,17 @@ export function SolutionsSection() {
                   Once I had the pipeline and the state files in place, the last piece was
                   tightening how I actually wrote prompts. Less describing what I wanted,
                   more specifying the full picture: the context, the constraints, what done
-                  looked like, and what to avoid.
+                  looked like, and what to avoid. I&rsquo;d sometimes even ask AI to pressure
+                  test my prompts before executing, to anticipate edge cases and areas of
+                  confusion. The shift was from a conversational style to a more declarative
+                  one: less back-and-forth, more upfront articulation.
                 </p>
                 <p style={{ marginTop: '16px' }}>
-                  Anticipating problems before they happened instead of reacting to bad
-                  output after the fact.
+                  In my opinion, content designers have an edge over other disciplines when
+                  it comes to prompt engineering. We spend our careers being deliberate about
+                  language: choosing words precisely, building taxonomies that hold up under
+                  pressure, writing instructions clear enough that someone unfamiliar can
+                  act on them without guessing.
                 </p>
               </div>
             </div>
