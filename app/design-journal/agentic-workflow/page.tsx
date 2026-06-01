@@ -50,12 +50,12 @@ export default function AgenticWorkflow() {
           <div className={styles.challengeBody}>
             <p>
               My portfolio has seen a few iterations over the years. The first version was
-              literally a slide deck — looking back, I&rsquo;m still a little shocked by how
+              literally a slide deck; looking back, I&rsquo;m still a little shocked by how
               much mileage that got me. I eventually upgraded to an actual website using
               a site builder, which was a step up from Google Slides. But that came with its
               own frustrations: limited control over design and layout, clunky tools, weird
               baked-in padding constraints I could never fully design around. I wanted the
-              autonomy of a custom build—no more arbitrary limitations, just the freedom to
+              autonomy of a custom build. No more arbitrary limitations, just the freedom to
               execute my design vision exactly as intended.
             </p>
             <p style={{ marginTop: '24px' }}>
@@ -71,7 +71,7 @@ export default function AgenticWorkflow() {
             <p style={{ marginTop: '24px' }}>
               The bigger problem surfaced quickly. I was burning through Claude&rsquo;s
               usage limits on messy, incomplete prompts. As anyone who knows me can
-              tell you, I love to talk — and at first I approached this the same way,
+              tell you, I love to talk, and at first I approached this the same way,
               like a conversation: iterative, exploratory, thinking out loud. I quickly
               learned that doesn&rsquo;t scale here. Every vague or under-specified request
               cost me in tokens, in bad output, and in time cleaning up the mess. I may
