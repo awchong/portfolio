@@ -250,7 +250,7 @@ export default function Highlights() {
 
       {/* ── Footer ── */}
       <footer>
-        <div className={`container ${styles.footer}`}>
+        <div className={styles.footer}>
           <span>© 2026 Allen Chong</span>
           <div className={styles.footerLinks}>
             <a href="https://linkedin.com/in/allenchong" target="_blank" rel="noopener noreferrer">LinkedIn</a>

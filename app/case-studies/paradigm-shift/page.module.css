@@ -528,6 +528,8 @@
    ============================================================ */
 
 .footer {
+  padding-left: var(--nav-padding-x);
+  padding-right: var(--nav-padding-x);
   height: 64px;
   display: flex;
   align-items: center;
