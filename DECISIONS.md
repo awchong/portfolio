@@ -270,6 +270,27 @@ Ordering is alphabetical by first word. Figma is authoritative. Hero breadcrumb 
 
 ---
 
+## Source Tree Conventions — `_parked/` directories (established 2026-06-01)
+
+When a component or set of files is taken out of active use but should be retained in the codebase for a possible future revival, park it under a sibling `_parked/` directory rather than deleting it or leaving it loose in the active source tree.
+
+### Why this convention exists
+- **Next.js App Router treats `_`-prefixed folders as private** — they're never considered for routing, so it's safe to put route-shaped files (page-like components, layouts) inside without accidentally exposing a URL.
+- **The naming is the signal.** A future contributor seeing `_parked/SomeComponent.tsx` immediately understands the file is intentionally non-active code — not dead, not forgotten, not a candidate for deletion-on-cleanup.
+- **Tree-shaken out of the production bundle automatically.** Because nothing in the active app imports from `_parked/`, Next/Turbopack drops the contents at build. Zero shipping cost for retention.
+- **Keeps adjacency to the eventual home.** Parking next to where the code will go back in is more useful than archiving in a remote `archive/` directory — revival is a single import change.
+
+### Conventions
+- Path: `<active-feature-dir>/_parked/<ComponentName>.tsx` (and any sibling CSS, e.g. `<feature>-layout.module.css`).
+- CSS modules that are only used by parked components move into `_parked/` alongside them. Rename them if the original name (`layout.module.css`) would be misleading once the file no longer drives layout (e.g. `journal-layout.module.css`).
+- Each parked file should carry a short top-of-file comment explaining: (1) what it originally was, (2) why it's parked, (3) where revival instructions live in the project docs.
+- Document each parking decision in the relevant project-level `DECISIONS.md` (e.g. for the design journal, in `docs/design-journal/<entry>/DECISIONS.md`) under a clearly named "Parked" section, with the full revival recipe.
+
+### Reference implementation
+- `app/design-journal/_parked/JournalEntryIndex.tsx` (and its `journal-layout.module.css`) — see `docs/design-journal/001-agentic-sprint/DECISIONS.md` section "Left Rail — Parked" for the revival recipe.
+
+---
+
 ## Nav Interaction — Inline Slide-Reveal (2026-04-01)
 
 ### Behavior

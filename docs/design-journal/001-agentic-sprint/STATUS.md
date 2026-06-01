@@ -13,13 +13,11 @@
 - [x] **Session Screenshot Removed**: `sessionImg` and `.sessionImg` CSS deleted entirely. The Takeaways right column is text and metadata only.
 - [x] **Footer Added**: © 2026 Allen Chong with LinkedIn, Substack, and Contact links. Wired to `openContactForm`.
 - [x] **Takeaways Section Restructured**: Narrative split across two columns. Left: label + first 3 paragraphs + "A few things" list. Right: "The next things" list + closing paragraph + Tools & Logic label + methods grid. Right column body text aligned with left via `padding-top: calc(var(--text-label) + 24px)`. No separate Tools & Logic row; no image in the section.
-- [x] **Left Rail Parked (entire journal chrome)**: The journal entry page should look like the case-studies pages — no per-section left-side chrome. All three pieces of the original journal-specific layout are now parked:
-  - The entry-index sidebar was extracted to [JournalEntryIndex.tsx](../../../app/design-journal/JournalEntryIndex.tsx) and is not imported anywhere.
-  - The terracotta vertical spine (`.shell::before` at `left: 48px`) is gone — `.shell` is no longer rendered.
-  - The `.content` column's `padding-left` compensation is gone — `.content` is no longer rendered.
-  - The fade-on-route-change wrapper (`.contentInner` keyed by pathname) is gone.
+- [x] **Left Rail Parked (entire journal chrome)**: The journal entry page should look like the case-studies pages — no per-section left-side chrome. All three pieces of the original journal-specific layout are now parked under `app/design-journal/_parked/`:
+  - Entry-index sidebar: [JournalEntryIndex.tsx](../../../app/design-journal/_parked/JournalEntryIndex.tsx). Not imported anywhere.
+  - Layout CSS (shell, spine, sidebar, content, fade): [journal-layout.module.css](../../../app/design-journal/_parked/journal-layout.module.css). Renamed from `layout.module.css` because it no longer drives the active layout.
   - [`app/design-journal/layout.tsx`](../../../app/design-journal/layout.tsx) is now a passthrough: `({ children }) => <>{children}</>`. Children render directly under the root layout, same as case-studies pages.
-  - All related CSS in `layout.module.css` is preserved untouched so the chrome can be revived in one edit.
+  - The `_parked/` directory follows the project-wide convention documented in the root [DECISIONS.md](../../../DECISIONS.md) ("Source Tree Conventions — `_parked/` directories"). Next.js treats `_`-prefixed folders as private (non-routed), and the unused code is tree-shaken from the production bundle.
 
 ## CURRENT STATE OF THE LEFT RAIL
 There is no left rail. The journal entry page now renders with the same left-side structure as the case-studies pages — just the root nav at the top and the centered content column. No sidebar, no terracotta spine, no padding compensation.

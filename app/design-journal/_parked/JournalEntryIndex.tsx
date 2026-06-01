@@ -3,18 +3,18 @@
 /*
   Parked component — not currently rendered.
   Originally lived inline in `app/design-journal/layout.tsx` as the left-rail
-  entry index. Extracted into its own file so the layout can render without it
-  while preserving the implementation for a future revival.
+  entry index. Now lives under `_parked/` so Next.js's private-folder
+  convention signals that this directory is intentionally non-active code.
 
-  To re-enable: import and render <JournalEntryIndex /> inside the .shell
-  wrapper in layout.tsx. CSS classes it depends on still live in
-  layout.module.css (.sidebar, .sidebarHeading, .yearGroup, .yearLabel,
-  .entryItem, .entryItemActive, .entryTitle, .entryTagline).
+  To revive: in `app/design-journal/layout.tsx`, import this component and
+  wrap children in the original .shell / <main className={styles.content}>
+  structure. See docs/design-journal/001-agentic-sprint/DECISIONS.md
+  (section: "Left Rail — Parked") for the full revival recipe.
 */
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import styles from './layout.module.css';
+import styles from './journal-layout.module.css';
 
 interface JournalEntry {
   slug: string;
