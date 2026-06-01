@@ -112,7 +112,7 @@ export default function AgenticWorkflow() {
                     <p style={{ marginTop: '24px' }}>
                       Getting to that pipeline wasn&rsquo;t clean though. Early on I was using
                       Claude and Gemini interchangeably, which created a Frankenstein situation
-                      fast — inconsistent code, layout decisions that contradicted each other,
+                      fast: inconsistent code, layout decisions that contradicted each other,
                       no clear source of truth. I had to stop, assess what each model was
                       actually good at, and redesign the process from scratch. That&rsquo;s when
                       the routing clicked into place: Claude for strategy and decisions,
